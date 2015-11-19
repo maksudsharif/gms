@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.arkcase</groupId>
+    <artifactId>gms</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>gms-services</module>
+        <module>gms-user-interface</module>
+    </modules>
+
+    <name>GMS Implementation</name>
+    <description>Implement the GMS process as an ArkCase extension module</description>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <java.version>1.8</java.version>
+        <acm.version>3.0.42-SNAPSHOT</acm.version>
+        <spring.version>4.1.6.RELEASE</spring.version>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <compilerVersion>${java.version}</compilerVersion>
+                    <compilerArgument>-Xlint:all</compilerArgument>
+                    <showWarnings>true</showWarnings>
+                    <showDeprecation>true</showDeprecation>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencyManagement>
+        <dependencies>
+
+            <!-- core arkcase -->
+            <dependency>
+                <groupId>com.armedia.acm.acm-plugins.acm-default-plugins</groupId>
+                <artifactId>acm-case-file-plugin</artifactId>
+                <version>${acm.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.armedia.acm.acm-services</groupId>
+                <artifactId>acm-service-frevvo-forms</artifactId>
+                <version>${acm.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+</project>
