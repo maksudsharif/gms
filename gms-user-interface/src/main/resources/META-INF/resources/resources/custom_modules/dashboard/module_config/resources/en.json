@@ -1,0 +1,33 @@
+{
+  "dashboard": {
+    "title": "Dashboard",
+
+    "widgets": {
+      "awardedGrants": {
+        "title": "Awarded Grants",
+        "description": "Displays Awarded Grants",
+        "noDataMessage": "Currently there are no awarded grants",
+        "table": {
+          "header": {
+            "id": "ID",
+            "grantName": "Grant Name",
+            "amountTotal": "Amount Tot.",
+            "amountRemaining": "Amount Rem."
+          }
+        }
+      },
+      "unawardedGrants": {
+        "title": "Un-Awarded Grants",
+        "description": "Displays Un-Awarded Grants",
+        "noDataMessage": "Currently there are no un-awarded grants",
+        "table": {
+          "header": {
+            "id": "ID",
+            "grantName": "Grant Name",
+            "numberOfSubmissions": "# of Submissions"
+          }
+        }
+      }
+    }
+  }
+}

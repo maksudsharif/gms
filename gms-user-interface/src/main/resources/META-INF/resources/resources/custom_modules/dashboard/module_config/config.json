@@ -1,0 +1,84 @@
+{
+  "id": "dashboard",
+  "title": "Dashboard",
+  "menus": [
+    {
+      "menuId": "leftnav",
+      "menuItemURL": "dashboard",
+      "menuItemTitle": "Dashboard",
+      "iconClass": "fa fa-dashboard",
+      "position": 0
+    }
+  ],
+
+  "components": [
+    {
+      "id": "unawardedGrants",
+      "title": "Un-Awarded Grants",
+      "enableFiltering": false,
+      "paginationPageSizes": [25, 50, 75],
+      "paginationPageSize": 25,
+      "columnDefs": [
+        {
+          "name": "object_id_s",
+          "displayName": "dashboard.widgets.myCases.table.header.id",
+          "headerCellFilter": "translate",
+          "enableSorting": true,
+          "cellTemplate": "<div class='ui-grid-cell-contents'><a ui-sref='order-info({orderId: row.entity.object_id_s})'>{{COL_FIELD CUSTOM_FILTERS}}</a></div>",
+          "width": 130
+        },
+        {
+          "name": "name",
+          "displayName": "dashboard.widgets.myCases.table.header.grantName",
+          "headerCellFilter": "translate",
+          "enableSorting": true
+        },
+        {
+          "name": "amount_total_s",
+          "displayName": "dashboard.widgets.myCases.table.header.amountTotal",
+          "headerCellFilter": "translate",
+          "enableSorting": true,
+          "width": 150
+        },
+        {
+          "name": "amount_remaining_s",
+          "displayName": "dashboard.widgets.myCases.table.header.amountRemaining",
+          "headerCellFilter": "translate",
+          "enableSorting": true,
+          "width": 70
+        }
+      ]
+    },
+    {
+      "id": "awardedGrants",
+      "title": "Awarded Grants",
+      "enableFiltering": false,
+      "paginationPageSizes": [25, 50, 75],
+      "paginationPageSize": 25,
+      "columnDefs": [
+        {
+          "name": "object_id_s",
+          "displayName": "dashboard.widgets.myCases.table.header.id",
+          "headerCellFilter": "translate",
+          "enableSorting": true,
+          "cellTemplate": "<div class='ui-grid-cell-contents'><a ui-sref='order-info({orderId: row.entity.object_id_s})'>{{COL_FIELD CUSTOM_FILTERS}}</a></div>",
+          "width": 130
+        },
+        {
+          "name": "name",
+          "displayName": "dashboard.widgets.myCases.table.header.grantName",
+          "headerCellFilter": "translate",
+          "enableSorting": true,
+          "width": 150
+        },
+        {
+          "name": "number_of_submissions_s",
+          "displayName": "dashboard.widgets.myCases.table.header.numberOfSubmissions",
+          "headerCellFilter": "translate",
+          "enableSorting": true,
+          "width": 150
+        }
+      ]
+    }
+  ]
+}
