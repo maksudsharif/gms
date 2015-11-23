@@ -1,11 +1,11 @@
 {
-  "id": "cost-tracking",
-  "title": "Cost tracking",
+  "id": "budget",
+  "title": "Budget",
   "menus": [
     {
       "menuId": "leftnav",
-      "menuItemURL": "cost-tracking",
-      "menuItemTitle": "Cost tracking",
+      "menuItemURL": "budget",
+      "menuItemTitle": "Budget",
       "iconClass": "fa fa-money",
       "position": 120
     }
@@ -23,15 +23,15 @@
         "name": "create_tdt DESC"
       },
       {
-        "desc": "Sort Costsheet ID Ascending",
+        "desc": "Sort Budget ID Ascending",
         "name": "id ASC"
       },
       {
-        "desc": "Sort Costsheet ID Decending",
+        "desc": "Sort Budget ID Decending",
         "name": "id DESC"
       },
       {
-        "desc": "Sort By Costsheet Name",
+        "desc": "Sort By Budget Name",
         "name": "name DESC"
       }
     ],
