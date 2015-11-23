@@ -1,0 +1,176 @@
+{
+    "id": "Payment",
+    "title": "Payment",
+    "menus": [
+        
+        {
+            "menuId": "leftnav",
+            "menuItemURL": "payment",
+            "menuItemTitle": "Payment",
+            "iconClass": "fa fa-clock-o",
+            "position": 130
+        }
+        
+    ],
+    "frevvoDateFormat": "YYYY-MM-DD",
+    "tree": {
+        "pageSize": 32,
+        "sorters": [
+            {
+                "desc": "Sort Date Ascending",
+                "name": "create_tdt ASC",
+                "default": true
+            },
+            {
+                "desc": "Sort Date Descending",
+                "name": "create_tdt DESC"
+            },
+            {
+                "desc": "Sort Payment ID Ascending",
+                "name": "id ASC"
+            },
+            {
+                "desc": "Sort Payment ID Descending",
+                "name": "id DESC"
+            },
+            {
+                "desc": "Sort By Payment Name",
+                "name": "name DESC"
+            }
+        ],
+        "nodeTypes": [
+            {
+                "type": "prev",
+                "icon": "fa fa-arrow-up"
+            },
+            {
+                "type": "next",
+                "icon": "fa fa-arrow-down"
+            },
+            {
+                "type": "p/TIMESHEET",
+                "icon": "fa fa-clock-o",
+                "components": [
+                    "details",
+                    "person",
+                    "timesSummary"
+                ]
+            },
+            {
+                "type": "p/TIMESHEET/detail",
+                "label": "Details",
+                "components": [
+                    "details"
+                ]
+            },
+            {
+                "type": "p/TIMESHEET/person",
+                "label": "Person",
+                "components": [
+                    "person"
+                ]
+            },
+            {
+                "type": "p/TIMESHEET/timeSummary",
+                "label": "Hours Summary",
+                "components": [
+                    "timesSummary"
+                ]
+            }
+        ]
+    },
+    "components": [
+        {
+            "id": "info",
+            "title": "Info",
+            "enabled": false,
+            "type": "empty",
+            "editable": false
+        },
+        {
+            "id": "actions",
+            "title": "Actions",
+            "enabled": false,
+            "type": "empty",
+            "editable": false
+        },
+        {
+            "id": "details",
+            "title": "Details",
+            "enabled": true,
+            "type": "empty"
+        },
+        {
+            "id": "person",
+            "title": "Person",
+            "enabled": true,
+            "type": "grid",
+            "enableFiltering": true,
+            "paginationPageSizes": [
+                2,
+                5,
+                10,
+                20,
+                50
+            ],
+            "paginationPageSize": 5,
+            "columnDefs": [
+                {
+                    "name": "fullName",
+                    "displayName": "payment.comp.people.table.columns.fullName",
+                    "headerCellFilter": "translate"
+                },
+                {
+                    "name": "userId",
+                    "displayName": "payment.comp.people.table.columns.userId",
+                    "headerCellFilter": "translate"
+                }
+            ]
+        },
+        {
+            "id": "payment-summary",
+            "title": "Payment Summary",
+            "enabled": true,
+            "type": "grid",
+            "enableFiltering": true,
+            "paginationPageSizes": [
+                2,
+                5,
+                10,
+                20,
+                50
+            ],
+            "paginationPageSize": 5,
+            "columnDefs": [
+                {
+                    "name": "code",
+                    "displayName": "payment.comp.timesSummary.table.columns.code",
+                    "headerCellFilter": "translate",
+                    "cellTemplate": "<a href='#' ng-click='grid.appScope.onClickObjectType($event, row.entity)'>{{row.entity.code}}</a>"
+                },
+                {
+                    "name": "type",
+                    "displayName": "payment.comp.timesSummary.table.columns.type",
+                    "headerCellFilter": "translate"
+                },
+                {
+                    "name": "value",
+                    "displayName": "payment.comp.timesSummary.table.columns.value",
+                    "headerCellFilter": "translate"
+                },
+                {
+                    "name": "date",
+                    "displayName": "payment.comp.timesSummary.table.columns.date",
+                    "headerCellFilter": "translate",
+                    "cellTemplate": "<div>{{ row.entity.date | date : 'MM/dd/yyyy'}}</div>"
+                },
+                {
+                    "name": "modified",
+                    "displayName": "payment.comp.timesSummary.table.columns.modified",
+                    "headerCellFilter": "translate",
+                    "cellTemplate": "<div>{{ row.entity.modified | date : 'MM/dd/yyyy'}}</div>"
+                }
+            ]
+        }
+   ]
+}
