@@ -1,0 +1,77 @@
+{
+    "id": "search",
+    "title": "Search",
+    "menus": [
+        
+        {
+            "menuId": "leftnav",
+            "menuItemURL": "search",
+            "menuItemTitle": "Search",
+            "iconClass": "fa fa-search",
+            "position": 70
+        }
+        
+    ],
+    "components": [
+        {
+            "id": "facetedSearch",
+            "title": "Faceted Search",
+            "enabled": "true",
+            "type": "grid",
+            "enableFiltering": false,
+            "columnDefs": [
+                {
+                    "name": "grant_id_s",
+                    "displayName": "search.comp.grid.columns.grant_id",
+                    "headerCellFilter": "translate"
+                },
+                {
+                    "name": "name",
+                    "displayName": "search.comp.grid.columns.name",
+                    "headerCellFilter": "translate",
+                    "cellTemplate": "<a href='#' ng-click='grid.appScope.onClickObjLink($event, row.entity)' data-toggle='tooltip' data-placement='bottom' title={{row.entity.name}}>{{row.entity.name}}</a>"
+                },
+                {
+                    "name": "grant_amount_d",
+                    "displayName": "search.comp.grid.columns.grant_amount",
+                    "headerCellFilter": "translate"
+                },
+                {
+                    "name": "pre_award_id_s",
+                    "displayName": "search.comp.grid.columns.id",
+                    "headerCellFilter": "translate"
+                },
+                {
+                    "name": "award_id_s",
+                    "displayName": "search.comp.grid.columns.id",
+                    "headerCellFilter": "translate"
+                },
+                {
+                    "name": "grantee_full_name_lcs",
+                    "displayName": "search.comp.grid.columns.grantee",
+                    "headerCellFilter": "translate"
+                },
+                {
+                    "name": "create_date_tdt",
+                    "displayName": "search.comp.grid.columns.created",
+                    "headerCellFilter": "translate"
+                },
+                {
+                    "name": "award_amount_d",
+                    "displayName": "search.comp.grid.columns.award_amount",
+                    "headerCellFilter": "translate"
+                }
+            ],
+            "paginationPageSizes": [
+                5,
+                10,
+                20,
+                50
+            ],
+            "paginationPageSize": 10,
+            "start": 0,
+            "filter": "",
+            "filterName": ""
+        }
+    ]
+}
