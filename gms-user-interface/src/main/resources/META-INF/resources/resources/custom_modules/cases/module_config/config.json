@@ -1,18 +1,18 @@
 {
-  "id": "cases",
-  "title": "Cases",
+  "id": "grants",
+  "title": "Unawarded Grants",
   "menus": [
     {
       "menuId": "leftnav",
-      "menuItemURL": "cases",
-      "menuItemTitle": "Case Files",
+      "menuItemURL": "grants",
+      "menuItemTitle": "Unawarded Grants",
       "iconClass": "fa fa-folder",
       "position": 50
     },
     {
       "menuId": "topbar",
-      "menuItemURL": "newcase",
-      "menuItemTitle": "New Case",
+      "menuItemURL": "newgrant",
+      "menuItemTitle": "New Grant",
       "iconClass": "fa fa-folder",
       "position": 10
     }
@@ -21,29 +21,29 @@
     "pageSize": 32,
     "filters": [
       {
-        "desc": "All Open Cases",
-        "name": "all-open-cases",
+        "desc": "All Open Grants",
+        "name": "all-open-grants",
         "value": "fq=-status_s:COMPLETE AND -status_s:DELETE AND -status_s:CLOSED",
         "default": true
       },
       {
         "desc": "All I've Created",
-        "name": "my-created-cases",
+        "name": "my-created-grants",
         "value": "fq=author_s:${user}"
       },
       {
         "desc": "All I'm Assigned",
-        "name": "my-assigned-cases",
+        "name": "my-assigned-grants",
         "value": "fq=assignee_s:${user}"
       },
       {
         "desc": "All I'm Following",
-        "name": "my-following-cases",
+        "name": "my-following-grants",
         "value": "fq={!join from=parent_object_id_s to=object_id_s}(owner_s:${user} AND object_type_s:SUBSCRIPTION)"
       },
       {
         "desc": "All Closed",
-        "name": "all-closed-cases",
+        "name": "all-closed-grants",
         "value": "fq=status_s:CLOSED"
       },
       {

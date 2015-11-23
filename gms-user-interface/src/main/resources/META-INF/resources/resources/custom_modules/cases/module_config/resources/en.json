@@ -1,22 +1,22 @@
 {
   "cases": {
-    "title": "Cases",
-    "progressNoCase": "[ No case file data ]",
-    "progressLoading": "Loading case file ",
-    "progressError": "Failed to load case file"
+    "title": "Grants",
+    "progressNoCase": "[ No grant data ]",
+    "progressLoading": "Loading grant",
+    "progressError": "Failed to load grant"
   },
   "cases.tree": {
   },
   "cases.comp.info": {
-    "caseId": "Case id:",
-    "caseNumber": "Case Number:",
+    "caseId": "Grant id:",
+    "caseNumber": "Grant Number:",
     "courtRoomName": "Court Room Name:"
   },
   "cases.comp.actions": {
     "restrict": "Restrict?",
     "new.button": "New",
     "edit.button": "Edit",
-    "status.button": "Change Case Status",
+    "status.button": "Change Grant Status",
     "reinvestigate.button": "Reinvestigate",
     "subscribe.button": "Subscribe",
     "unsubscribe.button": "Unsubscribe",
@@ -25,7 +25,7 @@
   },
   "cases.comp.details": {
     "title": "Details",
-    "informSaved": "Case details saved"
+    "informSaved": "Grant details saved"
   },
   "cases.comp.documents": {
     "title": "Documents"
