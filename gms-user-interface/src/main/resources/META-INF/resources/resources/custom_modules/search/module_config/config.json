@@ -22,7 +22,7 @@
             "columnDefs": [
                 {
                     "name": "grant_id_s",
-                    "displayName": "search.comp.grid.columns.grant_id",
+                    "displayName": "search.comp.grid.columns.grantId",
                     "headerCellFilter": "translate"
                 },
                 {
@@ -33,7 +33,7 @@
                 },
                 {
                     "name": "grant_amount_d",
-                    "displayName": "search.comp.grid.columns.grant_amount",
+                    "displayName": "search.comp.grid.columns.grantAmount",
                     "headerCellFilter": "translate"
                 },
                 {
@@ -58,7 +58,7 @@
                 },
                 {
                     "name": "award_amount_d",
-                    "displayName": "search.comp.grid.columns.award_amount",
+                    "displayName": "search.comp.grid.columns.awardAmount",
                     "headerCellFilter": "translate"
                 }
             ],

@@ -6,9 +6,9 @@
     "comp":{
       "grid": {
         "columns": {
-          "grant_id": "Grant ID",
+          "grantId": "Grant ID",
           "name": "Grant Name",
-          "grant_amount": "Grant Amount",
+          "grantAmount": "Grant Amount",
           "grantee": "Grantee Name",
           "created": "Date Created"
         }
