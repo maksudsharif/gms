@@ -147,7 +147,7 @@
     "table.columns": {
       "name": "Form Name",
       "user": "User",
-      "tally": "Total Hours",
+      "tally": "Total Payment",
       "modified": "Modified Date",
       "status": "Status"
     },
@@ -158,7 +158,7 @@
     "table.columns": {
       "name": "Form Name",
       "user": "User",
-      "tally": "Total Cost",
+      "tally": "Total Budget",
       "modified": "Modified Date",
       "status": "Status"
     },
