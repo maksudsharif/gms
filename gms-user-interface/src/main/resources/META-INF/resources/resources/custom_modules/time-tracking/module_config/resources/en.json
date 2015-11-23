@@ -1,28 +1,28 @@
 {
-  "timeTracking": {
+  "payment": {
     "title": "Payment",
     "progressNoTimesheet": "[ No payment is selected ]",
     "progressLoading": "Loading payment ",
     "progressError": "Failed to load payment"
   },
-  "timeTracking.tree": {
+  "payment.tree": {
   },
-  "timeTracking.comp.actions": {
+  "payment.comp.actions": {
     "new.button": "New Payment",
     "edit.button": "Edit Payment"
   },
-  "timeTracking.comp.details": {
+  "payment.comp.details": {
     "title": "Details",
     "informSaved": "Payment details saved"
   },
-  "timeTracking.comp.people": {
+  "payment.comp.people": {
     "title": "Person",
     "table.columns": {
       "fullName": "Full Name",
       "userId": "Username"
     }
   },
-  "timeTracking.comp.timesSummary": {
+  "payment.comp.timesSummary": {
     "title": "Payment Summary",
     "table.columns": {
       "code": "Parent ID",

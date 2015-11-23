@@ -1,28 +1,28 @@
 {
-  "costTracking": {
+  "budget": {
     "title": "Budget",
     "progressNoCostsheet": "[ No budget is selected ]",
     "progressLoading": "Loading budget ",
     "progressError": "Failed to load budget"
   },
-  "costTracking.tree": {
+  "budget.tree": {
   },
-  "costTracking.comp.actions": {
+  "budget.comp.actions": {
     "new.button": "New Budget",
     "edit.button": "Edit Budget"
   },
-  "costTracking.comp.details": {
+  "budget.comp.details": {
     "title": "Details",
     "informSaved": "Budget details saved"
   },
-  "costTracking.comp.people": {
+  "budget.comp.people": {
     "title": "Person",
     "table.columns": {
       "fullName": "Full Name",
       "userId": "Username"
     }
   },
-  "costTracking.comp.timesSummary": {
+  "budget.comp.timesSummary": {
     "title": "Budget Summary",
     "table.columns": {
       "parentId": "ID",

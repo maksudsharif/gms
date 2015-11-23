@@ -106,12 +106,12 @@
       "columnDefs": [
         {
           "name": "fullName",
-          "displayName": "costTracking.comp.people.table.columns.fullName",
+          "displayName": "budget.comp.people.table.columns.fullName",
           "headerCellFilter": "translate"
         },
         {
           "name": "userId",
-          "displayName": "costTracking.comp.people.table.columns.userId",
+          "displayName": "budget.comp.people.table.columns.userId",
           "headerCellFilter": "translate"
         }
       ]
@@ -132,34 +132,34 @@
       "columnDefs": [
         {
           "name": "parentId",
-          "displayName": "costTracking.comp.timesSummary.table.columns.parentId",
+          "displayName": "budget.comp.timesSummary.table.columns.parentId",
           "headerCellFilter": "translate",
           "visible": false
         },
         {
           "name": "parentNumber",
-          "displayName": "costTracking.comp.timesSummary.table.columns.parentNumber",
+          "displayName": "budget.comp.timesSummary.table.columns.parentNumber",
           "headerCellFilter": "translate",
           "cellTemplate": "<a href='#' ng-click='grid.appScope.onClickObjectType($event, row.entity)'>{{row.entity.parentNumber}}</a>"
         },
         {
           "name": "parentType",
-          "displayName": "costTracking.comp.timesSummary.table.columns.parentType",
+          "displayName": "budget.comp.timesSummary.table.columns.parentType",
           "headerCellFilter": "translate"
         },
         {
           "name": "value",
-          "displayName": "costTracking.comp.timesSummary.table.columns.value",
+          "displayName": "budget.comp.timesSummary.table.columns.value",
           "headerCellFilter": "translate"
         },
         {
           "name": "title",
-          "displayName": "costTracking.comp.timesSummary.table.columns.title",
+          "displayName": "budget.comp.timesSummary.table.columns.title",
           "headerCellFilter": "translate"
         },
         {
           "name": "description",
-          "displayName": "costTracking.comp.timesSummary.table.columns.description",
+          "displayName": "budget.comp.timesSummary.table.columns.description",
           "headerCellFilter": "translate",
           "cellTemplate": "<div class='ui-grid-cell-contents'>{{ row.entity.description || 'N/A' }}</div>"
         }

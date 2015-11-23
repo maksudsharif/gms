@@ -1,18 +1,18 @@
 {
-  "cases": {
+  "grants": {
     "title": "Grants",
     "progressNoCase": "[ No grant data ]",
     "progressLoading": "Loading grant",
     "progressError": "Failed to load grant"
   },
-  "cases.tree": {
+  "grants.tree": {
   },
-  "cases.comp.info": {
+  "grants.comp.info": {
     "caseId": "Grant id:",
     "caseNumber": "Grant Number:",
     "courtRoomName": "Court Room Name:"
   },
-  "cases.comp.actions": {
+  "grants.comp.actions": {
     "restrict": "Restrict?",
     "new.button": "New",
     "edit.button": "Edit",
@@ -23,14 +23,14 @@
     "merge.button": "Merge",
     "split.button": "Split"
   },
-  "cases.comp.details": {
+  "grants.comp.details": {
     "title": "Details",
     "informSaved": "Grant details saved"
   },
-  "cases.comp.documents": {
+  "grants.comp.documents": {
     "title": "Documents"
   },
-  "cases.comp.people": {
+  "grants.comp.people": {
     "title": "People",
     "table.columns": {
       "entity": "Entity",
@@ -88,14 +88,14 @@
       }
     }
   },
-  "cases.comp.participants": {
+  "grants.comp.participants": {
     "title": "Participants",
     "table.columns": {
       "type": "Type",
       "name": "Name"
     }
   },
-  "cases.comp.notes": {
+  "grants.comp.notes": {
     "title": "Notes",
     "table.columns": {
       "note": "Note",
@@ -103,7 +103,7 @@
       "creator": "Author"
     }
   },
-  "cases.comp.tasks": {
+  "grants.comp.tasks": {
     "title": "Tasks",
     "table.columns": {
       "taskId": "ID",
@@ -116,7 +116,7 @@
       "action": "Action"
     }
   },
-  "cases.comp.references": {
+  "grants.comp.references": {
     "title": "References",
     "table.columns": {
       "targetName": "Number",
@@ -126,7 +126,7 @@
       "status": "Status"
     }
   },
-  "cases.comp.history": {
+  "grants.comp.history": {
     "title": "History",
     "table.columns": {
       "eventType": "Event Name",
@@ -134,7 +134,7 @@
       "userId": "User"
     }
   },
-  "cases.comp.correspondence": {
+  "grants.comp.correspondence": {
     "title": "Correspondence",
     "table.columns": {
       "name": "Title",
@@ -142,7 +142,7 @@
       "creator": "Creator"
     }
   },
-  "cases.comp.time": {
+  "grants.comp.time": {
     "title": "Time",
     "table.columns": {
       "name": "Form Name",
@@ -153,7 +153,7 @@
     },
     "formNamePrefix": "Timesheet"
   },
-  "cases.comp.cost": {
+  "grants.comp.cost": {
     "title": "Cost",
     "table.columns": {
       "name": "Form Name",
@@ -164,7 +164,7 @@
     },
     "formNamePrefix": "Costsheet"
   },
-  "cases.comp.calendar": {
+  "grants.comp.calendar": {
     "title": "Calendar"
   }
 }
