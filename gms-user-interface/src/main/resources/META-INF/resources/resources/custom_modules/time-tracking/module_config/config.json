@@ -22,7 +22,7 @@
                 "default": true
             },
             {
-                "desc": "Sort Date Decending",
+                "desc": "Sort Date Descending",
                 "name": "create_tdt DESC"
             },
             {
@@ -30,7 +30,7 @@
                 "name": "id ASC"
             },
             {
-                "desc": "Sort Payment ID Decending",
+                "desc": "Sort Payment ID Descending",
                 "name": "id DESC"
             },
             {
