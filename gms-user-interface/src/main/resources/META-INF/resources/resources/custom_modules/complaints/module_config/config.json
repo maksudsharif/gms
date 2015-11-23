@@ -1,18 +1,18 @@
 {
-  "id": "complaints",
-  "title": "Complaints",
+  "id": "submissions",
+  "title": "Submissions",
   "menus": [
     {
       "menuId": "leftnav",
-      "menuItemURL": "complaints",
-      "menuItemTitle": "Complaints",
+      "menuItemURL": "submissions",
+      "menuItemTitle": "Submissions",
       "iconClass": "fa fa-exclamation-triangle",
       "position": 40
     },
     {
       "menuId": "topbar",
-      "menuItemURL": "complaints",
-      "menuItemTitle": "New Complaint",
+      "menuItemURL": "submissions",
+      "menuItemTitle": "New Submission",
       "iconClass": "fa fa-exclamation-triangle",
       "position": 20
     }
@@ -21,24 +21,24 @@
     "pageSize": 32,
     "filters": [
       {
-        "desc": "All Open Complaints",
-        "name": "all-open-complaints",
+        "desc": "All Open Submissions",
+        "name": "all-open-submissions",
         "value": "fq=-status_s:COMPLETE AND -status_s:DELETE AND -status_s:CLOSED",
         "default": true
       },
       {
         "desc": "All I've Created",
-        "name": "my-complaints-created",
+        "name": "my-submissions-created",
         "value": "fq=author_s:${user}"
       },
       {
         "desc": "All I'm Assigned",
-        "name": "my-complaints-assigned",
+        "name": "my-submissions-assigned",
         "value": "fq=assignee_s:${user}"
       },
       {
         "desc": "All I'm Following",
-        "name": "my-complaints-following",
+        "name": "my-submissions-following",
         "value": "fq={!join from=parent_object_id_s to=object_id_s}(owner_s:${user} AND object_type_s:SUBSCRIPTION)"
       },
       {

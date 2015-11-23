@@ -1,20 +1,20 @@
 {
   "complaints": {
-    "title": "Complaints",
-    "progressNoComplaint": "[ No complaint data ]",
-    "progressLoading": "Loading complaint ",
-    "progressError": "Failed to load complaint "
+    "title": "Submissions",
+    "progressNoComplaint": "[ No submission data ]",
+    "progressLoading": "Loading submission ",
+    "progressError": "Failed to load submission "
   },
   "complaints.comp.info": {
-    "complaintId": "Complaint id:",
-    "complaintNumber": "Complaint Number:",
+    "complaintId": "Submission id:",
+    "complaintNumber": "Submission Number:",
     "courtRoomName": "Court Room Name:"
   },
   "complaints.comp.actions": {
     "restrict": "Restrict?",
     "new.button": "New",
     "edit.button": "Edit",
-    "status.button": "Change Complaint Status",
+    "status.button": "Change Submission Status",
     "reinvestigate.button": "Reinvestigate",
     "subscribe.button": "Subscribe",
     "merge.button": "Merge",
@@ -22,7 +22,7 @@
   },
   "complaints.comp.details": {
     "title": "Details",
-    "informSaved": "Complaint details saved"
+    "informSaved": "Submission details saved"
   },
   "complaints.comp.documents": {
     "title": "Documents"
