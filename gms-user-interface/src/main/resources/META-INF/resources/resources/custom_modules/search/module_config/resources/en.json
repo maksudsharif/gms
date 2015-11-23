@@ -1,0 +1,18 @@
+{
+  "search": {
+    "title": "Search",
+    "search.btn": "Search",
+    "search.placeholder": "Type in to search",
+    "comp":{
+      "grid": {
+        "columns": {
+          "grantId": "Grant ID",
+          "name": "Grant Name",
+          "grantAmount": "Grant Amount",
+          "grantee": "Grantee Name",
+          "created": "Date Created"
+        }
+      }
+    }
+  }
+}
