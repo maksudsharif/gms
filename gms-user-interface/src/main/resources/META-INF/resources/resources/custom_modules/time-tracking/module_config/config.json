@@ -1,12 +1,12 @@
 {
-    "id": "time-tracking",
-    "title": "Time tracking",
+    "id": "Payment",
+    "title": "Payment",
     "menus": [
         
         {
             "menuId": "leftnav",
-            "menuItemURL": "time-tracking",
-            "menuItemTitle": "Time tracking",
+            "menuItemURL": "payment",
+            "menuItemTitle": "Payment",
             "iconClass": "fa fa-clock-o",
             "position": 130
         }
@@ -26,15 +26,15 @@
                 "name": "create_tdt DESC"
             },
             {
-                "desc": "Sort Timesheet ID Ascending",
+                "desc": "Sort Payment ID Ascending",
                 "name": "id ASC"
             },
             {
-                "desc": "Sort Timesheet ID Decending",
+                "desc": "Sort Payment ID Decending",
                 "name": "id DESC"
             },
             {
-                "desc": "Sort By Timesheet Name",
+                "desc": "Sort By Payment Name",
                 "name": "name DESC"
             }
         ],
@@ -128,8 +128,8 @@
             ]
         },
         {
-            "id": "time-summary",
-            "title": "Time Summary",
+            "id": "payment-summary",
+            "title": "Payment Summary",
             "enabled": true,
             "type": "grid",
             "enableFiltering": true,
