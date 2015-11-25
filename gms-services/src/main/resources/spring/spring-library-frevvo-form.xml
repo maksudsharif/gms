@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+    <bean id="beanUtilsBean" class="com.arkcase.gms.utils.BeanUtilsBean">
+        <property name="excludeFields">
+            <list value-type="java.lang.String">
+                <value>className</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="unawardedGrantFactory" class="com.arkcase.gms.service.form.UnawardedGrantFactory" parent="caseFileFactory">
+        <property name="beanUtilsBean" ref="beanUtilsBean"/>
+    </bean>
+
+    <bean id="unawardedGrantFormService" class="com.arkcase.gms.service.form.UnawardedGrantFormService" parent="caseFileService">
+        <property name="caseFileFactory" ref="unawardedGrantFactory"/>
+    </bean>
+
+    <!-- Overriding frevvo form services -->
+    <bean id="frevvoFormServices" class="java.util.HashMap">
+        <constructor-arg>
+            <map key-type="java.lang.String" value-type="com.armedia.acm.frevvo.config.FrevvoFormService">
+                <entry key="unawarded_grant" value-ref="unawardedGrantFormService"/>
+            </map>
+        </constructor-arg>
+    </bean>
+
+    <bean id="unawardedGrantUpdatedListener" class="com.arkcase.gms.service.form.UnawardedGrantUpdatedListener">
+        <property name="properties" ref="acm-form-properties"/>
+        <property name="unawardedGrantFormService" ref="unawardedGrantFormService"/>
+    </bean>
+
+</beans>
