@@ -1,5 +1,6 @@
-package com.arkcase.gms.model;
+package com.arkcase.gms.model.form;
 
+import com.arkcase.gms.model.GmsConstants;
 import com.armedia.acm.form.casefile.model.CaseFileForm;
 import com.armedia.acm.objectonverter.adapter.DateFrevvoAdapter;
 
@@ -11,8 +12,8 @@ import java.util.Date;
 /**
  * Created by riste.tutureski on 11/19/2015.
  */
-@XmlRootElement(name = "form_" + GmsConstants.FORM_NAME_UNAWARDED_GRANT, namespace = GmsConstants.FORM_NAMESPACE_UNAWARDED_GRANT)
-public class UnawardedGrantForm extends CaseFileForm
+@XmlRootElement(name = "form_" + GmsConstants.FORM_NAME_GRANT, namespace = GmsConstants.FORM_NAMESPACE_GRANT)
+public class GrantForm extends CaseFileForm
 {
     private Long totalAnticipatedFunds;
     private Date createdDate;
