@@ -11,26 +11,38 @@
         </property>
     </bean>
 
-    <bean id="unawardedGrantFactory" class="com.arkcase.gms.service.form.UnawardedGrantFactory" parent="caseFileFactory">
+    <!-- Grant -->
+    <bean id="grantFactory" class="com.arkcase.gms.service.form.GrantFactory" parent="caseFileFactory">
         <property name="beanUtilsBean" ref="beanUtilsBean"/>
     </bean>
 
-    <bean id="unawardedGrantFormService" class="com.arkcase.gms.service.form.UnawardedGrantFormService" parent="caseFileService">
-        <property name="caseFileFactory" ref="unawardedGrantFactory"/>
+    <bean id="grantFormService" class="com.arkcase.gms.service.form.GrantFormService" parent="caseFileService">
+        <property name="caseFileFactory" ref="grantFactory"/>
+    </bean>
+
+    <!-- Award -->
+    <bean id="awardFactory" class="com.arkcase.gms.service.form.AwardFactory" parent="complaintFactory">
+        <property name="beanUtilsBean" ref="beanUtilsBean"/>
+        <property name="caseFileDao" ref="caseFileDao"/>
+    </bean>
+
+    <bean id="awardFormService" class="com.arkcase.gms.service.form.AwardFormService" parent="complaintService">
+        <property name="complaintFactory" ref="awardFactory"/>
     </bean>
 
     <!-- Overriding frevvo form services -->
     <bean id="frevvoFormServices" class="java.util.HashMap">
         <constructor-arg>
             <map key-type="java.lang.String" value-type="com.armedia.acm.frevvo.config.FrevvoFormService">
-                <entry key="unawarded_grant" value-ref="unawardedGrantFormService"/>
+                <entry key="grant" value-ref="grantFormService"/>
+                <entry key="award" value-ref="awardFormService"/>
             </map>
         </constructor-arg>
     </bean>
 
-    <bean id="unawardedGrantUpdatedListener" class="com.arkcase.gms.service.form.UnawardedGrantUpdatedListener">
+    <bean id="grantUpdatedListener" class="com.arkcase.gms.service.form.GrantUpdatedListener">
         <property name="properties" ref="acm-form-properties"/>
-        <property name="unawardedGrantFormService" ref="unawardedGrantFormService"/>
+        <property name="grantFormService" ref="grantFormService"/>
     </bean>
 
 </beans>

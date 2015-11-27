@@ -5,4 +5,6 @@
 
     <bean id="grantToSolrTransformer" class="com.arkcase.gms.transformer.GrantToSolrTransformer" parent="caseFileToSolrTransformer"/>
 
+    <bean id="awardToSolrTransformer" class="com.arkcase.gms.transformer.AwardToSolrTransformer" parent="complaintToSolrTransformer"/>
+
 </beans>

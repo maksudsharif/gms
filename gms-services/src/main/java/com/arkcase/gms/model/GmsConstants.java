@@ -5,7 +5,10 @@ package com.arkcase.gms.model;
  */
 public interface GmsConstants
 {
-    String FORM_NAME_UNAWARDED_GRANT = "unawarded_grant";
-    String FORM_NAMESPACE_UNAWARDED_GRANT = "http://www.frevvo.com/schemas/_jTrYoLXwEeSNKN7wfymqgA";
+    String FORM_NAME_GRANT = "grant";
+    String FORM_NAMESPACE_GRANT = "http://www.frevvo.com/schemas/_jTrYoLXwEeSNKN7wfymqgA";
     String TYPE_UNAWARDED_GRANT = "UNAWARDED_GRANT";
+
+    String FORM_NAME_AWARD = "award";
+    String FORM_NAMESPACE_AWARD = "http://www.frevvo.com/schemas/_JtTqMC7fEeS5l-bMPzqvwA";
 }

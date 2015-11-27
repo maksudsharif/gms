@@ -4,10 +4,7 @@
 package com.arkcase.gms.service.form;
 
 import com.arkcase.gms.model.GmsConstants;
-import com.arkcase.gms.model.UnawardedGrantForm;
-import com.armedia.acm.form.ebrief.model.EbriefForm;
-import com.armedia.acm.form.ebrief.service.EbriefService;
-import com.armedia.acm.frevvo.config.FrevvoFormName;
+import com.arkcase.gms.model.form.GrantForm;
 import com.armedia.acm.plugins.casefile.model.CaseEvent;
 import com.armedia.acm.plugins.casefile.model.CaseFileConstants;
 import org.slf4j.Logger;
@@ -20,12 +17,12 @@ import java.util.Properties;
  * @author riste.tutureski
  *
  */
-public class UnawardedGrantUpdatedListener implements ApplicationListener<CaseEvent> {
+public class GrantUpdatedListener implements ApplicationListener<CaseEvent> {
 
 	private final Logger LOG = LoggerFactory.getLogger(getClass());
 	
 	private Properties properties;
-	private UnawardedGrantFormService unawardedGrantFormService;
+	private GrantFormService grantFormService;
 	
 	@Override
 	public void onApplicationEvent(CaseEvent event) {
@@ -39,9 +36,9 @@ public class UnawardedGrantUpdatedListener implements ApplicationListener<CaseEv
 				{
 					String activeFormName = (String) getProperties().get(CaseFileConstants.ACTIVE_CASE_FORM_KEY);
 					
-					if (GmsConstants.FORM_NAME_UNAWARDED_GRANT.equals(activeFormName))
+					if (GmsConstants.FORM_NAME_GRANT.equals(activeFormName))
 					{
-						getUnawardedGrantFormService().updateXML(event.getCaseFile(), event.getEventUser(), UnawardedGrantForm.class);
+						getGrantFormService().updateXML(event.getCaseFile(), event.getEventUser(), GrantForm.class);
 					}
 				}
 			}
@@ -57,11 +54,11 @@ public class UnawardedGrantUpdatedListener implements ApplicationListener<CaseEv
 		this.properties = properties;
 	}
 
-	public UnawardedGrantFormService getUnawardedGrantFormService() {
-		return unawardedGrantFormService;
+	public GrantFormService getGrantFormService() {
+		return grantFormService;
 	}
 
-	public void setUnawardedGrantFormService(UnawardedGrantFormService unawardedGrantFormService) {
-		this.unawardedGrantFormService = unawardedGrantFormService;
+	public void setGrantFormService(GrantFormService grantFormService) {
+		this.grantFormService = grantFormService;
 	}
 }

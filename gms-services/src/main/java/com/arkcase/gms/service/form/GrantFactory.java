@@ -2,7 +2,7 @@ package com.arkcase.gms.service.form;
 
 import com.arkcase.gms.model.GmsConstants;
 import com.arkcase.gms.model.Grant;
-import com.arkcase.gms.model.UnawardedGrantForm;
+import com.arkcase.gms.model.form.GrantForm;
 import com.arkcase.gms.utils.BeanUtilsBean;
 import com.armedia.acm.form.casefile.model.CaseFileForm;
 import com.armedia.acm.form.casefile.service.CaseFileFactory;
@@ -12,12 +12,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.Arrays;
 
 /**
  * Created by riste.tutureski on 11/19/2015.
  */
-public class UnawardedGrantFactory extends CaseFileFactory
+public class GrantFactory extends CaseFileFactory
 {
     private Logger LOG = LoggerFactory.getLogger(getClass());
 
@@ -42,11 +41,11 @@ public class UnawardedGrantFactory extends CaseFileFactory
                 LOG.error("Cannot copy properties values to the Grant object.", e);
             }
 
-            UnawardedGrantForm unawardedGrantForm = (UnawardedGrantForm) form;
+            GrantForm grantForm = (GrantForm) form;
 
-            grant.setExpectedAwardDate(unawardedGrantForm.getExpectedAwardDate());
-            grant.setTotalAnticipatedFunds(unawardedGrantForm.getTotalAnticipatedFunds());
-            grant.setDueDate(unawardedGrantForm.getApplicationDueDate());
+            grant.setExpectedAwardDate(grantForm.getExpectedAwardDate());
+            grant.setTotalAnticipatedFunds(grantForm.getTotalAnticipatedFunds());
+            grant.setDueDate(grantForm.getApplicationDueDate());
         }
 
         return grant;
@@ -55,7 +54,24 @@ public class UnawardedGrantFactory extends CaseFileFactory
     @Override
     public CaseFileForm asFrevvoCaseFile(CaseFile caseFile, CaseFileForm form, FrevvoFormAbstractService formService)
     {
-        UnawardedGrantForm retval = (UnawardedGrantForm) super.asFrevvoCaseFile(caseFile, form, formService);
+        CaseFileForm _form = super.asFrevvoCaseFile(caseFile, form, formService);
+        GrantForm retval = null;
+
+        if (_form instanceof GrantForm)
+        {
+            retval = (GrantForm) _form;
+        }
+        else
+        {
+            try
+            {
+                retval = new GrantForm();
+                getBeanUtilsBean().copyProperties(retval, _form);
+            } catch (IllegalAccessException | InvocationTargetException e)
+            {
+                LOG.error("Cannot copy properties values to the Grant object.", e);
+            }
+        }
 
         if (retval != null && caseFile != null && caseFile instanceof Grant)
         {

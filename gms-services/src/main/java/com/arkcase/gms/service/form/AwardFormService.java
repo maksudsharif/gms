@@ -1,16 +1,16 @@
 package com.arkcase.gms.service.form;
 
 import com.arkcase.gms.model.GmsConstants;
-import com.arkcase.gms.model.UnawardedGrantForm;
-import com.armedia.acm.form.casefile.service.CaseFileService;
+import com.arkcase.gms.model.form.AwardForm;
+import com.armedia.acm.plugins.complaint.service.ComplaintService;
 import org.json.JSONObject;
 
 import java.util.Date;
 
 /**
- * Created by riste.tutureski on 11/19/2015.
+ * Created by riste.tutureski on 11/25/2015.
  */
-public class UnawardedGrantFormService extends CaseFileService
+public class AwardFormService extends ComplaintService
 {
     @Override
     public Object get(String action)
@@ -30,11 +30,10 @@ public class UnawardedGrantFormService extends CaseFileService
 
     private Object initExtensibility()
     {
-        UnawardedGrantForm unawardedGrantForm = new UnawardedGrantForm();
+        AwardForm awardForm = new AwardForm();
+        awardForm.setDate(new Date());
 
-        unawardedGrantForm.setCreatedDate(new Date());
-
-        JSONObject json = createResponse(unawardedGrantForm);
+        JSONObject json = createResponse(awardForm);
 
         return json;
     }
@@ -42,12 +41,12 @@ public class UnawardedGrantFormService extends CaseFileService
     @Override
     public String getFormName()
     {
-        return GmsConstants.FORM_NAME_UNAWARDED_GRANT;
+        return GmsConstants.FORM_NAME_AWARD;
     }
 
     @Override
     public Class<?> getFormClass()
     {
-        return UnawardedGrantForm.class;
+        return AwardForm.class;
     }
 }
