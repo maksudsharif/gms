@@ -7,4 +7,6 @@
 
     <bean id="awardToSolrTransformer" class="com.arkcase.gms.transformer.AwardToSolrTransformer" parent="complaintToSolrTransformer"/>
 
+    <bean id="decisionToSolrTransformer" class="com.arkcase.gms.transformer.DecisionToSolrTransformer" parent="dispositionToSolrTransformer"/>
+
 </beans>

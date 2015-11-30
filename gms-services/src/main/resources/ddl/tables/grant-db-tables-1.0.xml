@@ -12,5 +12,11 @@
         </addColumn>
     </changeSet>
 
+    <changeSet id="02-alter-acm_case_file-for-grant" author="riste.tutureski">
+        <addColumn tableName="acm_case_file">
+            <column name="gms_award_value" type="NUMBER(32,0)"/>
+        </addColumn>
+    </changeSet>
+
 </databaseChangeLog>
 

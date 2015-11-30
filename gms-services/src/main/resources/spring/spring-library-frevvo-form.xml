@@ -30,12 +30,22 @@
         <property name="complaintFactory" ref="awardFactory"/>
     </bean>
 
+    <!-- Review -->
+    <bean id="reviewFactory" class="com.arkcase.gms.service.form.ReviewFactory" parent="closeComplaintRequestFactory">
+        <property name="beanUtilsBean" ref="beanUtilsBean"/>
+    </bean>
+
+    <bean id="reviewFormService" class="com.arkcase.gms.service.form.ReviewFormService" parent="closeComplaintService">
+        <property name="closeComplaintRequestFactory" ref="reviewFactory"/>
+    </bean>
+
     <!-- Overriding frevvo form services -->
     <bean id="frevvoFormServices" class="java.util.HashMap">
         <constructor-arg>
             <map key-type="java.lang.String" value-type="com.armedia.acm.frevvo.config.FrevvoFormService">
                 <entry key="grant" value-ref="grantFormService"/>
                 <entry key="award" value-ref="awardFormService"/>
+                <entry key="review" value-ref="reviewFormService"/>
             </map>
         </constructor-arg>
     </bean>

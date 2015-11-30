@@ -26,6 +26,9 @@ public class Grant extends CaseFile
     @Column(name = "gms_grant_type")
     private String grantType;
 
+    @Column(name = "gms_award_value")
+    private Long awardValue;
+
     public Long getTotalAnticipatedFunds()
     {
         return totalAnticipatedFunds;
@@ -50,5 +53,15 @@ public class Grant extends CaseFile
 
     public void setGrantType(String grantType) {
         this.grantType = grantType;
+    }
+
+    public Long getAwardValue()
+    {
+        return awardValue;
+    }
+
+    public void setAwardValue(Long awardValue)
+    {
+        this.awardValue = awardValue;
     }
 }
