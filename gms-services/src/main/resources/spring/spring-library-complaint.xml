@@ -8,4 +8,11 @@
         <property name="ruleSpreadsheetFilename" value="drools-complaint-rules-gms.xlsx"/>
     </bean>
 
+    <bean id="reviewRequestService" class="com.arkcase.gms.service.ReviewRequestService" parent="closeComplaintRequestService"/>
+
+    <!-- Override Close Complaint Request process handler -->
+    <bean id="closeComplaintRequestProcessEndHandler" class="com.armedia.acm.plugins.complaint.service.CloseComplaintRequestProcessEndHandler">
+        <property name="closeComplaintRequestService" ref="reviewRequestService"/>
+    </bean>
+
 </beans>
