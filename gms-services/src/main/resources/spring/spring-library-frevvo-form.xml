@@ -46,6 +46,8 @@
                 <entry key="grant" value-ref="grantFormService"/>
                 <entry key="award" value-ref="awardFormService"/>
                 <entry key="review" value-ref="reviewFormService"/>
+                <entry key="costsheet_budget" value-ref="costBudgetService"/>
+                <entry key="costsheet_payment" value-ref="costPamentService"/>
             </map>
         </constructor-arg>
     </bean>
@@ -53,6 +55,16 @@
     <bean id="grantUpdatedListener" class="com.arkcase.gms.service.form.GrantUpdatedListener">
         <property name="properties" ref="acm-form-properties"/>
         <property name="grantFormService" ref="grantFormService"/>
+    </bean>
+
+    <!-- Cost Budget -->
+    <bean id="costBudgetService" class="com.arkcase.gms.service.form.CostBudgetService" parent="costService">
+        <property name="beanUtilsBean" ref="beanUtilsBean"/>
+    </bean>
+
+    <!-- Cost Payment -->
+    <bean id="costPamentService" class="com.arkcase.gms.service.form.CostPaymentService" parent="costService">
+        <property name="beanUtilsBean" ref="beanUtilsBean"/>
     </bean>
 
 </beans>
