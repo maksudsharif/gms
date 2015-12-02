@@ -15,4 +15,10 @@ public interface GmsConstants
 
     String FORM_NAME_REVIEW = "review";
     String FORM_NAMESPACE_REVIEW = "http://www.frevvo.com/schemas/_HNpQgE-yEeSBQuFshND1XQ";
+
+    String FORM_NAME_COSTSHEET_BUDGET = "costsheet_budget";
+    String FORM_NAMESPACE_COSTSHEET_BUDGET = "http://www.frevvo.com/schemas/_YPmMQL2oEeSmjJjf63cgRw";
+
+    String FORM_NAME_COSTSHEET_PAYMENT = "costsheet_payment";
+    String FORM_NAMESPACE_COSTSHEET_PAYMENT = "http://www.frevvo.com/schemas/_lvC7AJhREeWw752DKBm1kQ";
 }
