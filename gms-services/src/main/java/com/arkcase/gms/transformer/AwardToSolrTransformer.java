@@ -63,6 +63,12 @@ public class AwardToSolrTransformer extends ComplaintToSolrTransformer
         return solr;
     }
 
+    @Override
+    public boolean isAcmObjectTypeSupported(Class acmObjectType)
+    {
+        return Award.class.equals(acmObjectType);
+    }
+
     private void mapOrderProperties(Award award, Map<String, Object> aps)
     {
         aps.put("object_sub_type_s", "AWARD");

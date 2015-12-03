@@ -39,6 +39,12 @@ public class DecisionToSolrTransformer extends DispositionToSolrTransformer
         return solr;
     }
 
+    @Override
+    public boolean isAcmObjectTypeSupported(Class acmObjectType)
+    {
+        return Decision.class.equals(acmObjectType);
+    }
+
     private void mapOrderProperties(Decision decision, Map<String, Object> aps)
     {
         aps.put("object_sub_type_s", "DECISION");

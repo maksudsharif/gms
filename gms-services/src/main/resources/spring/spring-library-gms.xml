@@ -9,4 +9,8 @@
 
     <bean id="decisionToSolrTransformer" class="com.arkcase.gms.transformer.DecisionToSolrTransformer" parent="dispositionToSolrTransformer"/>
 
+    <bean id="costBudgetToSolrTransformer" class="com.arkcase.gms.transformer.CostBudgetToSolrTransformer" parent="costsheetToSolrTransformer"/>
+
+    <bean id="costPaymentToSolrTransformer" class="com.arkcase.gms.transformer.CostPaymentToSolrTransformer" parent="costsheetToSolrTransformer"/>
+
 </beans>
