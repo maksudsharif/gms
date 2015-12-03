@@ -19,7 +19,7 @@ import java.util.Arrays;
 /**
  * Created by riste.tutureski on 12/1/2015.
  */
-public class CostBudgetService extends CostAbstractService
+public class CostBudgetService extends CostService
 {
     @Override
     public String getFormName()
@@ -31,17 +31,5 @@ public class CostBudgetService extends CostAbstractService
     public Class<?> getFormClass()
     {
         return CostBudgetForm.class;
-    }
-
-    @Override
-    public CostForm getInstanceFromCaseForm()
-    {
-        return new CostBudgetForm();
-    }
-
-    @Override
-    public CostForm getInstanceFromEditCaseForm(FrevvoForm form, AcmContainer container, String formName)
-    {
-        return (CostBudgetForm) populateEditInformation(form, container, formName);
     }
 }

@@ -2,14 +2,12 @@ package com.arkcase.gms.service.form;
 
 import com.arkcase.gms.model.GmsConstants;
 import com.arkcase.gms.model.form.CostPaymentForm;
-import com.armedia.acm.form.cost.model.CostForm;
-import com.armedia.acm.frevvo.model.FrevvoForm;
-import com.armedia.acm.plugins.ecm.model.AcmContainer;
+import com.armedia.acm.form.cost.service.CostService;
 
 /**
  * Created by riste.tutureski on 12/1/2015.
  */
-public class CostPaymentService extends CostAbstractService
+public class CostPaymentService extends CostService
 {
     @Override
     public String getFormName()
@@ -21,17 +19,5 @@ public class CostPaymentService extends CostAbstractService
     public Class<?> getFormClass()
     {
         return CostPaymentForm.class;
-    }
-
-    @Override
-    public CostForm getInstanceFromCaseForm()
-    {
-        return new CostPaymentForm();
-    }
-
-    @Override
-    public CostForm getInstanceFromEditCaseForm(FrevvoForm form, AcmContainer container, String formName)
-    {
-        return (CostPaymentForm) populateEditInformation(form, container, formName);
     }
 }
