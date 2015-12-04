@@ -1,0 +1,36 @@
+{
+  "payment": {
+    "title": "Payment",
+    "progressNoCostsheet": "[ No payment sheet is selected ]",
+    "progressLoading": "Loading payment sheet ",
+    "progressError": "Failed to load payment sheet"
+  },
+  "payment.tree": {
+  },
+  "payment.comp.actions": {
+    "new.button": "New Payment Sheet",
+    "edit.button": "Edit Payment Sheet"
+  },
+  "payment.comp.details": {
+    "title": "Details",
+    "informSaved": "Payment Sheet details saved"
+  },
+  "payment.comp.people": {
+    "title": "Person",
+    "table.columns": {
+      "fullName": "Full Name",
+      "userId": "Username"
+    }
+  },
+  "payment.comp.summary": {
+    "title": "Hours Summary",
+    "table.columns": {
+      "parentId": "ID",
+      "parentNumber": "Parent ID",
+      "parentType": "Parent Type",
+      "value": "Total Cost",
+      "title": "Title",
+      "description": "Description"
+    }
+  }
+}

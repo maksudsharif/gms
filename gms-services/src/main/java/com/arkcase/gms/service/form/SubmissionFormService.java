@@ -1,11 +1,15 @@
 package com.arkcase.gms.service.form;
 
 import com.arkcase.gms.model.GmsConstants;
+<<<<<<< HEAD:gms-services/src/main/java/com/arkcase/gms/service/form/AwardFormService.java
 import com.arkcase.gms.model.form.AwardForm;
 import com.armedia.acm.frevvo.config.FrevvoFormName;
 import com.armedia.acm.frevvo.model.FrevvoUploadedFiles;
 import com.armedia.acm.plugins.complaint.model.Complaint;
 import com.armedia.acm.plugins.complaint.model.complaint.ComplaintForm;
+=======
+import com.arkcase.gms.model.form.SubmissionForm;
+>>>>>>> f2636ee3e49005e0ae3d4462d0212794ad0ef9ff:gms-services/src/main/java/com/arkcase/gms/service/form/SubmissionFormService.java
 import com.armedia.acm.plugins.complaint.service.ComplaintService;
 import com.armedia.acm.services.users.model.AcmUserActionName;
 import org.json.JSONObject;
@@ -18,7 +22,7 @@ import java.util.Date;
 /**
  * Created by riste.tutureski on 11/25/2015.
  */
-public class AwardFormService extends ComplaintService
+public class SubmissionFormService extends ComplaintService
 {
     private ApplicationEventPublisher applicationEventPublisher;
     @Override
@@ -69,10 +73,10 @@ public class AwardFormService extends ComplaintService
 
     private Object initExtensibility()
     {
-        AwardForm awardForm = new AwardForm();
-        awardForm.setDate(new Date());
+        SubmissionForm submissionForm = new SubmissionForm();
+        submissionForm.setDate(new Date());
 
-        JSONObject json = createResponse(awardForm);
+        JSONObject json = createResponse(submissionForm);
 
         return json;
     }
@@ -84,12 +88,12 @@ public class AwardFormService extends ComplaintService
     @Override
     public String getFormName()
     {
-        return GmsConstants.FORM_NAME_AWARD;
+        return GmsConstants.FORM_NAME_SUBMISSION;
     }
 
     @Override
     public Class<?> getFormClass()
     {
-        return AwardForm.class;
+        return SubmissionForm.class;
     }
 }

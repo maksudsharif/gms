@@ -51,7 +51,7 @@ public class BeanUtilsBean extends org.apache.commons.beanutils.BeanUtilsBean
 
                 // If the value is null or the value is primitive or wrapper type (plus "String" - because
                 // "String" is not in the wrapped types), then make a copy
-                if (obj == null || ClassUtils.isPrimitiveOrWrapper(obj.getClass()) || obj instanceof String)
+                if (obj == null || ClassUtils.isPrimitiveOrWrapper(obj.getClass()) || obj instanceof String || obj instanceof List)
                 {
                     super.copyProperty(bean, name, value);
                 } else

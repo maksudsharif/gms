@@ -20,15 +20,20 @@
         <property name="caseFileFactory" ref="grantFactory"/>
     </bean>
 
-    <!-- Award -->
-    <bean id="awardFactory" class="com.arkcase.gms.service.form.AwardFactory" parent="complaintFactory">
+    <!-- Submission -->
+    <bean id="submissionFactory" class="com.arkcase.gms.service.form.SubmissionFactory" parent="complaintFactory">
         <property name="beanUtilsBean" ref="beanUtilsBean"/>
         <property name="caseFileDao" ref="caseFileDao"/>
     </bean>
 
+<<<<<<< HEAD
     <bean id="awardFormService" class="com.arkcase.gms.service.form.AwardFormService" parent="complaintService">
         <property name="complaintFactory" ref="awardFactory"/>
         <property name="applicationEventPublisher" ref="frevvoApplicationEventPublisher" />
+=======
+    <bean id="submissionFormService" class="com.arkcase.gms.service.form.SubmissionFormService" parent="complaintService">
+        <property name="complaintFactory" ref="submissionFactory"/>
+>>>>>>> f2636ee3e49005e0ae3d4462d0212794ad0ef9ff
     </bean>
 
     <bean id="reviewSubmissionTaskName" class="java.lang.String">
@@ -73,7 +78,7 @@
         <constructor-arg>
             <map key-type="java.lang.String" value-type="com.armedia.acm.frevvo.config.FrevvoFormService">
                 <entry key="grant" value-ref="grantFormService"/>
-                <entry key="award" value-ref="awardFormService"/>
+                <entry key="submission" value-ref="submissionFormService"/>
                 <entry key="review" value-ref="reviewFormService"/>
                 <entry key="costsheet_budget" value-ref="costBudgetService"/>
                 <entry key="costsheet_payment" value-ref="costPamentService"/>
@@ -87,13 +92,21 @@
     </bean>
 
     <!-- Cost Budget -->
-    <bean id="costBudgetService" class="com.arkcase.gms.service.form.CostBudgetService" parent="costService">
+    <bean id="costBudgetFactory" class="com.arkcase.gms.service.form.CostBudgetFactory" parent="costFactory">
         <property name="beanUtilsBean" ref="beanUtilsBean"/>
     </bean>
 
+    <bean id="costBudgetService" class="com.arkcase.gms.service.form.CostBudgetService" parent="costService">
+        <property name="costFactory" ref="costBudgetFactory"/>
+    </bean>
+
     <!-- Cost Payment -->
-    <bean id="costPamentService" class="com.arkcase.gms.service.form.CostPaymentService" parent="costService">
+    <bean id="costPaymentFactory" class="com.arkcase.gms.service.form.CostPaymentFactory" parent="costFactory">
         <property name="beanUtilsBean" ref="beanUtilsBean"/>
+    </bean>
+
+    <bean id="costPamentService" class="com.arkcase.gms.service.form.CostPaymentService" parent="costService">
+        <property name="costFactory" ref="costPaymentFactory"/>
     </bean>
 
 </beans>

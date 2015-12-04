@@ -1,6 +1,6 @@
 package com.arkcase.gms.transformer;
 
-import com.arkcase.gms.model.Award;
+import com.arkcase.gms.model.Submission;
 import com.armedia.acm.plugins.complaint.model.Complaint;
 import com.armedia.acm.plugins.complaint.service.ComplaintToSolrTransformer;
 import com.armedia.acm.services.search.model.solr.SolrAdvancedSearchDocument;
@@ -13,7 +13,7 @@ import java.util.Map;
 /**
  * Created by riste.tutureski on 11/26/2015.
  */
-public class AwardToSolrTransformer extends ComplaintToSolrTransformer
+public class SubmissionToSolrTransformer extends ComplaintToSolrTransformer
 {
     private final Logger LOG = LoggerFactory.getLogger(getClass());
 
@@ -22,14 +22,14 @@ public class AwardToSolrTransformer extends ComplaintToSolrTransformer
     {
         SolrAdvancedSearchDocument solr = null;
 
-        if (in instanceof Award)
+        if (in instanceof Submission)
         {
-            Award award = (Award) in;
-            solr = super.toSolrAdvancedSearch(award);
+            Submission submission = (Submission) in;
+            solr = super.toSolrAdvancedSearch(submission);
 
             if (solr != null)
             {
-                mapOrderProperties(award, solr.getAdditionalProperties());
+                mapOrderProperties(submission, solr.getAdditionalProperties());
             }
         }
         else
@@ -45,14 +45,14 @@ public class AwardToSolrTransformer extends ComplaintToSolrTransformer
     {
         SolrDocument solr = null;
 
-        if (in instanceof Award)
+        if (in instanceof Submission)
         {
-            Award award = (Award) in;
-            solr = super.toSolrQuickSearch(award);
+            Submission submission = (Submission) in;
+            solr = super.toSolrQuickSearch(submission);
 
             if (solr != null)
             {
-                mapOrderProperties(award, solr.getAdditionalProperties());
+                mapOrderProperties(submission, solr.getAdditionalProperties());
             }
         }
         else
@@ -63,15 +63,21 @@ public class AwardToSolrTransformer extends ComplaintToSolrTransformer
         return solr;
     }
 
-    private void mapOrderProperties(Award award, Map<String, Object> aps)
+    @Override
+    public boolean isAcmObjectTypeSupported(Class acmObjectType)
     {
-        aps.put("object_sub_type_s", "AWARD");
+        return Submission.class.equals(acmObjectType);
+    }
 
-        if (award != null)
+    private void mapOrderProperties(Submission submission, Map<String, Object> aps)
+    {
+        aps.put("object_sub_type_s", "SUBMISSION");
+
+        if (submission != null)
         {
-            if (award.getGrant() != null && award.getGrant().getId() != null)
+            if (submission.getGrant() != null && submission.getGrant().getId() != null)
             {
-                aps.put("grant_id_l", award.getGrant().getId());
+                aps.put("grant_id_l", submission.getGrant().getId());
             }
         }
     }
