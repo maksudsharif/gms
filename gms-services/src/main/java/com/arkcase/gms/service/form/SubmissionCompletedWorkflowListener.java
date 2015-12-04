@@ -35,17 +35,24 @@ public class SubmissionCompletedWorkflowListener implements ApplicationListener<
 
     private void handleSubmissionCompleted(AcmApplicationTaskEvent acmApplicationTaskEvent) {
         String outcome = acmApplicationTaskEvent.getAcmTask().getTaskOutcome().getName();
+        String businessProcessId = acmApplicationTaskEvent.getAcmTask().getBusinessProcessId().toString();
+        String processVariable = "gms_approvalCount";
+
         Integer approvalCount;
-        if("APPROVE".equals(outcome)) { // Is this the correct outcome string?
+        if ("APPROVE".equals(outcome)) { // Is this the correct outcome string?
             /**
              *  TODO: Get activiti proccess and update "gms_approvalCount" variable
              *  Assume that a process with the variable 'gms_approvalCount' is one for
              *  a submission review.
+             *
+             *  Not sure if this is 100% valid
              */
-            approvalCount = (Integer) getActivitiRuntimeService().getVariable(acmApplicationTaskEvent.getAcmTask().getBusinessProcessId().toString(), "gms_approvalCount");
-            if (null != approvalCount) {
-                approvalCount += 1;
-                if (approvalCount >= 2) {
+            if (getActivitiRuntimeService().hasVariable(businessProcessId, processVariable)) {
+                approvalCount = (Integer) getActivitiRuntimeService().getVariable(businessProcessId, processVariable);
+                approvalCount++;
+                getActivitiRuntimeService().setVariable(businessProcessId, processVariable, approvalCount);
+
+                if (approvalCount == 2) { //Stop multiple tasks from going out
                     EcmFileWorkflowConfiguration configuration = new EcmFileWorkflowConfiguration();
                     startBusinessProcess(acmApplicationTaskEvent, configuration);
                 }
@@ -53,7 +60,6 @@ public class SubmissionCompletedWorkflowListener implements ApplicationListener<
                 //Process is not a submission review task
             }
         }
-
     }
 
     private void startBusinessProcess(AcmApplicationTaskEvent acmApplicationTaskEvent, EcmFileWorkflowConfiguration configuration) {

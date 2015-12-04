@@ -1,15 +1,11 @@
 package com.arkcase.gms.service.form;
 
 import com.arkcase.gms.model.GmsConstants;
-<<<<<<< HEAD:gms-services/src/main/java/com/arkcase/gms/service/form/AwardFormService.java
-import com.arkcase.gms.model.form.AwardForm;
 import com.armedia.acm.frevvo.config.FrevvoFormName;
 import com.armedia.acm.frevvo.model.FrevvoUploadedFiles;
 import com.armedia.acm.plugins.complaint.model.Complaint;
 import com.armedia.acm.plugins.complaint.model.complaint.ComplaintForm;
-=======
 import com.arkcase.gms.model.form.SubmissionForm;
->>>>>>> f2636ee3e49005e0ae3d4462d0212794ad0ef9ff:gms-services/src/main/java/com/arkcase/gms/service/form/SubmissionFormService.java
 import com.armedia.acm.plugins.complaint.service.ComplaintService;
 import com.armedia.acm.services.users.model.AcmUserActionName;
 import org.json.JSONObject;
