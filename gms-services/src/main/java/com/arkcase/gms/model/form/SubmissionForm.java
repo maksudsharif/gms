@@ -9,8 +9,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 /**
  * Created by riste.tutureski on 11/25/2015.
  */
-@XmlRootElement(name = "form_" + GmsConstants.FORM_NAME_AWARD, namespace = GmsConstants.FORM_NAMESPACE_AWARD)
-public class AwardForm extends ComplaintForm
+@XmlRootElement(name = "form_" + GmsConstants.FORM_NAME_SUBMISSION, namespace = GmsConstants.FORM_NAMESPACE_SUBMISSION)
+public class SubmissionForm extends ComplaintForm
 {
     private String grantNumber;
 
