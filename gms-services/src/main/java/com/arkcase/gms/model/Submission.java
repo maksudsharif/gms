@@ -12,8 +12,8 @@ import javax.persistence.ManyToOne;
  * Created by riste.tutureski on 11/25/2015.
  */
 @Entity
-@DiscriminatorValue("com.arkcase.gms.model.Award")
-public class Award extends Complaint
+@DiscriminatorValue("com.arkcase.gms.model.Submission")
+public class Submission extends Complaint
 {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "gms_grant_id", referencedColumnName = "cm_case_id")
