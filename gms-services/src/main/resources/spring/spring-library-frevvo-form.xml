@@ -28,7 +28,22 @@
 
     <bean id="awardFormService" class="com.arkcase.gms.service.form.AwardFormService" parent="complaintService">
         <property name="complaintFactory" ref="awardFactory"/>
+        <property name="applicationEventPublisher" ref="frevvoApplicationEventPublisher" />
     </bean>
+
+    <bean id="reviewSubmissionTaskName" class="java.lang.String">
+        <constructor-arg>
+            <value>Evaluate submission '%s'</value>
+        </constructor-arg>
+    </bean>
+
+    <bean id="submissionWorkflowListener" class="com.arkcase.gms.service.form.SubmissionWorkflowListener">
+        <property name="fileWorkflowBusinessRule" ref="fileWorkflowBusinessRule"/>
+        <property name="activitiRuntimeService" ref="activitiRuntimeService"/>
+        <property name="reviewSubmissionTaskName" ref="reviewSubmissionTaskName"/>
+    </bean>
+
+    
 
     <!-- Review -->
     <bean id="reviewFactory" class="com.arkcase.gms.service.form.ReviewFactory" parent="closeComplaintRequestFactory">
