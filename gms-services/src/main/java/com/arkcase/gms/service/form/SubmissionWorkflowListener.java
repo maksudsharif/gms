@@ -76,14 +76,20 @@ public class SubmissionWorkflowListener implements ApplicationListener<Submissio
 
     private List<String> findReviewers(SubmissionCreatedEvent submissionCreatedEvent) {
         List<String> reviewers = new ArrayList<>();
-        Complaint complaint = (Complaint) submissionCreatedEvent.getSource();
+        /*Complaint complaint = (Complaint) submissionCreatedEvent.getSource();
+
         for ( AcmParticipant participant : complaint.getParticipants() )
         {
             if ( "approver".equals(participant.getParticipantType() ) )
             {
                 reviewers.add(participant.getParticipantLdapId());
             }
-        }
+        }*/
+        /**
+         * Workaround for not having approvers in form.
+         */
+        reviewers.add("ann-acm");
+        reviewers.add("ann-acm"); //could be samuel-acm or someone else
         return reviewers;
     }
 
