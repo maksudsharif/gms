@@ -1,36 +1,36 @@
 {
-  "grants": {
-    "title": "Grants",
-    "progressNoCase": "[ No grant data ]",
-    "progressLoading": "Loading grant",
-    "progressError": "Failed to load grant"
+  "cases": {
+    "title": "Unawarded Grants",
+    "progressNoCase": "[ No Unawarded Grant exists ]",
+    "progressLoading": "Loading Unawarded Grants ",
+    "progressError": "Failed to load Unawarded Grants"
   },
-  "grants.tree": {
+  "cases.tree": {
   },
-  "grants.comp.info": {
-    "caseId": "Grant id:",
-    "caseNumber": "Grant Number:",
+  "cases.comp.info": {
+    "caseId": "Unawarded Grants ID:",
+    "caseNumber": "Unawarded Grants Number:",
     "courtRoomName": "Court Room Name:"
   },
-  "grants.comp.actions": {
+  "cases.comp.actions": {
     "restrict": "Restrict?",
     "new.button": "New",
     "edit.button": "Edit",
-    "status.button": "Change Grant Status",
+    "status.button": "Change Unawarded Grants Status",
     "reinvestigate.button": "Reinvestigate",
     "subscribe.button": "Subscribe",
     "unsubscribe.button": "Unsubscribe",
     "merge.button": "Merge",
     "split.button": "Split"
   },
-  "grants.comp.details": {
+  "cases.comp.details": {
     "title": "Details",
-    "informSaved": "Grant details saved"
+    "informSaved": "Unawarded Grants details saved"
   },
-  "grants.comp.documents": {
+  "cases.comp.documents": {
     "title": "Documents"
   },
-  "grants.comp.people": {
+  "cases.comp.people": {
     "title": "People",
     "table.columns": {
       "entity": "Entity",
@@ -88,14 +88,14 @@
       }
     }
   },
-  "grants.comp.participants": {
+  "cases.comp.participants": {
     "title": "Participants",
     "table.columns": {
       "type": "Type",
       "name": "Name"
     }
   },
-  "grants.comp.notes": {
+  "cases.comp.notes": {
     "title": "Notes",
     "table.columns": {
       "note": "Note",
@@ -103,7 +103,7 @@
       "creator": "Author"
     }
   },
-  "grants.comp.tasks": {
+  "cases.comp.tasks": {
     "title": "Tasks",
     "table.columns": {
       "taskId": "ID",
@@ -116,7 +116,7 @@
       "action": "Action"
     }
   },
-  "grants.comp.references": {
+  "cases.comp.references": {
     "title": "References",
     "table.columns": {
       "targetName": "Number",
@@ -126,7 +126,7 @@
       "status": "Status"
     }
   },
-  "grants.comp.history": {
+  "cases.comp.history": {
     "title": "History",
     "table.columns": {
       "eventType": "Event Name",
@@ -134,7 +134,7 @@
       "userId": "User"
     }
   },
-  "grants.comp.correspondence": {
+  "cases.comp.correspondence": {
     "title": "Correspondence",
     "table.columns": {
       "name": "Title",
@@ -142,29 +142,29 @@
       "creator": "Creator"
     }
   },
-  "grants.comp.time": {
+  "cases.comp.time": {
     "title": "Time",
     "table.columns": {
       "name": "Form Name",
       "user": "User",
-      "tally": "Total Payment",
+      "tally": "Total Hours",
       "modified": "Modified Date",
       "status": "Status"
     },
     "formNamePrefix": "Timesheet"
   },
-  "grants.comp.cost": {
+  "cases.comp.cost": {
     "title": "Cost",
     "table.columns": {
       "name": "Form Name",
       "user": "User",
-      "tally": "Total Budget",
+      "tally": "Total Cost",
       "modified": "Modified Date",
       "status": "Status"
     },
     "formNamePrefix": "Costsheet"
   },
-  "grants.comp.calendar": {
+  "cases.comp.calendar": {
     "title": "Calendar"
   }
 }
