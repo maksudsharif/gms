@@ -21,6 +21,4 @@ public interface GmsConstants
 
     String FORM_NAME_COSTSHEET_PAYMENT = "costsheet_payment";
     String FORM_NAMESPACE_COSTSHEET_PAYMENT = "http://www.frevvo.com/schemas/_lvC7AJhREeWw752DKBm1kQ";
-
-    String SUBMISSION_DEFAULT_APPROVERS= "complaint.default.approvers";
 }
