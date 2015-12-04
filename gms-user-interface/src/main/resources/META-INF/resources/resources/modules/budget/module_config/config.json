@@ -8,6 +8,13 @@
       "menuItemTitle": "Budget",
       "iconClass": "fa fa-money",
       "position": 120
+    },
+    {
+      "menuId": "topbar",
+      "menuItemURL": "newBudgetSheet",
+      "menuItemTitle": "Budget",
+      "iconClass": "fa fa-money",
+      "position": 50
     }
   ],
   "tree": {
@@ -19,19 +26,19 @@
         "default": true
       },
       {
-        "desc": "Sort Date Descending",
+        "desc": "Sort Date Decending",
         "name": "create_tdt DESC"
       },
       {
-        "desc": "Sort Budget ID Ascending",
+        "desc": "Sort Budget Sheet ID Ascending",
         "name": "id ASC"
       },
       {
-        "desc": "Sort Budget ID Descending",
+        "desc": "Sort Budget Sheet ID Decending",
         "name": "id DESC"
       },
       {
-        "desc": "Sort By Budget Name",
+        "desc": "Sort By Budget Sheet Name",
         "name": "name DESC"
       }
     ],
@@ -50,7 +57,7 @@
         "components": [
           "details",
           "person",
-          "costSummary"
+          "summary"
         ]
       },
       {
@@ -68,10 +75,10 @@
         ]
       },
       {
-        "type": "p/COSTSHEET/costSummary",
+        "type": "p/COSTSHEET/summary",
         "label": "Expenses",
         "components": [
-          "costSummary"
+          "summary"
         ]
       }
     ]
@@ -117,8 +124,8 @@
       ]
     },
     {
-      "id": "time-summary",
-      "title": "Time Summary",
+      "id": "summary",
+      "title": "Summary",
       "enabled": true,
       "type": "grid",
       "enableFiltering": true,
@@ -132,34 +139,34 @@
       "columnDefs": [
         {
           "name": "parentId",
-          "displayName": "budget.comp.timesSummary.table.columns.parentId",
+          "displayName": "budget.comp.summary.table.columns.parentId",
           "headerCellFilter": "translate",
           "visible": false
         },
         {
           "name": "parentNumber",
-          "displayName": "budget.comp.timesSummary.table.columns.parentNumber",
+          "displayName": "budget.comp.summary.table.columns.parentNumber",
           "headerCellFilter": "translate",
           "cellTemplate": "<a href='#' ng-click='grid.appScope.onClickObjectType($event, row.entity)'>{{row.entity.parentNumber}}</a>"
         },
         {
           "name": "parentType",
-          "displayName": "budget.comp.timesSummary.table.columns.parentType",
+          "displayName": "budget.comp.summary.table.columns.parentType",
           "headerCellFilter": "translate"
         },
         {
           "name": "value",
-          "displayName": "budget.comp.timesSummary.table.columns.value",
+          "displayName": "budget.comp.summary.table.columns.value",
           "headerCellFilter": "translate"
         },
         {
           "name": "title",
-          "displayName": "budget.comp.timesSummary.table.columns.title",
+          "displayName": "budget.comp.summary.table.columns.title",
           "headerCellFilter": "translate"
         },
         {
           "name": "description",
-          "displayName": "budget.comp.timesSummary.table.columns.description",
+          "displayName": "budget.comp.summary.table.columns.description",
           "headerCellFilter": "translate",
           "cellTemplate": "<div class='ui-grid-cell-contents'>{{ row.entity.description || 'N/A' }}</div>"
         }

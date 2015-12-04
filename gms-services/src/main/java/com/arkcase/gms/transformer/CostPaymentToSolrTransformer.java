@@ -23,7 +23,7 @@ public class CostPaymentToSolrTransformer extends CostsheetToSolrTransformer
     {
         SolrDocument solr = null;
 
-        if (in instanceof CostBudget)
+        if (in instanceof CostPayment)
         {
             CostPayment costPayment = (CostPayment) in;
             solr = super.toSolrQuickSearch(costPayment);
