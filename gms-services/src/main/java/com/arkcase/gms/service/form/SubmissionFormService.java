@@ -21,8 +21,10 @@ import java.util.Date;
 public class SubmissionFormService extends ComplaintService
 {
     private ApplicationEventPublisher applicationEventPublisher;
+
     @Override
-    public boolean save(String xml, MultiValueMap<String, MultipartFile> attachments) throws Exception {
+    public boolean save(String xml, MultiValueMap<String, MultipartFile> attachments) throws Exception
+    {
         ComplaintForm complaint = (ComplaintForm) convertFromXMLToObject(cleanXML(xml), getFormClass());
 
         complaint = saveComplaint(complaint);
@@ -79,6 +81,11 @@ public class SubmissionFormService extends ComplaintService
 
     public ApplicationEventPublisher getApplicationEventPublisher() {
         return applicationEventPublisher;
+    }
+
+    public void setApplicationEventPublisher(ApplicationEventPublisher applicationEventPublisher)
+    {
+        this.applicationEventPublisher = applicationEventPublisher;
     }
 
     @Override
