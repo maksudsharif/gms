@@ -1,5 +1,6 @@
 package com.arkcase.gms.service.form;
 
+import com.arkcase.gms.model.GmsConstants;
 import com.armedia.acm.plugins.complaint.model.Complaint;
 import com.armedia.acm.plugins.ecm.model.EcmFile;
 import com.armedia.acm.plugins.ecm.service.impl.FileWorkflowBusinessRule;
@@ -11,10 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationListener;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by maksud.sharif on 12/2/2015.
@@ -23,6 +21,10 @@ public class SubmissionWorkflowListener implements ApplicationListener<Submissio
     private FileWorkflowBusinessRule fileWorkflowBusinessRule;
     private RuntimeService activitiRuntimeService;
     private String reviewSubmissionTaskName;
+
+    private String defaultApproversString;
+    private List<String> defaultApprovers;
+
     private final Logger log = LoggerFactory.getLogger(getClass());
 
     @Override
@@ -76,20 +78,27 @@ public class SubmissionWorkflowListener implements ApplicationListener<Submissio
 
     private List<String> findReviewers(SubmissionCreatedEvent submissionCreatedEvent) {
         List<String> reviewers = new ArrayList<>();
-        /*Complaint complaint = (Complaint) submissionCreatedEvent.getSource();
 
+        /**
+         * Work around for no approvers in form.
+         */
+        getDefaultApprovers().forEach(approver -> {
+           reviewers.add(approver);
+        });
+
+        Complaint complaint = (Complaint) submissionCreatedEvent.getSource();
         for ( AcmParticipant participant : complaint.getParticipants() )
         {
             if ( "approver".equals(participant.getParticipantType() ) )
             {
-                reviewers.add(participant.getParticipantLdapId());
+                // Make sure there are no duplicates
+                if(!reviewers.contains(participant.getParticipantLdapId()))
+                {
+                    reviewers.add(participant.getParticipantLdapId());
+                }
             }
-        }*/
-        /**
-         * Workaround for not having approvers in form.
-         */
-        reviewers.add("ann-acm");
-        reviewers.add("ann-acm"); //could be samuel-acm or someone else
+        }
+
         return reviewers;
     }
 
@@ -115,5 +124,25 @@ public class SubmissionWorkflowListener implements ApplicationListener<Submissio
 
     public void setReviewSubmissionTaskName(String reviewSubmissionTaskName) {
         this.reviewSubmissionTaskName = reviewSubmissionTaskName;
+    }
+
+    public String getDefaultApproversString() {
+        return defaultApproversString;
+    }
+
+    public void setDefaultApproversString(String defaultApproversString) {
+        this.defaultApproversString = defaultApproversString;
+
+        ArrayList<String> approverList = new ArrayList(Arrays.asList(defaultApproversString.split(",")));
+        setDefaultApprovers(approverList);
+
+    }
+
+    public List<String> getDefaultApprovers() {
+        return defaultApprovers;
+    }
+
+    public void setDefaultApprovers(List<String> defaultApprovers) {
+        this.defaultApprovers = defaultApprovers;
     }
 }

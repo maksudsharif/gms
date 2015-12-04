@@ -41,6 +41,7 @@
         <property name="fileWorkflowBusinessRule" ref="fileWorkflowBusinessRule"/>
         <property name="activitiRuntimeService" ref="activitiRuntimeService"/>
         <property name="reviewSubmissionTaskName" ref="reviewSubmissionTaskName"/>
+        <property name="defaultApproversString" value="${complaint.default.approvers}" />
     </bean>
 
     
