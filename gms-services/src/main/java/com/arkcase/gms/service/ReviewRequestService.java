@@ -1,6 +1,6 @@
 package com.arkcase.gms.service;
 
-import com.arkcase.gms.model.Award;
+import com.arkcase.gms.model.Submission;
 import com.arkcase.gms.model.Decision;
 import com.arkcase.gms.model.GmsConstants;
 import com.arkcase.gms.model.Grant;
@@ -25,7 +25,7 @@ public class ReviewRequestService extends CloseComplaintRequestService
     {
         if (complaintId != null && closeComplaintRequestId != null)
         {
-            Award award = (Award) getComplaintDao().find(complaintId);
+            Submission submission = (Submission) getComplaintDao().find(complaintId);
             CloseComplaintRequest request = getCloseComplaintRequestDao().find(closeComplaintRequestId);
 
             if (isAward(request))
@@ -40,8 +40,8 @@ public class ReviewRequestService extends CloseComplaintRequestService
                 Grant grant = new Grant();
                 grant.setGrantType(GmsConstants.TYPE_AWARDED_GRANT);
                 grant.setAwardValue(awardValue);
-                Grant newGrant = (Grant) openFullInvestigation(award, user, grant);
-                addReferenceToComplaint(award, newGrant);
+                Grant newGrant = (Grant) openFullInvestigation(submission, user, grant);
+                addReferenceToComplaint(submission, newGrant);
             }
         }
 

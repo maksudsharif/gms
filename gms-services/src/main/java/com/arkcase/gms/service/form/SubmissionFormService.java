@@ -1,7 +1,7 @@
 package com.arkcase.gms.service.form;
 
 import com.arkcase.gms.model.GmsConstants;
-import com.arkcase.gms.model.form.AwardForm;
+import com.arkcase.gms.model.form.SubmissionForm;
 import com.armedia.acm.plugins.complaint.service.ComplaintService;
 import org.json.JSONObject;
 
@@ -10,7 +10,7 @@ import java.util.Date;
 /**
  * Created by riste.tutureski on 11/25/2015.
  */
-public class AwardFormService extends ComplaintService
+public class SubmissionFormService extends ComplaintService
 {
     @Override
     public Object get(String action)
@@ -30,10 +30,10 @@ public class AwardFormService extends ComplaintService
 
     private Object initExtensibility()
     {
-        AwardForm awardForm = new AwardForm();
-        awardForm.setDate(new Date());
+        SubmissionForm submissionForm = new SubmissionForm();
+        submissionForm.setDate(new Date());
 
-        JSONObject json = createResponse(awardForm);
+        JSONObject json = createResponse(submissionForm);
 
         return json;
     }
@@ -41,12 +41,12 @@ public class AwardFormService extends ComplaintService
     @Override
     public String getFormName()
     {
-        return GmsConstants.FORM_NAME_AWARD;
+        return GmsConstants.FORM_NAME_SUBMISSION;
     }
 
     @Override
     public Class<?> getFormClass()
     {
-        return AwardForm.class;
+        return SubmissionForm.class;
     }
 }

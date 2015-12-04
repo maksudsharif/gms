@@ -5,12 +5,14 @@
 
     <bean id="grantToSolrTransformer" class="com.arkcase.gms.transformer.GrantToSolrTransformer" parent="caseFileToSolrTransformer"/>
 
-    <bean id="awardToSolrTransformer" class="com.arkcase.gms.transformer.AwardToSolrTransformer" parent="complaintToSolrTransformer"/>
+    <bean id="submissionToSolrTransformer" class="com.arkcase.gms.transformer.SubmissionToSolrTransformer" parent="complaintToSolrTransformer"/>
 
     <bean id="decisionToSolrTransformer" class="com.arkcase.gms.transformer.DecisionToSolrTransformer" parent="dispositionToSolrTransformer"/>
 
     <bean id="costBudgetToSolrTransformer" class="com.arkcase.gms.transformer.CostBudgetToSolrTransformer" parent="costsheetToSolrTransformer"/>
 
     <bean id="costPaymentToSolrTransformer" class="com.arkcase.gms.transformer.CostPaymentToSolrTransformer" parent="costsheetToSolrTransformer"/>
+
+    <bean id="costsheetServiceExt" class="com.arkcase.gms.service.CostsheetServiceImpl" parent="costsheetService"/>
 
 </beans>

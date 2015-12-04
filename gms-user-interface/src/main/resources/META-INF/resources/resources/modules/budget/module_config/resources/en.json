@@ -1,19 +1,19 @@
 {
   "budget": {
     "title": "Budget",
-    "progressNoCostsheet": "[ No budget is selected ]",
-    "progressLoading": "Loading budget ",
-    "progressError": "Failed to load budget"
+    "progressNoCostsheet": "[ No budget sheet is selected ]",
+    "progressLoading": "Loading budget sheet ",
+    "progressError": "Failed to load budget sheet"
   },
   "budget.tree": {
   },
   "budget.comp.actions": {
-    "new.button": "New Budget",
-    "edit.button": "Edit Budget"
+    "new.button": "New Budget Sheet",
+    "edit.button": "Edit Budget Sheet"
   },
   "budget.comp.details": {
     "title": "Details",
-    "informSaved": "Budget details saved"
+    "informSaved": "Budget Sheet details saved"
   },
   "budget.comp.people": {
     "title": "Person",
@@ -22,13 +22,13 @@
       "userId": "Username"
     }
   },
-  "budget.comp.timesSummary": {
-    "title": "Budget Summary",
+  "budget.comp.summary": {
+    "title": "Cost Summary",
     "table.columns": {
       "parentId": "ID",
       "parentNumber": "Parent ID",
       "parentType": "Parent Type",
-      "value": "Total Budget",
+      "value": "Total Cost",
       "title": "Title",
       "description": "Description"
     }

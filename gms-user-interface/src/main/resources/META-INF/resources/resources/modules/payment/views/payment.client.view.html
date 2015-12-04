@@ -1,0 +1,27 @@
+<div ng-controller="PaymentController">
+	<div class="module-content">
+		<div class="left-sidebar">
+			<div class="module-header">
+				<h3>{{'payment.title' | translate}}</h3>
+			</div>
+
+			<div class="scroll-body" slimscroll="{height: '800px'}"
+				 ng-include="'modules/payment/views/payment-list.client.view.html'">
+			</div>
+		</div>
+
+		<section class="content-body" ng-show="paymentInfo">
+			<div class="clearfix well-sm">
+				<div ng-include="'modules/payment/views/components/payment-actions.client.view.html'"></div>
+			</div>
+
+			<div class="well-sm">
+				<div data-ui-view></div>
+			</div>
+		</section>
+
+		<section class="content-body" ng-hide="paymentInfo">
+			<div>{{progressMsg}}</div>
+		</section>
+	</div>
+</div>

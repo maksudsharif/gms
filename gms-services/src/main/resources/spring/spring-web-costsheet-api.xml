@@ -3,11 +3,8 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
 
-       <!-- Override task name when closing Submission -->
-       <bean id="closeComplaintTaskName" class="java.lang.String">
-              <constructor-arg>
-                     <value>Request to review Submission ID '%s'</value>
-              </constructor-arg>
-       </bean>
+	<bean id="getCostsheetsForUserAPIController" class="com.arkcase.gms.web.api.GetCostsheetsForUserAPIController">
+		<property name="costsheetService" ref="costsheetServiceExt"/>
+	</bean>
 
 </beans>
