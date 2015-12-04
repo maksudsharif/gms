@@ -13,4 +13,6 @@
 
     <bean id="costPaymentToSolrTransformer" class="com.arkcase.gms.transformer.CostPaymentToSolrTransformer" parent="costsheetToSolrTransformer"/>
 
+    <bean id="costsheetServiceExt" class="com.arkcase.gms.service.CostsheetServiceImpl" parent="costsheetService"/>
+
 </beans>

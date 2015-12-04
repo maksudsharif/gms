@@ -1,0 +1,176 @@
+{
+  "id": "payment",
+  "title": "Payment",
+  "menus": [
+    {
+      "menuId": "leftnav",
+      "menuItemURL": "payment",
+      "menuItemTitle": "Payment",
+      "iconClass": "fa fa-money",
+      "position": 120
+    },
+    {
+      "menuId": "topbar",
+      "menuItemURL": "newPaymentSheet",
+      "menuItemTitle": "Payment",
+      "iconClass": "fa fa-money",
+      "position": 50
+    }
+  ],
+  "tree": {
+    "pageSize": 32,
+    "sorters": [
+      {
+        "desc": "Sort Date Ascending",
+        "name": "create_tdt ASC",
+        "default": true
+      },
+      {
+        "desc": "Sort Date Decending",
+        "name": "create_tdt DESC"
+      },
+      {
+        "desc": "Sort Payment Sheet ID Ascending",
+        "name": "id ASC"
+      },
+      {
+        "desc": "Sort Payment Sheet ID Decending",
+        "name": "id DESC"
+      },
+      {
+        "desc": "Sort By Payment Sheet Name",
+        "name": "name DESC"
+      }
+    ],
+    "nodeTypes": [
+      {
+        "type": "prev",
+        "icon": "fa fa-arrow-up"
+      },
+      {
+        "type": "next",
+        "icon": "fa fa-arrow-down"
+      },
+      {
+        "type": "p/COSTSHEET",
+        "icon": "fa fa-money",
+        "components": [
+          "details",
+          "person",
+          "summary"
+        ]
+      },
+      {
+        "type": "p/COSTSHEET/detail",
+        "label": "Detail",
+        "components": [
+          "details"
+        ]
+      },
+      {
+        "type": "p/COSTSHEET/person",
+        "label": "Person",
+        "components": [
+          "person"
+        ]
+      },
+      {
+        "type": "p/COSTSHEET/summary",
+        "label": "Expenses",
+        "components": [
+          "summary"
+        ]
+      }
+    ]
+  },
+  "components": [
+    {
+      "id": "actions",
+      "title": "Actions",
+      "enabled": false,
+      "type": "empty",
+      "editable": false
+    },
+    {
+      "id": "details",
+      "title": "Details",
+      "enabled": true,
+      "type": "empty"
+    },
+    {
+      "id": "person",
+      "title": "Person",
+      "enabled": true,
+      "type": "grid",
+      "enableFiltering": true,
+      "paginationPageSizes": [
+        5,
+        10,
+        20,
+        50
+      ],
+      "paginationPageSize": 5,
+      "columnDefs": [
+        {
+          "name": "fullName",
+          "displayName": "payment.comp.people.table.columns.fullName",
+          "headerCellFilter": "translate"
+        },
+        {
+          "name": "userId",
+          "displayName": "payment.comp.people.table.columns.userId",
+          "headerCellFilter": "translate"
+        }
+      ]
+    },
+    {
+      "id": "summary",
+      "title": "Summary",
+      "enabled": true,
+      "type": "grid",
+      "enableFiltering": true,
+      "paginationPageSizes": [
+        5,
+        10,
+        20,
+        50
+      ],
+      "paginationPageSize": 5,
+      "columnDefs": [
+        {
+          "name": "parentId",
+          "displayName": "payment.comp.summary.table.columns.parentId",
+          "headerCellFilter": "translate",
+          "visible": false
+        },
+        {
+          "name": "parentNumber",
+          "displayName": "payment.comp.summary.table.columns.parentNumber",
+          "headerCellFilter": "translate",
+          "cellTemplate": "<a href='#' ng-click='grid.appScope.onClickObjectType($event, row.entity)'>{{row.entity.parentNumber}}</a>"
+        },
+        {
+          "name": "parentType",
+          "displayName": "payment.comp.summary.table.columns.parentType",
+          "headerCellFilter": "translate"
+        },
+        {
+          "name": "value",
+          "displayName": "payment.comp.summary.table.columns.value",
+          "headerCellFilter": "translate"
+        },
+        {
+          "name": "title",
+          "displayName": "payment.comp.summary.table.columns.title",
+          "headerCellFilter": "translate"
+        },
+        {
+          "name": "description",
+          "displayName": "payment.comp.summary.table.columns.description",
+          "headerCellFilter": "translate",
+          "cellTemplate": "<div class='ui-grid-cell-contents'>{{ row.entity.description || 'N/A' }}</div>"
+        }
+      ]
+    }
+  ]
+}
