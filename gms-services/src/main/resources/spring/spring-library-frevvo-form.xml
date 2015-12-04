@@ -28,6 +28,33 @@
 
     <bean id="submissionFormService" class="com.arkcase.gms.service.form.SubmissionFormService" parent="complaintService">
         <property name="complaintFactory" ref="submissionFactory"/>
+        <property name="applicationEventPublisher" ref="frevvoApplicationEventPublisher" />
+    </bean>
+
+    <bean id="reviewSubmissionTaskName" class="java.lang.String">
+        <constructor-arg>
+            <value>Evaluate submission '%s'</value>
+        </constructor-arg>
+    </bean>
+
+    <bean id="panelReviewSubmissionTaskName" class="java.lang.String">
+        <constructor-arg>
+            <value>Review Approved Submission '%s'</value>
+        </constructor-arg>
+    </bean>
+
+    <bean id="submissionWorkflowListener" class="com.arkcase.gms.service.form.SubmissionWorkflowListener">
+        <property name="fileWorkflowBusinessRule" ref="fileWorkflowBusinessRule"/>
+        <property name="activitiRuntimeService" ref="activitiRuntimeService"/>
+        <property name="reviewSubmissionTaskName" ref="reviewSubmissionTaskName"/>
+        <property name="defaultApproversString" value="${complaint.default.approvers}" />
+    </bean>
+
+    <bean id="submissionCompletedWorkflowListener" class="com.arkcase.gms.service.form.SubmissionCompletedWorkflowListener">
+        <property name="fileWorkflowBusinessRule" ref="fileWorkflowBusinessRule"/>
+        <property name="activitiRuntimeService" ref="activitiRuntimeService"/>
+        <property name="panelReviewSubmissionTaskName" ref="panelReviewSubmissionTaskName"/>
+        <property name="defaultApproversString" value="${complaint.default.panelReviewers}" />
     </bean>
 
     <!-- Review -->
