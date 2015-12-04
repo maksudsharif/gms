@@ -5,6 +5,7 @@ import com.armedia.acm.plugins.complaint.model.Complaint;
 import com.armedia.acm.plugins.ecm.model.EcmFile;
 import com.armedia.acm.plugins.ecm.service.impl.FileWorkflowBusinessRule;
 import com.armedia.acm.plugins.ecm.workflow.EcmFileWorkflowConfiguration;
+import com.armedia.acm.plugins.task.model.AcmApplicationTaskEvent;
 import com.armedia.acm.services.participants.model.AcmParticipant;
 import org.activiti.engine.RuntimeService;
 import org.activiti.engine.runtime.ProcessInstance;
@@ -70,6 +71,9 @@ public class SubmissionWorkflowListener implements ApplicationListener<Submissio
         pvars.put("OBJECT_ID", submissionCreatedEvent.getObjectId());
         pvars.put("OBJECT_NAME", submissionCreatedEvent.getComplaintNumber());
         pvars.put("COMPLAINT", submissionCreatedEvent.getObjectId());
+
+        // Keep track of amount of approvals
+        pvars.put("gms_approvalCount", 0);
 
         log.debug("starting process: " + processName);
         ProcessInstance pi = getActivitiRuntimeService().startProcessInstanceByKey(processName, pvars);
