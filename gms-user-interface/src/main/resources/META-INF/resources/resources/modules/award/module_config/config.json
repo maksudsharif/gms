@@ -1,0 +1,17 @@
+{
+    "id": "award",
+    "title": "Award",
+    "menus": [
+        
+        {
+            "menuId": "leftnav",
+            "menuItemURL": "award",
+            "menuItemTitle": "Award",
+            "iconClass": "glyphicon glyphicon-asterisk",
+            "position": 100
+        }
+        
+    ],
+    "components": [
+   ]
+}

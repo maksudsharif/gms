@@ -1,33 +1,30 @@
 {
-  "submissions": {
+  "complaints": {
     "title": "Submissions",
-    "progressNoComplaint": "[ No submission data ]",
-    "progressLoading": "Loading submission ",
-    "progressError": "Failed to load submission "
+    "progressNoComplaint": "[ No Submission data ]",
+    "progressLoading": "Loading Submission ",
+    "progressError": "Failed to load Submission "
   },
-  "submissions.comp.info": {
-    "complaintId": "Submission id:",
+  "complaints.comp.info": {
+    "complaintId": "Submission ID:",
     "complaintNumber": "Submission Number:",
     "courtRoomName": "Court Room Name:"
   },
-  "submissions.comp.actions": {
+  "complaints.comp.actions": {
     "restrict": "Restrict?",
-    "new.button": "New",
-    "edit.button": "Edit",
-    "status.button": "Change Submission Status",
-    "reinvestigate.button": "Reinvestigate",
+    "new.button": "New Submission",
+    "close.button": "Close Submission",
     "subscribe.button": "Subscribe",
-    "merge.button": "Merge",
-    "split.button": "Split"
+    "unsubscribe.button": "Unsubscribe"
   },
-  "submissions.comp.details": {
+  "complaints.comp.details": {
     "title": "Details",
     "informSaved": "Submission details saved"
   },
-  "submissions.comp.documents": {
+  "complaints.comp.documents": {
     "title": "Documents"
   },
-  "submissions.comp.people": {
+  "complaints.comp.people": {
     "title": "People",
     "table.columns": {
       "entity": "Entity",
@@ -85,14 +82,24 @@
       }
     }
   },
-  "submissions.comp.participants": {
+  "complaints.comp.participants": {
     "title": "Participants",
     "table.columns": {
       "type": "Type",
       "name": "Name"
     }
   },
-  "submissions.comp.notes": {
+  "complaints.comp.locations": {
+    "title": "Locations",
+    "table.columns": {
+      "address": "Address",
+      "type": "Type",
+      "city": "City",
+      "state": "State",
+      "zip": "Zip"
+    }
+  },
+  "complaints.comp.notes": {
     "title": "Notes",
     "table.columns": {
       "note": "Note",
@@ -100,7 +107,7 @@
       "creator": "Author"
     }
   },
-  "submissions.comp.tasks": {
+  "complaints.comp.tasks": {
     "title": "Tasks",
     "table.columns": {
       "taskId": "ID",
@@ -113,7 +120,7 @@
       "action": "Action"
     }
   },
-  "submissions.comp.references": {
+  "complaints.comp.references": {
     "title": "References",
     "table.columns": {
       "targetName": "Number",
@@ -123,7 +130,7 @@
       "status": "Status"
     }
   },
-  "submissions.comp.history": {
+  "complaints.comp.history": {
     "title": "History",
     "table.columns": {
       "eventType": "Event Name",
@@ -131,7 +138,7 @@
       "userId": "User"
     }
   },
-  "submissions.comp.correspondence": {
+  "complaints.comp.correspondence": {
     "title": "Correspondence",
     "table.columns": {
       "name": "Title",
@@ -139,29 +146,29 @@
       "creator": "Creator"
     }
   },
-  "submissions.comp.time": {
+  "complaints.comp.time": {
     "title": "Time",
     "table.columns": {
       "name": "Form Name",
       "user": "User",
-      "tally": "Total Payment",
+      "tally": "Total Hours",
       "modified": "Modified Date",
       "status": "Status"
     },
     "formNamePrefix": "Timesheet"
   },
-  "submissions.comp.cost": {
+  "complaints.comp.cost": {
     "title": "Cost",
     "table.columns": {
       "name": "Form Name",
       "user": "User",
-      "tally": "Total Budget",
+      "tally": "Total Cost",
       "modified": "Modified Date",
       "status": "Status"
     },
     "formNamePrefix": "Costsheet"
   },
-  "submissions.comp.calendar": {
+  "complaints.comp.calendar": {
     "title": "Calendar"
   }
 }

@@ -65,7 +65,7 @@ angular.module('dashboard.unawarded-grants', ['adf.provider'])
                     $scope.gridOptions.paginationPageSize = config.paginationPageSize;
                     paginationOptions.pageSize = config.paginationPageSize;
 
-                    Authentication.queryUserInfoNew().then(function (responseUserInfo) {
+                    Authentication.queryUserInfo().then(function (responseUserInfo) {
                         userInfo = responseUserInfo;
                         getPage();
                         return userInfo;

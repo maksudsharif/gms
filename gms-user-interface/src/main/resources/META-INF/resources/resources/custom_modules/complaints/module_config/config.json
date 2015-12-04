@@ -1,20 +1,20 @@
 {
-  "id": "submissions",
-  "title": "Submissions",
+  "id": "complaints",
+  "title": "Complaints",
   "menus": [
     {
       "menuId": "leftnav",
-      "menuItemURL": "submissions",
+      "menuItemURL": "complaints",
       "menuItemTitle": "Submissions",
       "iconClass": "fa fa-exclamation-triangle",
       "position": 40
     },
     {
       "menuId": "topbar",
-      "menuItemURL": "submissions",
-      "menuItemTitle": "New Submission",
+      "menuItemURL": "frevvo-new-complaint",
+      "menuItemTitle": "Submissions",
       "iconClass": "fa fa-exclamation-triangle",
-      "position": 20
+      "position": 10
     }
   ],
   "tree": {
@@ -118,9 +118,9 @@
           "references",
           "history",
           "correspondence",
-          "calendar",
           "time",
-          "cost"
+          "cost",
+          "calendar"
         ]
       },
       {
@@ -251,35 +251,34 @@
       "type": "grid",
       "enableFiltering": true,
       "paginationPageSizes": [
-        2,
         5,
         10,
         20,
         50
       ],
-      "paginationPageSize": 2,
+      "paginationPageSize": 5,
       "columnDefs": [
         {
           "name": "entity",
-          "displayName": "submissions.comp.people.table.columns.entity",
+          "displayName": "complaints.comp.people.table.columns.entity",
           "headerCellFilter": "translate"
         },
         {
           "name": "personType",
-          "displayName": "submissions.comp.people.table.columns.type",
+          "displayName": "complaints.comp.people.table.columns.type",
           "headerCellFilter": "translate",
           "lookup": "personTypes"
         },
         {
           "name": "firstName",
           "field": "person.givenName",
-          "displayName": "submissions.comp.people.table.columns.firstName",
+          "displayName": "complaints.comp.people.table.columns.firstName",
           "headerCellFilter": "translate"
         },
         {
           "name": "lastName",
           "field": "person.familyName",
-          "displayName": "submissions.comp.people.table.columns.lastName",
+          "displayName": "complaints.comp.people.table.columns.lastName",
           "headerCellFilter": "translate"
         }
       ],
@@ -288,33 +287,32 @@
         "title": "Contact Methods",
         "enableFiltering": true,
         "paginationPageSizes": [
-          2,
           5,
           10,
           20,
           50
         ],
-        "paginationPageSize": 2,
+        "paginationPageSize": 5,
         "columnDefs": [
           {
             "name": "type",
-            "displayName": "submissions.comp.people.contactMethods.table.columns.type",
+            "displayName": "complaints.comp.people.contactMethods.table.columns.type",
             "headerCellFilter": "translate",
             "lookup": "contactMethodTypes"
           },
           {
             "name": "value",
-            "displayName": "submissions.comp.people.contactMethods.table.columns.value",
+            "displayName": "complaints.comp.people.contactMethods.table.columns.value",
             "headerCellFilter": "translate"
           },
           {
             "name": "created",
-            "displayName": "submissions.comp.people.contactMethods.table.columns.created",
+            "displayName": "complaints.comp.people.contactMethods.table.columns.created",
             "headerCellFilter": "translate"
           },
           {
             "name": "creator",
-            "displayName": "submissions.comp.people.contactMethods.table.columns.creator",
+            "displayName": "complaints.comp.people.contactMethods.table.columns.creator",
             "headerCellFilter": "translate",
             "lookup": "userFullNames"
           }
@@ -335,24 +333,24 @@
           {
             "name": "type",
             "field": "organizationType",
-            "displayName": "submissions.comp.people.organizations.table.columns.type",
+            "displayName": "complaints.comp.people.organizations.table.columns.type",
             "headerCellFilter": "translate",
             "lookup": "organizationTypes"
           },
           {
             "name": "value",
             "field": "organizationValue",
-            "displayName": "submissions.comp.people.organizations.table.columns.value",
+            "displayName": "complaints.comp.people.organizations.table.columns.value",
             "headerCellFilter": "translate"
           },
           {
             "name": "created",
-            "displayName": "submissions.comp.people.organizations.table.columns.created",
+            "displayName": "complaints.comp.people.organizations.table.columns.created",
             "headerCellFilter": "translate"
           },
           {
             "name": "creator",
-            "displayName": "submissions.comp.people.organizations.table.columns.creator",
+            "displayName": "complaints.comp.people.organizations.table.columns.creator",
             "headerCellFilter": "translate",
             "lookup": "userFullNames"
           }
@@ -372,43 +370,43 @@
         "columnDefs": [
           {
             "name": "type",
-            "displayName": "submissions.comp.people.addresses.table.columns.type",
+            "displayName": "complaints.comp.people.addresses.table.columns.type",
             "headerCellFilter": "translate",
             "lookup": "addressTypes"
           },
           {
             "name": "streetAddress",
-            "displayName": "submissions.comp.people.addresses.table.columns.streetAddress",
+            "displayName": "complaints.comp.people.addresses.table.columns.streetAddress",
             "headerCellFilter": "translate"
           },
           {
             "name": "city",
-            "displayName": "submissions.comp.people.addresses.table.columns.city",
+            "displayName": "complaints.comp.people.addresses.table.columns.city",
             "headerCellFilter": "translate"
           },
           {
             "name": "state",
-            "displayName": "submissions.comp.people.addresses.table.columns.state",
+            "displayName": "complaints.comp.people.addresses.table.columns.state",
             "headerCellFilter": "translate"
           },
           {
             "name": "zip",
-            "displayName": "submissions.comp.people.addresses.table.columns.zip",
+            "displayName": "complaints.comp.people.addresses.table.columns.zip",
             "headerCellFilter": "translate"
           },
           {
             "name": "country",
-            "displayName": "submissions.comp.people.addresses.table.columns.country",
+            "displayName": "complaints.comp.people.addresses.table.columns.country",
             "headerCellFilter": "translate"
           },
           {
             "name": "created",
-            "displayName": "submissions.comp.people.addresses.table.columns.created",
+            "displayName": "complaints.comp.people.addresses.table.columns.created",
             "headerCellFilter": "translate"
           },
           {
             "name": "creator",
-            "displayName": "submissions.comp.people.addresses.table.columns.creator",
+            "displayName": "complaints.comp.people.addresses.table.columns.creator",
             "headerCellFilter": "translate",
             "lookup": "userFullNames"
           }
@@ -428,23 +426,23 @@
         "columnDefs": [
           {
             "name": "type",
-            "displayName": "submissions.comp.people.aliases.table.columns.type",
+            "displayName": "complaints.comp.people.aliases.table.columns.type",
             "headerCellFilter": "translate",
             "lookup": "aliasTypes"
           },
           {
             "name": "value",
-            "displayName": "submissions.comp.people.aliases.table.columns.value",
+            "displayName": "complaints.comp.people.aliases.table.columns.value",
             "headerCellFilter": "translate"
           },
           {
             "name": "created",
-            "displayName": "submissions.comp.people.aliases.table.columns.created",
+            "displayName": "complaints.comp.people.aliases.table.columns.created",
             "headerCellFilter": "translate"
           },
           {
             "name": "creator",
-            "displayName": "submissions.comp.people.aliases.table.columns.creator",
+            "displayName": "complaints.comp.people.aliases.table.columns.creator",
             "headerCellFilter": "translate",
             "lookup": "userFullNames"
           }
@@ -464,23 +462,23 @@
         "columnDefs": [
           {
             "name": "type",
-            "displayName": "submissions.comp.people.securityTags.table.columns.type",
+            "displayName": "complaints.comp.people.securityTags.table.columns.type",
             "headerCellFilter": "translate",
             "lookup": "securityTagTypes"
           },
           {
             "name": "value",
-            "displayName": "submissions.comp.people.securityTags.table.columns.value",
+            "displayName": "complaints.comp.people.securityTags.table.columns.value",
             "headerCellFilter": "translate"
           },
           {
             "name": "created",
-            "displayName": "submissions.comp.people.securityTags.table.columns.created",
+            "displayName": "complaints.comp.people.securityTags.table.columns.created",
             "headerCellFilter": "translate"
           },
           {
             "name": "creator",
-            "displayName": "submissions.comp.people.securityTags.table.columns.creator",
+            "displayName": "complaints.comp.people.securityTags.table.columns.creator",
             "headerCellFilter": "translate",
             "lookup": "userFullNames"
           }
@@ -494,23 +492,22 @@
       "type": "grid",
       "enableFiltering": true,
       "paginationPageSizes": [
-        2,
         5,
         10,
         20,
         50
       ],
-      "paginationPageSize": 2,
+      "paginationPageSize": 5,
       "columnDefs": [
         {
           "name": "participantType",
-          "displayName": "submissions.comp.participants.table.columns.type",
+          "displayName": "complaints.comp.participants.table.columns.type",
           "headerCellFilter": "translate",
           "lookup": "participantTypes"
         },
         {
           "name": "participantLdapId",
-          "displayName": "submissions.comp.participants.table.columns.name",
+          "displayName": "complaints.comp.participants.table.columns.name",
           "headerCellFilter": "translate",
           "lookup": "participantNames"
         }
@@ -521,27 +518,35 @@
       "title": "Locations",
       "enabled": true,
       "type": "grid",
-      "enableFiltering": true,
-      "paginationPageSizes": [
-        2,
-        5,
-        10,
-        20,
-        50
-      ],
-      "paginationPageSize": 2,
+      "enableFiltering": false,
+      "enableSorting": false,
       "columnDefs": [
         {
-          "name": "participantType",
-          "displayName": "submissions.comp.participants.table.columns.type",
-          "headerCellFilter": "translate",
-          "lookup": "participantTypes"
+          "name": "address",
+          "field": "streetAddress",
+          "displayName": "complaints.comp.locations.table.columns.address",
+          "headerCellFilter": "translate"
         },
         {
-          "name": "participantLdapId",
-          "displayName": "submissions.comp.participants.table.columns.name",
+          "name": "type",
+          "displayName": "complaints.comp.locations.table.columns.type",
           "headerCellFilter": "translate",
-          "lookup": "participantNames"
+          "lookup": "addressTypes"
+        },
+        {
+          "name": "city",
+          "displayName": "complaints.comp.locations.table.columns.city",
+          "headerCellFilter": "translate"
+        },
+        {
+          "name": "state",
+          "displayName": "complaints.comp.locations.table.columns.state",
+          "headerCellFilter": "translate"
+        },
+        {
+          "name": "zip",
+          "displayName": "complaints.comp.locations.table.columns.zip",
+          "headerCellFilter": "translate"
         }
       ]
     },
@@ -552,29 +557,29 @@
       "type": "grid",
       "enableFiltering": true,
       "paginationPageSizes": [
-        2,
+
         5,
         10,
         20,
         50
       ],
-      "paginationPageSize": 2,
+      "paginationPageSize": 5,
       "columnDefs": [
         {
           "name": "note",
-          "displayName": "submissions.comp.notes.table.columns.note",
+          "displayName": "complaints.comp.notes.table.columns.note",
           "headerCellFilter": "translate"
         },
         {
           "name": "created",
-          "displayName": "submissions.comp.notes.table.columns.created",
+          "displayName": "complaints.comp.notes.table.columns.created",
           "headerCellFilter": "translate",
           "cellTemplate": "<div>{{ row.entity.created | date : 'medium'}}</div>",
           "enableCellEdit": false
         },
         {
           "name": "creator",
-          "displayName": "submissions.comp.notes.table.columns.creator",
+          "displayName": "complaints.comp.notes.table.columns.creator",
           "headerCellFilter": "translate",
           "enableCellEdit": false,
           "lookup": "userFullNames"
@@ -598,51 +603,51 @@
         {
           "name": "taskId",
           "field": "object_id_s",
-          "displayName": "submissions.comp.tasks.table.columns.taskId",
+          "displayName": "complaints.comp.tasks.table.columns.taskId",
           "headerCellFilter": "translate"
         },
         {
           "name": "title",
           "field": "title_parseable",
-          "displayName": "submissions.comp.tasks.table.columns.title",
+          "displayName": "complaints.comp.tasks.table.columns.title",
           "headerCellFilter": "translate"
         },
         {
           "name": "assignee",
           "field": "assignee_s",
-          "displayName": "submissions.comp.tasks.table.columns.assignee",
+          "displayName": "complaints.comp.tasks.table.columns.assignee",
           "headerCellFilter": "translate",
           "lookup": "userFullNames"
         },
         {
           "name": "created",
           "field": "create_tdt",
-          "displayName": "submissions.comp.tasks.table.columns.created",
+          "displayName": "complaints.comp.tasks.table.columns.created",
           "headerCellFilter": "translate",
           "cellTemplate": "<div>{{ row.entity.create_tdt | date : 'medium'}}</div>"
         },
         {
           "name": "priority",
           "field": "priority_s",
-          "displayName": "submissions.comp.tasks.table.columns.priority",
+          "displayName": "complaints.comp.tasks.table.columns.priority",
           "headerCellFilter": "translate"
         },
         {
           "name": "due",
           "field": "due_tdt",
-          "displayName": "submissions.comp.tasks.table.columns.due",
+          "displayName": "complaints.comp.tasks.table.columns.due",
           "headerCellFilter": "translate",
           "cellTemplate": "<div>{{ row.entity.due_tdt | date : 'medium'}}</div>"
         },
         {
           "name": "status",
           "field": "status_s",
-          "displayName": "submissions.comp.tasks.table.columns.status",
+          "displayName": "complaints.comp.tasks.table.columns.status",
           "headerCellFilter": "translate"
         },
         {
           "name": "action",
-          "displayName": "submissions.comp.tasks.table.columns.action",
+          "displayName": "complaints.comp.tasks.table.columns.action",
           "headerCellFilter": "translate",
           "lookup": "taskOutcomes"
         }
@@ -664,30 +669,30 @@
       "columnDefs": [
         {
           "name": "targetName",
-          "displayName": "submissions.comp.references.table.columns.targetName",
+          "displayName": "complaints.comp.references.table.columns.targetName",
           "headerCellFilter": "translate",
           "cellTemplate": "<a href='#' ng-click='grid.appScope.onClickObjLink($event, row.entity)'>{{row.entity.targetName}}</a>"
         },
         {
           "name": "targetTitle",
-          "displayName": "submissions.comp.references.table.columns.targetTitle",
+          "displayName": "complaints.comp.references.table.columns.targetTitle",
           "headerCellFilter": "translate",
           "cellTemplate": "<a href='#' ng-click='grid.appScope.onClickObjLink($event, row.entity)'>{{row.entity.targetTitle}}</a>"
         },
         {
           "name": "modified",
-          "displayName": "submissions.comp.references.table.columns.modified",
+          "displayName": "complaints.comp.references.table.columns.modified",
           "headerCellFilter": "translate",
           "cellTemplate": "<div>{{ row.entity.modified | date : 'medium'}}</div>"
         },
         {
           "name": "targetType",
-          "displayName": "submissions.comp.references.table.columns.targetType",
+          "displayName": "complaints.comp.references.table.columns.targetType",
           "headerCellFilter": "translate"
         },
         {
           "name": "status",
-          "displayName": "submissions.comp.references.table.columns.status",
+          "displayName": "complaints.comp.references.table.columns.status",
           "headerCellFilter": "translate"
         }
       ]
@@ -708,18 +713,18 @@
       "columnDefs": [
         {
           "name": "eventType",
-          "displayName": "submissions.comp.history.table.columns.eventType",
+          "displayName": "complaints.comp.history.table.columns.eventType",
           "headerCellFilter": "translate"
         },
         {
           "name": "eventDate",
-          "displayName": "submissions.comp.history.table.columns.eventDate",
+          "displayName": "complaints.comp.history.table.columns.eventDate",
           "headerCellFilter": "translate",
           "cellTemplate": "<div>{{ row.entity.eventDate | date : 'medium'}}</div>"
         },
         {
           "name": "userId",
-          "displayName": "submissions.comp.history.table.columns.userId",
+          "displayName": "complaints.comp.history.table.columns.userId",
           "headerCellFilter": "translate",
           "lookup": "userFullNames"
         }
@@ -741,20 +746,20 @@
       "columnDefs": [
         {
           "name": "name",
-          "displayName": "submissions.comp.correspondence.table.columns.name",
+          "displayName": "complaints.comp.correspondence.table.columns.name",
           "headerCellFilter": "translate",
           "cellTemplate": "<a href='#' ng-click='grid.appScope.onClickObjLink($event, row.entity)'>{{row.entity.name}}</a>"
         },
         {
           "name": "created",
-          "displayName": "submissions.comp.correspondence.table.columns.created",
+          "displayName": "complaints.comp.correspondence.table.columns.created",
           "headerCellFilter": "translate",
           "cellTemplate": "<div>{{ row.entity.created | date : 'medium'}}</div>",
           "enableCellEdit": false
         },
         {
           "name": "creator",
-          "displayName": "submissions.comp.correspondence.table.columns.creator",
+          "displayName": "complaints.comp.correspondence.table.columns.creator",
           "headerCellFilter": "translate",
           "enableCellEdit": false,
           "lookup": "userFullNames"
@@ -768,41 +773,40 @@
       "type": "grid",
       "enableFiltering": true,
       "paginationPageSizes": [
-        2,
         5,
         10,
         20,
         50
       ],
-      "paginationPageSize": 2,
+      "paginationPageSize": 5,
       "columnDefs": [
         {
           "name": "name",
-          "displayName": "submissions.comp.time.table.columns.name",
+          "displayName": "complaints.comp.time.table.columns.name",
           "headerCellFilter": "translate"
         },
         {
           "name": "user",
           "field": "user.fullName",
-          "displayName": "submissions.comp.time.table.columns.user",
+          "displayName": "complaints.comp.time.table.columns.user",
           "headerCellFilter": "translate"
         },
         {
           "name": "tally",
-          "displayName": "submissions.comp.time.table.columns.tally",
+          "displayName": "complaints.comp.time.table.columns.tally",
           "headerCellFilter": "translate"
         },
         {
           "name": "modified",
           "field": "modified",
-          "displayName": "submissions.comp.time.table.columns.modified",
+          "displayName": "complaints.comp.time.table.columns.modified",
           "headerCellFilter": "translate",
           "cellTemplate": "<div>{{ row.entity.modified | date : 'medium'}}</div>"
         },
         {
           "name": "status",
           "field": "status",
-          "displayName": "submissions.comp.time.table.columns.status",
+          "displayName": "complaints.comp.time.table.columns.status",
           "headerCellFilter": "translate"
         }
       ]
@@ -823,31 +827,31 @@
       "columnDefs": [
         {
           "name": "name",
-          "displayName": "submissions.comp.cost.table.columns.name",
+          "displayName": "complaints.comp.cost.table.columns.name",
           "headerCellFilter": "translate"
         },
         {
           "name": "user",
           "field": "user.fullName",
-          "displayName": "submissions.comp.cost.table.columns.user",
+          "displayName": "complaints.comp.cost.table.columns.user",
           "headerCellFilter": "translate"
         },
         {
           "name": "tally",
-          "displayName": "submissions.comp.cost.table.columns.tally",
+          "displayName": "complaints.comp.cost.table.columns.tally",
           "headerCellFilter": "translate"
         },
         {
           "name": "modified",
           "field": "modified",
-          "displayName": "submissions.comp.cost.table.columns.modified",
+          "displayName": "complaints.comp.cost.table.columns.modified",
           "headerCellFilter": "translate",
           "cellTemplate": "<div>{{ row.entity.modified | date : 'medium'}}</div>"
         },
         {
           "name": "status",
           "field": "status",
-          "displayName": "submissions.comp.cost.table.columns.status",
+          "displayName": "complaints.comp.cost.table.columns.status",
           "headerCellFilter": "translate"
         }
       ]
