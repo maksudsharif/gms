@@ -13,43 +13,6 @@
 
   "components": [
     {
-      "id": "unawardedGrants",
-      "title": "Un-Awarded Grants",
-      "enableFiltering": false,
-      "paginationPageSizes": [25, 50, 75],
-      "paginationPageSize": 25,
-      "columnDefs": [
-        {
-          "name": "object_id_s",
-          "displayName": "dashboard.widgets.myCases.table.header.id",
-          "headerCellFilter": "translate",
-          "enableSorting": true,
-          "cellTemplate": "<div class='ui-grid-cell-contents'><a ui-sref='order-info({orderId: row.entity.object_id_s})'>{{COL_FIELD CUSTOM_FILTERS}}</a></div>",
-          "width": 130
-        },
-        {
-          "name": "name",
-          "displayName": "dashboard.widgets.myCases.table.header.grantName",
-          "headerCellFilter": "translate",
-          "enableSorting": true
-        },
-        {
-          "name": "amount_total_s",
-          "displayName": "dashboard.widgets.myCases.table.header.amountTotal",
-          "headerCellFilter": "translate",
-          "enableSorting": true,
-          "width": 150
-        },
-        {
-          "name": "amount_remaining_s",
-          "displayName": "dashboard.widgets.myCases.table.header.amountRemaining",
-          "headerCellFilter": "translate",
-          "enableSorting": true,
-          "width": 70
-        }
-      ]
-    },
-    {
       "id": "awardedGrants",
       "title": "Awarded Grants",
       "enableFiltering": false,
@@ -58,22 +21,59 @@
       "columnDefs": [
         {
           "name": "object_id_s",
-          "displayName": "dashboard.widgets.myCases.table.header.id",
+          "displayName": "dashboard.widgets.awardedGrants.table.header.id",
           "headerCellFilter": "translate",
           "enableSorting": true,
-          "cellTemplate": "<div class='ui-grid-cell-contents'><a ui-sref='order-info({orderId: row.entity.object_id_s})'>{{COL_FIELD CUSTOM_FILTERS}}</a></div>",
+          "cellTemplate": "<a href='#' ng-click='grid.appScope.onClickObjectType($event, row.entity)'>{{row.entity.parentNumber}}</a>",
           "width": 130
         },
         {
           "name": "name",
-          "displayName": "dashboard.widgets.myCases.table.header.grantName",
+          "displayName": "dashboard.widgets.awardedGrants.table.header.grantName",
+          "headerCellFilter": "translate",
+          "enableSorting": true
+        },
+        {
+          "name": "amount_total_s",
+          "displayName": "dashboard.widgets.awardedGrants.table.header.amountTotal",
+          "headerCellFilter": "translate",
+          "enableSorting": true,
+          "width": 150
+        },
+        {
+          "name": "amount_remaining_s",
+          "displayName": "dashboard.widgets.awardedGrants.table.header.amountRemaining",
+          "headerCellFilter": "translate",
+          "enableSorting": true,
+          "width": 70
+        }
+      ]
+    },
+    {
+      "id": "unawardedGrants",
+      "title": "Un-Awarded Grants",
+      "enableFiltering": false,
+      "paginationPageSizes": [25, 50, 75],
+      "paginationPageSize": 25,
+      "columnDefs": [
+        {
+          "name": "object_id_s",
+          "displayName": "dashboard.widgets.unawardedGrants.table.header.id",
+          "headerCellFilter": "translate",
+          "enableSorting": true,
+          "cellTemplate": "<a href='#' ng-click='grid.appScope.onClickObjectType($event, row.entity)'>{{row.entity.parentNumber}}</a>",
+          "width": 130
+        },
+        {
+          "name": "name",
+          "displayName": "dashboard.widgets.unawardedGrants.table.header.grantName",
           "headerCellFilter": "translate",
           "enableSorting": true,
           "width": 150
         },
         {
           "name": "number_of_submissions_s",
-          "displayName": "dashboard.widgets.myCases.table.header.numberOfSubmissions",
+          "displayName": "dashboard.widgets.unawardedGrants.table.header.numberOfSubmissions",
           "headerCellFilter": "translate",
           "enableSorting": true,
           "width": 150

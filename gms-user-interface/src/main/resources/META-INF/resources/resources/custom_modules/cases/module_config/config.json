@@ -1,6 +1,6 @@
 {
   "id": "cases",
-  "title": "Cases",
+  "title": "Unawarded Grants",
   "menus": [
     {
       "menuId": "leftnav",
@@ -11,7 +11,7 @@
     },
     {
       "menuId": "topbar",
-      "menuItemURL": "frevvo-new-case",
+      "menuItemURL": "newCase",
       "menuItemTitle": "Unawarded Grants",
       "iconClass": "fa fa-folder",
       "position": 20
