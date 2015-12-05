@@ -75,6 +75,7 @@
                 <entry key="review" value-ref="reviewFormService"/>
                 <entry key="costsheet_budget" value-ref="costBudgetService"/>
                 <entry key="costsheet_payment" value-ref="costPamentService"/>
+                <entry key="plain" value-ref="plainFormService"/>
             </map>
         </constructor-arg>
     </bean>
