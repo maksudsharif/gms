@@ -9,7 +9,7 @@ import com.armedia.acm.plugins.complaint.model.ComplaintCreatedEvent;
  */
 public class SubmissionCreatedEvent extends ComplaintCreatedEvent {
 
-    private static final String EVENT_TYPE = "com.armedia.gms.submission.created";
+    private static final String EVENT_TYPE = "com.arkcase.gms.submission.created";
     private FrevvoUploadedFiles frevvoUploadedFiles;
 
     public SubmissionCreatedEvent(Complaint source, FrevvoUploadedFiles files, String ipAddress, boolean succeeded) {
