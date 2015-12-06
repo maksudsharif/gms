@@ -7,7 +7,7 @@
       "menuItemURL": "complaints",
       "menuItemTitle": "Submissions",
       "iconClass": "fa fa-exclamation-triangle",
-      "position": 40
+      "position": 50
     },
     {
       "menuId": "topbar",
