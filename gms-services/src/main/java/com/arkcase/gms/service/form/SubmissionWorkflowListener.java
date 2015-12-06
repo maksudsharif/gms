@@ -31,7 +31,7 @@ public class SubmissionWorkflowListener implements ApplicationListener<Submissio
     @Override
     public void onApplicationEvent(SubmissionCreatedEvent submissionCreatedEvent) {
         String eventType = submissionCreatedEvent.getEventType();
-        if("com.armedia.acm.submission.created".equals(eventType)) {
+        if("com.armedia.gms.submission.created".equals(eventType)) {
             handleNewComplaintCreated(submissionCreatedEvent);
         }
     }
