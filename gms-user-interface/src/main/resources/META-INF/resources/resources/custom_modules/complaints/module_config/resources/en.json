@@ -13,7 +13,7 @@
   "complaints.comp.actions": {
     "restrict": "Restrict?",
     "new.button": "New Submission",
-    "close.button": "Close Submission",
+    "close.button": "Review",
     "subscribe.button": "Subscribe",
     "unsubscribe.button": "Unsubscribe"
   },
