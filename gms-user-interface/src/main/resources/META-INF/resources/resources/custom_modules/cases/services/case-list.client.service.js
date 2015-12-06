@@ -40,7 +40,7 @@ angular.module('services').factory('Case.ListService', ['$resource', '$translate
             var treeData = cacheCaseList.get(cacheKey);
 
             var param = {};
-            param.objectType = "CASE_FILE";
+            param.objectType = "CASE_FILE AND object_sub_type_s:GRANT AND grant_type_s:UNAWARDED_GRANT";
             param.searchQuery= ""
             param.start = start;
             param.n = n;
