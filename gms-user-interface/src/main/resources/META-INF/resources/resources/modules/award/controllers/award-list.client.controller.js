@@ -34,7 +34,7 @@ angular.module('award').controller('AwardListController', ['$scope', '$state', '
             $scope.$emit('req-select-award', selectedCase);
             var components = Util.goodArray(selectedCase.components);
             var componentType = (1 == components.length) ? components[0] : "main";
-            $state.go('award' + componentType, {
+            $state.go('award.' + componentType, {
                 id: selectedCase.nodeId
             });
         };

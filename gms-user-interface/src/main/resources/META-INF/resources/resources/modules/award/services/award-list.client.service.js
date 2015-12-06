@@ -16,7 +16,7 @@ angular.module('services').factory('Award.ListService', ['$resource', '$translat
 
         Service.SessionCacheNames = {};
         Service.CacheNames = {
-            CASE_LIST: "CaseList"
+            AWARD_LIST: "AwardList"
         };
 
         /**
@@ -35,7 +35,7 @@ angular.module('services').factory('Award.ListService', ['$resource', '$translat
          * @returns {Object} Promise
          */
         Service.queryCasesTreeData = function (start, n, sort, filters) {
-            var cacheCaseList = new Store.CacheFifo(Service.CacheNames.CASE_LIST);
+            var cacheCaseList = new Store.CacheFifo(Service.CacheNames.AWARD_LIST);
             var cacheKey = start + "." + n + "." + sort + "." + filters;
             var treeData = cacheCaseList.get(cacheKey);
 
