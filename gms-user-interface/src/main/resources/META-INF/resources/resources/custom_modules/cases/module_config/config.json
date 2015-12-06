@@ -7,7 +7,7 @@
       "menuItemURL": "cases",
       "menuItemTitle": "Unawarded Grants",
       "iconClass": "fa fa-folder",
-      "position": 50
+      "position": 40
     },
     {
       "menuId": "topbar",
