@@ -14,7 +14,7 @@
       "menuItemURL": "newBudgetSheet",
       "menuItemTitle": "Budget",
       "iconClass": "fa fa-money",
-      "position": 50
+      "position": 70
     }
   ],
   "tree": {

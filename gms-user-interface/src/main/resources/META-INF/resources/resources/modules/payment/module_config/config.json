@@ -14,7 +14,7 @@
       "menuItemURL": "newPaymentSheet",
       "menuItemTitle": "Payment",
       "iconClass": "fa fa-money",
-      "position": 50
+      "position": 80
     }
   ],
   "tree": {
