@@ -24,7 +24,7 @@
           "displayName": "dashboard.widgets.awardedGrants.table.header.id",
           "headerCellFilter": "translate",
           "enableSorting": true,
-          "cellTemplate": "<a href='#' ng-click='grid.appScope.onClickObjectType($event, row.entity)'>{{row.entity.parentNumber}}</a>",
+          "cellTemplate": "<a href='#' ng-click='grid.appScope.onClickObjectType($event, row.entity)'>{{row.entity.object_id_s}}</a>",
           "width": 130
         },
         {
@@ -32,20 +32,6 @@
           "displayName": "dashboard.widgets.awardedGrants.table.header.grantName",
           "headerCellFilter": "translate",
           "enableSorting": true
-        },
-        {
-          "name": "amount_total_s",
-          "displayName": "dashboard.widgets.awardedGrants.table.header.amountTotal",
-          "headerCellFilter": "translate",
-          "enableSorting": true,
-          "width": 150
-        },
-        {
-          "name": "amount_remaining_s",
-          "displayName": "dashboard.widgets.awardedGrants.table.header.amountRemaining",
-          "headerCellFilter": "translate",
-          "enableSorting": true,
-          "width": 70
         }
       ]
     },
@@ -61,19 +47,12 @@
           "displayName": "dashboard.widgets.unawardedGrants.table.header.id",
           "headerCellFilter": "translate",
           "enableSorting": true,
-          "cellTemplate": "<a href='#' ng-click='grid.appScope.onClickObjectType($event, row.entity)'>{{row.entity.parentNumber}}</a>",
+          "cellTemplate": "<a href='#' ng-click='grid.appScope.onClickObjectType($event, row.entity)'>{{row.entity.object_id_s}}</a>",
           "width": 130
         },
         {
           "name": "name",
           "displayName": "dashboard.widgets.unawardedGrants.table.header.grantName",
-          "headerCellFilter": "translate",
-          "enableSorting": true,
-          "width": 150
-        },
-        {
-          "name": "number_of_submissions_s",
-          "displayName": "dashboard.widgets.unawardedGrants.table.header.numberOfSubmissions",
           "headerCellFilter": "translate",
           "enableSorting": true,
           "width": 150
