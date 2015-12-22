@@ -58,7 +58,7 @@ angular.module('award').controller('AwardController', ['$scope', '$stateParams',
                 if ($scope.caseInfo && $scope.caseInfo.id != id) {
                     $scope.caseInfo = null;
                 }
-                $scope.progressMsg = $translate.instant("cases.progressLoading") + " " + id + "...";
+                $scope.progressMsg = $translate.instant("award.progressLoading") + " " + id + "...";
 
                 CaseInfoService.getCaseInfo(id).then(
                     function (caseInfo) {
@@ -69,7 +69,7 @@ angular.module('award').controller('AwardController', ['$scope', '$stateParams',
                     }
                     , function (error) {
                         $scope.caseInfo = null;
-                        $scope.progressMsg = $translate.instant("cases.progressError") + " " + id;
+                        $scope.progressMsg = $translate.instant("award.progressError") + " " + id;
                         return error;
                     }
                 );

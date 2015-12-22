@@ -24,7 +24,7 @@ angular.module('award').controller('Award.CostController', ['$scope', '$statePar
                 function (costsheets) {
                     promiseConfig.then(function (config) {
                         for (var i = 0; i < costsheets.length; i++) {
-                            costsheets[i].acm$_formName = $translate.instant("cases.comp.cost.formNamePrefix") + " " + Util.goodValue(costsheets[i].parentNumber);
+                            costsheets[i].acm$_formName = $translate.instant("award.comp.cost.formNamePrefix") + " " + Util.goodValue(costsheets[i].parentNumber);
                             costsheets[i].acm$_costs = _.reduce(Util.goodArray(costsheets[i].costs), function (total, n) {
                                 return total + Util.goodValue(n.value, 0);
                             }, 0);
