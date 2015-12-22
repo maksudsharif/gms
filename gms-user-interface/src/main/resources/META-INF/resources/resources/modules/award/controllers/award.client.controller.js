@@ -1,25 +1,50 @@
 'use strict';
 
-angular.module('award').controller('AwardController', ['$scope', '$stateParams', '$translate', 'UtilService', 'ConfigService', 'Case.InfoService',
-    function ($scope, $stateParams, $translate, Util, ConfigService, CaseInfoService) {
+angular.module('award').controller('AwardController', ['$scope', '$stateParams', '$state', '$translate'
+    , 'UtilService', 'ConfigService', 'Case.InfoService', 'ObjectService', 'Helper.ObjectTreeService'
+    , function ($scope, $stateParams, $state, $translate
+        , Util, ConfigService, CaseInfoService, ObjectService, HelperObjectTreeService) {
+
         var promiseGetModuleConfig = ConfigService.getModuleConfig("award").then(function (config) {
             $scope.config = config;
+            $scope.componentLinks = HelperObjectTreeService.createComponentLinks(config, ObjectService.ObjectTypes.CASE_FILE);
+            $scope.activeLinkId = "main";
             return config;
         });
         $scope.$on('req-component-config', function (e, componentId) {
             promiseGetModuleConfig.then(function (config) {
                 var componentConfig = _.find(config.components, {id: componentId});
                 $scope.$broadcast('component-config', componentId, componentConfig);
+                return config;
             });
         });
         $scope.$on('report-award-updated', function (e, caseInfo) {
             CaseInfoService.updateCaseInfo(caseInfo);
-            $scope.$broadcast('award-updated', caseInfo);
+            $scope.$broadcast('case-updated', caseInfo);
         });
 
+        $scope.$on('req-select-award', function (e, selectedCase) {
+            var components = Util.goodArray(selectedCase.components);
+            $scope.activeLinkId = (1 == components.length) ? components[0] : "main";
+        });
 
+        $scope.getActive = function (linkId) {
+            return ($scope.activeLinkId == linkId) ? "active" : ""
+        };
 
-        $scope.progressMsg = $translate.instant("cases.progressNoCase");
+        $scope.onClickComponentLink = function (linkId) {
+            $scope.activeLinkId = linkId;
+            $state.go('award.' + linkId, {
+                id: $stateParams.id
+            });
+        };
+
+        $scope.linksShown = false;
+        $scope.toggleShowLinks = function () {
+            $scope.linksShown = !$scope.linksShown;
+        };
+
+        $scope.progressMsg = $translate.instant("award.progressNoCase");
         $scope.$on('req-select-award', function (e, selectedCase) {
             $scope.$broadcast('award-selected', selectedCase);
 
@@ -52,5 +77,5 @@ angular.module('award').controller('AwardController', ['$scope', '$stateParams',
         };
 
         loadCase($stateParams.id);
-	}
+    }
 ]);
