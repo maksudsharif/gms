@@ -1,17 +1,15 @@
 'use strict';
 
 angular.module('award').controller('Award.DocumentsController', ['$scope', '$stateParams', '$modal'
-    , 'UtilService', 'ObjectService', 'Object.LookupService', 'Case.InfoService'
-    , function ($scope, $stateParams, $modal, Util, ObjectService, ObjectLookupService, CaseInfoService) {
+    , 'UtilService', 'ConfigService', 'ObjectService', 'Object.LookupService', 'Case.InfoService'
+    , function ($scope, $stateParams, $modal, Util, ConfigService, ObjectService, ObjectLookupService, CaseInfoService) {
 
-		$scope.$emit('req-component-config', 'documents');
-        $scope.$on('component-config', function (e, componentId, config) {
-            if ('documents' == componentId) {
-                $scope.config = config;
-            }
+        ConfigService.getComponentConfig("award", "documents").then(function (componentConfig) {
+            $scope.config = componentConfig;
+            return componentConfig;
         });
 
-        ObjectLookupService.getFormTypes().then(
+        ObjectLookupService.getFormTypes(ObjectService.ObjectTypes.CASE_FILE).then(
             function (formTypes) {
                 $scope.fileTypes = $scope.fileTypes || [];
                 $scope.fileTypes = $scope.fileTypes.concat(Util.goodArray(formTypes));
@@ -29,11 +27,10 @@ angular.module('award').controller('Award.DocumentsController', ['$scope', '$sta
 
         $scope.objectType = ObjectService.ObjectTypes.CASE_FILE;
         $scope.objectId = $stateParams.id;
-        //$scope.containerId = 0;
-        $scope.$on('award-updated', function (e, data) {
-            if (CaseInfoService.validateCaseInfo(data)) {
-                $scope.caseInfo = data;
-            }
+
+        CaseInfoService.getCaseInfo($stateParams.id).then(function (caseInfo) {
+            $scope.caseInfo = caseInfo;
+            return caseInfo;
         });
 
         var silentReplace = function (value, replace, replacement) {
@@ -58,8 +55,9 @@ angular.module('award').controller('Award.DocumentsController', ['$scope', '$sta
                         if (!Util.isEmpty(urlParameters[i].defaultValue)) {
                             value = silentReplace(urlParameters[i].defaultValue, "'", "_0027_");
                         } else if (!Util.isEmpty(urlParameters[i].keyValue)) {
-                            if (!Util.isEmpty($scope.caseInfo[urlParameters[i].keyValue])) {
-                                value = silentReplace($scope.caseInfo[urlParameters[i].keyValue], "'", "_0027_");
+                            var _value = _.get($scope.caseInfo, urlParameters[i].keyValue)
+                            if (!Util.isEmpty(_value)) {
+                                value = silentReplace(_value, "'", "_0027_");
                             }
                         }
                         value = encodeURIComponent(value);
@@ -73,5 +71,5 @@ angular.module('award').controller('Award.DocumentsController', ['$scope', '$sta
                 }
             }
         }
-	}
+    }
 ]);

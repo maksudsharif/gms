@@ -14,7 +14,7 @@
       "menuItemURL": "frevvo-new-complaint",
       "menuItemTitle": "Submissions",
       "iconClass": "fa fa-exclamation-triangle",
-      "position": 10
+      "position": 20
     }
   ],
   "tree": {
@@ -70,8 +70,8 @@
       },
       {
         "desc": "Sort Incident Date Desc",
-        "name": "sort-incident-date-asc",
-        "value": "due_tdt ASC"
+        "name": "sort-incident-date-desc",
+        "value": "due_tdt Desc"
       },
       {
         "desc": "Sort Created Date Asc",
@@ -81,7 +81,8 @@
       {
         "desc": "Sort Created Date Desc",
         "name": "sort-created-date-desc",
-        "value": "create_tdt DESC"
+        "value": "create_tdt DESC",
+        "default": true
       },
       {
         "desc": "Sort By Name",
@@ -91,8 +92,7 @@
       {
         "desc": "(No Sort)",
         "name": "",
-        "value": "",
-        "default": true
+        "value": ""
       }
     ],
     "nodeTypes": [
@@ -109,9 +109,9 @@
         "icon": "fa fa-exclamation-triangle",
         "components": [
           "details",
+          "locations",
           "people",
           "documents",
-          "locations",
           "participants",
           "notes",
           "tasks",
@@ -194,13 +194,6 @@
         ]
       },
       {
-        "type": "p/COMPLAINT/calendar",
-        "label": "Calendar",
-        "components": [
-          "calendar"
-        ]
-      },
-      {
         "type": "p/COMPLAINT/time",
         "label": "Time",
         "components": [
@@ -213,10 +206,81 @@
         "components": [
           "cost"
         ]
+      },
+      {
+        "type": "p/COMPLAINT/calendar",
+        "label": "Calendar",
+        "components": [
+          "calendar"
+        ]
       }
     ]
   },
   "components": [
+    {
+      "id": "main",
+      "title": "Overview",
+      "icon": "fa fa-tachometer",
+      "enabled": false,
+      "type": "empty",
+      "editable": false,
+      "widgets": [
+        {
+          "id": "details",
+          "type": "component"
+        },
+        {
+          "id": "locations",
+          "type": "component"
+        },
+        {
+          "id": "people",
+          "type": "component"
+        },
+        {
+          "id": "documents",
+          "type": "component"
+        },
+        {
+          "id": "participants",
+          "type": "component"
+        },
+        {
+          "id": "notes",
+          "type": "component",
+          "model": "noteCount"
+        },
+        {
+          "id": "tasks",
+          "type": "component",
+          "model": "taskCount"
+        },
+        {
+          "id": "references",
+          "type": "component"
+        },
+        {
+          "id": "history",
+          "type": "component"
+        },
+        {
+          "id": "correspondence",
+          "type": "component"
+        },
+        {
+          "id": "time",
+          "type": "component"
+        },
+        {
+          "id": "cost",
+          "type": "component"
+        },
+        {
+          "id": "calendar",
+          "type": "component"
+        }
+      ]
+    },
     {
       "id": "info",
       "title": "Info",
@@ -234,18 +298,52 @@
     {
       "id": "details",
       "title": "Details",
+      "icon": "fa fa-info-circle",
       "enabled": true,
       "type": "empty"
     },
     {
-      "id": "documents",
-      "title": "Documents",
+      "id": "locations",
+      "title": "Locations",
+      "icon": "fa fa-location-arrow",
       "enabled": true,
-      "type": "empty"
+      "type": "grid",
+      "enableFiltering": false,
+      "enableSorting": false,
+      "columnDefs": [
+        {
+          "name": "address",
+          "field": "streetAddress",
+          "displayName": "complaints.comp.locations.table.columns.address",
+          "headerCellFilter": "translate"
+        },
+        {
+          "name": "type",
+          "displayName": "complaints.comp.locations.table.columns.type",
+          "headerCellFilter": "translate",
+          "lookup": "addressTypes"
+        },
+        {
+          "name": "city",
+          "displayName": "complaints.comp.locations.table.columns.city",
+          "headerCellFilter": "translate"
+        },
+        {
+          "name": "state",
+          "displayName": "complaints.comp.locations.table.columns.state",
+          "headerCellFilter": "translate"
+        },
+        {
+          "name": "zip",
+          "displayName": "complaints.comp.locations.table.columns.zip",
+          "headerCellFilter": "translate"
+        }
+      ]
     },
     {
       "id": "people",
       "title": "People",
+      "icon": "fa fa-user",
       "className": "com.armedia.acm.plugins.person.model.Person",
       "enabled": true,
       "type": "grid",
@@ -486,8 +584,16 @@
       }
     },
     {
+      "id": "documents",
+      "title": "Documents",
+      "icon": "fa fa-file",
+      "enabled": true,
+      "type": "empty"
+    },
+    {
       "id": "participants",
       "title": "Participants",
+      "icon": "fa fa-users",
       "enabled": true,
       "type": "grid",
       "enableFiltering": true,
@@ -514,45 +620,9 @@
       ]
     },
     {
-      "id": "locations",
-      "title": "Locations",
-      "enabled": true,
-      "type": "grid",
-      "enableFiltering": false,
-      "enableSorting": false,
-      "columnDefs": [
-        {
-          "name": "address",
-          "field": "streetAddress",
-          "displayName": "complaints.comp.locations.table.columns.address",
-          "headerCellFilter": "translate"
-        },
-        {
-          "name": "type",
-          "displayName": "complaints.comp.locations.table.columns.type",
-          "headerCellFilter": "translate",
-          "lookup": "addressTypes"
-        },
-        {
-          "name": "city",
-          "displayName": "complaints.comp.locations.table.columns.city",
-          "headerCellFilter": "translate"
-        },
-        {
-          "name": "state",
-          "displayName": "complaints.comp.locations.table.columns.state",
-          "headerCellFilter": "translate"
-        },
-        {
-          "name": "zip",
-          "displayName": "complaints.comp.locations.table.columns.zip",
-          "headerCellFilter": "translate"
-        }
-      ]
-    },
-    {
       "id": "notes",
       "title": "Notes",
+      "icon": "fa fa-comments",
       "enabled": true,
       "type": "grid",
       "enableFiltering": true,
@@ -589,6 +659,7 @@
     {
       "id": "tasks",
       "title": "Tasks",
+      "icon": "fa fa-check-circle",
       "enabled": true,
       "type": "grid",
       "enableFiltering": true,
@@ -656,6 +727,7 @@
     {
       "id": "references",
       "title": "References",
+      "icon": "fa fa-exchange",
       "enabled": true,
       "type": "grid",
       "enableFiltering": true,
@@ -700,6 +772,7 @@
     {
       "id": "history",
       "title": "History",
+      "icon": "fa fa-bell-o",
       "enabled": true,
       "type": "grid",
       "enableFiltering": true,
@@ -733,6 +806,7 @@
     {
       "id": "correspondence",
       "title": "Correspondence",
+      "icon": "fa fa-envelope",
       "enabled": true,
       "type": "grid",
       "enableFiltering": true,
@@ -769,6 +843,7 @@
     {
       "id": "time",
       "title": "Time",
+      "icon": "fa fa-clock-o",
       "enabled": true,
       "type": "grid",
       "enableFiltering": true,
@@ -814,6 +889,7 @@
     {
       "id": "cost",
       "title": "Cost",
+      "icon": "fa fa-money",
       "enabled": true,
       "type": "grid",
       "enableFiltering": true,
@@ -859,6 +935,7 @@
     {
       "id": "calendar",
       "title": "Calendar",
+      "icon": "fa fa-calendar",
       "enabled": true,
       "type": "empty"
     }
