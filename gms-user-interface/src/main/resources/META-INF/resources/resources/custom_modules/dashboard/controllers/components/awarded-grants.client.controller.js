@@ -11,8 +11,8 @@ angular.module('dashboard.awarded-grants', ['adf.provider'])
                 templateUrl: 'modules/dashboard/views/components/awarded-grants.client.view.html'
             });
     })
-    .controller('Dashboard.AwardedGrantsController', ['$scope', '$translate', 'Authentication', 'Dashboard.DashboardService',
-        function ($scope, $translate, Authentication, DashboardService) {
+    .controller('Dashboard.AwardedGrantsController', ['$scope', '$translate', 'Authentication', 'Dashboard.DashboardService','Helper.UiGridService','UtilService',
+        function ($scope, $translate, Authentication, DashboardService, HelperUiGridService, Util) {
 
             $scope.$on('component-config', applyConfig);
             $scope.$emit('req-component-config', 'awardedGrants');
@@ -25,6 +25,9 @@ angular.module('dashboard.awarded-grants', ['adf.provider'])
                 sortBy: 'id',
                 sortDir: 'desc'
             };
+
+            var gridHelper = new HelperUiGridService.Grid({scope: $scope});
+
 
             $scope.gridOptions = {
                 enableColumnResizing: true,
@@ -72,6 +75,13 @@ angular.module('dashboard.awarded-grants', ['adf.provider'])
                     });
                 }
             }
+
+            $scope.onClickObjectType = function (event, rowEntity) {
+                event.preventDefault();
+                var targetType = Util.goodMapValue(rowEntity, "object_type_s");
+                var targetId = Util.goodMapValue(rowEntity, "object_id_s");
+                gridHelper.showObject(targetType, targetId);
+            };
 
 
             function getPage() {
