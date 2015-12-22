@@ -1,18 +1,18 @@
 {
-  "cases": {
-    "title": "Award",
+  "award": {
+    "title": "Awards",
     "progressNoCase": "[ No Award Exists ]",
     "progressLoading": "Loading Award ",
     "progressError": "Failed to load Award"
   },
-  "cases.tree": {
+  "award.tree": {
   },
-  "cases.comp.info": {
+  "award.comp.info": {
     "caseId": "Award id:",
     "caseNumber": "Award Number:",
     "courtRoomName": "Court Room Name:"
   },
-  "cases.comp.actions": {
+  "award.comp.actions": {
     "restrict": "Restrict?",
     "new.button": "New",
     "edit.button": "Edit",
@@ -23,14 +23,14 @@
     "merge.button": "Merge",
     "split.button": "Split"
   },
-  "cases.comp.details": {
+  "award.comp.details": {
     "title": "Details",
     "informSaved": "Award details saved"
   },
-  "cases.comp.documents": {
+  "award.comp.documents": {
     "title": "Documents"
   },
-  "cases.comp.people": {
+  "award.comp.people": {
     "title": "People",
     "table.columns": {
       "entity": "Entity",
@@ -88,14 +88,14 @@
       }
     }
   },
-  "cases.comp.participants": {
+  "award.comp.participants": {
     "title": "Participants",
     "table.columns": {
       "type": "Type",
       "name": "Name"
     }
   },
-  "cases.comp.notes": {
+  "award.comp.notes": {
     "title": "Notes",
     "table.columns": {
       "note": "Note",
@@ -103,7 +103,7 @@
       "creator": "Author"
     }
   },
-  "cases.comp.tasks": {
+  "award.comp.tasks": {
     "title": "Tasks",
     "table.columns": {
       "taskId": "ID",
@@ -116,7 +116,7 @@
       "action": "Action"
     }
   },
-  "cases.comp.references": {
+  "award.comp.references": {
     "title": "References",
     "table.columns": {
       "targetName": "Number",
@@ -126,7 +126,7 @@
       "status": "Status"
     }
   },
-  "cases.comp.history": {
+  "award.comp.history": {
     "title": "History",
     "table.columns": {
       "eventType": "Event Name",
@@ -134,7 +134,7 @@
       "userId": "User"
     }
   },
-  "cases.comp.correspondence": {
+  "award.comp.correspondence": {
     "title": "Correspondence",
     "table.columns": {
       "name": "Title",
@@ -142,7 +142,7 @@
       "creator": "Creator"
     }
   },
-  "cases.comp.time": {
+  "award.comp.time": {
     "title": "Time",
     "table.columns": {
       "name": "Form Name",
@@ -153,7 +153,7 @@
     },
     "formNamePrefix": "Timesheet"
   },
-  "cases.comp.cost": {
+  "award.comp.cost": {
     "title": "Cost",
     "table.columns": {
       "name": "Form Name",
@@ -164,7 +164,7 @@
     },
     "formNamePrefix": "Costsheet"
   },
-  "cases.comp.calendar": {
+  "award.comp.calendar": {
     "title": "Calendar"
   }
 }

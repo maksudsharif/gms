@@ -3,7 +3,7 @@
         <div class="checkbox">
             <label>
                 <input type="checkbox" ng-model="restricted" ng-click="onClickRestrict($event)">
-                {{'cases.comp.actions.restrict' | translate}}
+                {{'award.comp.actions.restrict' | translate}}
             </label>
         </div>
     </div>
@@ -11,32 +11,32 @@
     <div class="pull-right">
         <div class="btn-group">
             <button class="btn btn-sm btn-default" ng-click="createNew()"><i
-                    class="fa fa-edit"></i> {{'cases.comp.actions.new.button' | translate}}
+                    class="fa fa-edit"></i> {{'award.comp.actions.new.button' | translate}}
             </button>
             <button class="btn btn-sm btn-default" ng-click="edit(caseInfo)"><i class="fa fa-edit"></i>
-                {{'cases.comp.actions.edit.button' |
+                {{'award.comp.actions.edit.button' |
                 translate}}
             </button>
             <button class="btn btn-sm btn-default" ng-click="changeStatus(caseInfo)"><i
-                    class="fa fa-edit"></i> {{'cases.comp.actions.status.button' | translate}}
+                    class="fa fa-edit"></i> {{'award.comp.actions.status.button' | translate}}
             </button>
             <button class="btn btn-sm btn-default" ng-click="reinvestigate(caseInfo)"><i class="fa fa-reply"></i>
-                {{'cases.comp.actions.reinvestigate.button' | translate}}
+                {{'award.comp.actions.reinvestigate.button' | translate}}
             </button>
             <button class="btn btn-sm btn-default" ng-show="showBtnUnsubscribe" ng-click="unsubscribe(caseInfo)"><i
                     class="fa fa-bullhorn"></i>
-                {{'cases.comp.actions.unsubscribe.button' | translate}}
+                {{'award.comp.actions.unsubscribe.button' | translate}}
             </button>
             <button class="btn btn-sm btn-default" ng-show="showBtnSubscribe" ng-click="subscribe(caseInfo)"><i
                     class="fa fa-bullhorn"></i>
-                {{'cases.comp.actions.subscribe.button' | translate}}
+                {{'award.comp.actions.subscribe.button' | translate}}
             </button>
             <button class="btn btn-sm btn-default" ng-click="merge()"><i class="fa fa-random"></i>
-                {{'cases.comp.actions.merge.button' |
+                {{'award.comp.actions.merge.button' |
                 translate}}
             </button>
             <button class="btn btn-sm btn-default" ng-click="split()"><i class="fa fa-code-fork"></i>
-                {{'cases.comp.actions.split.button' |
+                {{'award.comp.actions.split.button' |
                 translate}}
             </button>
         </div>

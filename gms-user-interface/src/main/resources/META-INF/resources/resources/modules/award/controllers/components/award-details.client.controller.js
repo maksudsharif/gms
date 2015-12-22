@@ -26,7 +26,7 @@ angular.module('award').controller('Award.DetailsController', ['$scope', '$state
 			var caseInfo = Util.omitNg($scope.caseInfo);
             CaseInfoService.saveCaseInfo(caseInfo).then(
                 function (caseInfo) {
-                    MessageService.info($translate.instant("cases.comp.details.informSaved"));
+                    MessageService.info($translate.instant("award.comp.details.informSaved"));
                     return caseInfo;
                 }
             );
