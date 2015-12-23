@@ -20,7 +20,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <java.version>1.8</java.version>
-        <acm.version>3.0.43-SNAPSHOT</acm.version>
+        <acm.version>3.0.44-SNAPSHOT</acm.version>
         <spring.version>4.1.6.RELEASE</spring.version>
     </properties>
 
