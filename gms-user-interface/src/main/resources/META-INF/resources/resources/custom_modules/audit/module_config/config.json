@@ -1,0 +1,38 @@
+{
+    "id": "audit",
+    "title": "Audit",
+    "menus": [
+        
+        {
+            "menuId": "leftnav",
+            "menuItemURL": "audit",
+            "menuItemTitle": "Audit",
+            "iconClass": "fa fa-bolt",
+            "position": 140
+        }
+        
+    ],
+    "dateFormat": "MM-DD-YYYY",
+    "pentahoDateFormat": "MM/DD/YYYY",
+    "components": [
+        {
+            "id": "auditselection",
+            "title": "Audit",
+            "enabled": true,
+            "auditDropdown": [
+                {"id": "", "name": "ALL"},
+                {"id": "CASE", "name": "Grant Opportunity"},
+                {"id": "COMPLAINT", "name": "Applications"},
+                {"id": "CASE", "name": "Awards"},
+                {"id": "TASK", "name": "Tasks"},
+                {"id": "FILE", "name": "Files"}
+            ]
+        },
+        {
+            "id": "datepickers",
+            "title": "Audits",
+            "enabled": true,
+            "datepickerPopupFormat": "MM/dd/yyyy"
+        }
+   ]
+}
