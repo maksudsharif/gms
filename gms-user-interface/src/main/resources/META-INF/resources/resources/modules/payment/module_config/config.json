@@ -85,6 +85,28 @@
   },
   "components": [
     {
+      "id": "main",
+      "title": "Overview",
+      "icon": "fa fa-tachometer",
+      "enabled": false,
+      "type": "empty",
+      "editable": false,
+      "widgets": [
+        {
+          "id": "details",
+          "type": "component"
+        },
+        {
+          "id": "person",
+          "type": "component"
+        },
+        {
+          "id": "summary",
+          "type": "component"
+        }
+      ]
+    },
+    {
       "id": "actions",
       "title": "Actions",
       "enabled": false,
@@ -94,12 +116,14 @@
     {
       "id": "details",
       "title": "Details",
+      "icon": "fa fa-info-circle",
       "enabled": true,
       "type": "empty"
     },
     {
       "id": "person",
       "title": "Person",
+      "icon": "fa fa-user",
       "enabled": true,
       "type": "grid",
       "enableFiltering": true,
@@ -126,6 +150,7 @@
     {
       "id": "summary",
       "title": "Summary",
+      "icon": "fa fa-money",
       "enabled": true,
       "type": "grid",
       "enableFiltering": true,
