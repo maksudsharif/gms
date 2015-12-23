@@ -8,4 +8,13 @@
         <property name="ruleSpreadsheetFilename" value="drools-case-file-rules-gms.xlsx"/>
     </bean>
 
+    <!-- Override ArkCase caseFileFolderStructureHandler -->
+    <bean id="caseFileFolderStructureHandler"
+          class="com.arkcase.gms.pipeline.postsave.CaseFileFolderStructureHandler">
+        <property name="caseFileEventUtility" ref="caseFileEventUtility"/>
+        <property name="folderStructureAsString" value="${casefile.folder.structure}"/>
+        <property name="ecmFileService" ref="ecmFileService"/>
+        <property name="acmFolderService" ref="acmFolderService"/>
+    </bean>
+
 </beans>
