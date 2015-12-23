@@ -18,6 +18,10 @@ angular.module('services').factory('Case.ListService', ['$resource', '$translate
         Service.CacheNames = {
             CASE_LIST: "CaseList"
         };
+        Service.Object = {
+            SUB_TYPE: "GRANT",
+            GRANT_TYPE: "UNAWARDED_GRANT"
+        }
 
         /**
          * @ngdoc method
@@ -40,8 +44,7 @@ angular.module('services').factory('Case.ListService', ['$resource', '$translate
             var treeData = cacheCaseList.get(cacheKey);
 
             var param = {};
-            param.objectType = "CASE_FILE AND object_sub_type_s:GRANT AND grant_type_s:UNAWARDED_GRANT";
-            param.searchQuery= ""
+            param.objectType = "CASE_FILE";
             param.start = start;
             param.n = n;
             param.sort = sort;
@@ -55,12 +58,14 @@ angular.module('services').factory('Case.ListService', ['$resource', '$translate
                         treeData = {docs: [], total: data.response.numFound};
                         var docs = data.response.docs;
                         _.forEach(docs, function (doc) {
-                            treeData.docs.push({
-                                nodeId: Util.goodValue(doc.object_id_s, 0)
-                                , nodeType: ObjectService.ObjectTypes.CASE_FILE
-                                , nodeTitle: Util.goodValue(doc.title_parseable)
-                                , nodeToolTip: Util.goodValue(doc.title_parseable)
-                            });
+                            if(Service.validateCaseFile(doc)){
+                                treeData.docs.push({
+                                    nodeId: Util.goodValue(doc.object_id_s, 0)
+                                    , nodeType: ObjectService.ObjectTypes.CASE_FILE
+                                    , nodeTitle: Util.goodValue(doc.title_parseable)
+                                    , nodeToolTip: Util.goodValue(doc.title_parseable)
+                                });
+                            }
                         });
                         cacheCaseList.put(cacheKey, treeData);
                         return treeData;
@@ -89,6 +94,19 @@ angular.module('services').factory('Case.ListService', ['$resource', '$translate
 
             return true;
         };
+
+        Service.validateCaseFile = function(data){
+            if(!data){
+                return false;
+            }
+            if(!angular.equals(data.object_sub_type_s, Service.Object.SUB_TYPE)){
+                return false;
+            }
+            if(!angular.equals(data.grant_type_s, Service.Object.GRANT_TYPE)){
+                return false;
+            }
+            return true;
+        }
 
         return Service;
     }
