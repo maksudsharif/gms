@@ -1,18 +1,18 @@
 {
   "id": "complaints",
-  "title": "Submissions",
+  "title": "Applications",
   "menus": [
     {
       "menuId": "leftnav",
       "menuItemURL": "complaints",
-      "menuItemTitle": "Submissions",
+      "menuItemTitle": "Applications",
       "iconClass": "fa fa-exclamation-triangle",
       "position": 50
     },
     {
       "menuId": "topbar",
       "menuItemURL": "frevvo-new-complaint",
-      "menuItemTitle": "Submissions",
+      "menuItemTitle": "Applications",
       "iconClass": "fa fa-exclamation-triangle",
       "position": 20
     }
@@ -21,7 +21,7 @@
     "pageSize": 32,
     "filters": [
       {
-        "desc": "All Open Submissions",
+        "desc": "All Open Applications",
         "name": "all-open-complaints",
         "value": "fq=-status_s:COMPLETE AND -status_s:DELETE AND -status_s:CLOSED",
         "default": true

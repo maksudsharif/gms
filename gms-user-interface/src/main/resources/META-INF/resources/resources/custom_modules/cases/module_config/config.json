@@ -1,18 +1,18 @@
 {
   "id": "cases",
-  "title": "Unawarded Grants",
+  "title": "Grant Opportunity",
   "menus": [
     {
       "menuId": "leftnav",
       "menuItemURL": "cases",
-      "menuItemTitle": "Unawarded Grants",
+      "menuItemTitle": "Grant Opportunity",
       "iconClass": "fa fa-folder",
       "position": 40
     },
     {
       "menuId": "topbar",
       "menuItemURL": "frevvo-new-case",
-      "menuItemTitle": "Unawarded Grants",
+      "menuItemTitle": "Grant Opportunity",
       "iconClass": "fa fa-folder",
       "position": 10
     }
@@ -21,7 +21,7 @@
     "pageSize": 32,
     "filters": [
       {
-        "desc": "All Open Unawarded Grants",
+        "desc": "All Open Grant Opportunities",
         "name": "all-open-cases",
         "value": "fq=-status_s:COMPLETE AND -status_s:DELETE AND -status_s:CLOSED",
         "default": true
@@ -65,17 +65,17 @@
         "default": true
       },
       {
-        "desc": "Sort Unawarded Grant ID Asc",
+        "desc": "Sort Grant Opportunity ID Asc",
         "name": "sort-case-id-asc",
         "value": "object_id_s ASC"
       },
       {
-        "desc": "Sort Unawarded Grant ID Desc",
+        "desc": "Sort Grant Opportunity ID Desc",
         "name": "sort-case-id-desc",
         "value": "object_id_s DESC"
       },
       {
-        "desc": "Sort By Unawarded Grant Name",
+        "desc": "Sort By Grant Opportunity Name",
         "name": "sort-by-name-asc",
         "value": "name ASC"
       },
