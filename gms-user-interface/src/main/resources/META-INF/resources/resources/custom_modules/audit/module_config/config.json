@@ -23,9 +23,7 @@
                 {"id": "", "name": "ALL"},
                 {"id": "CASE", "name": "Grant Opportunity"},
                 {"id": "COMPLAINT", "name": "Applications"},
-                {"id": "CASE", "name": "Awards"},
-                {"id": "TASK", "name": "Tasks"},
-                {"id": "FILE", "name": "Files"}
+                {"id": "CASE", "name": "Awards"}
             ]
         },
         {
