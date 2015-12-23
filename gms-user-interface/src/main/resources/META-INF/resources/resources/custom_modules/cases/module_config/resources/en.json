@@ -1,22 +1,22 @@
 {
   "cases": {
-    "title": "Unawarded Grants",
-    "progressNoCase": "[ No Unawarded Grant exists ]",
-    "progressLoading": "Loading Unawarded Grants ",
-    "progressError": "Failed to load Unawarded Grants"
+    "title": "Grant Opportunity",
+    "progressNoCase": "[ No Grant Opportunity exists ]",
+    "progressLoading": "Loading Grant Opportunity ",
+    "progressError": "Failed to load Grant Opportunity"
   },
   "cases.tree": {
   },
   "cases.comp.info": {
-    "caseId": "Unawarded Grants ID:",
-    "caseNumber": "Unawarded Grants Number:",
+    "caseId": "Grant Opportunity ID:",
+    "caseNumber": "Grant Opportunity Number:",
     "courtRoomName": "Court Room Name:"
   },
   "cases.comp.actions": {
     "restrict": "Restrict?",
     "new.button": "New",
     "edit.button": "Edit",
-    "status.button": "Change Unawarded Grants Status",
+    "status.button": "Change Grant Opportunity Status",
     "reinvestigate.button": "Reinvestigate",
     "subscribe.button": "Subscribe",
     "unsubscribe.button": "Unsubscribe",
@@ -25,7 +25,7 @@
   },
   "cases.comp.details": {
     "title": "Details",
-    "informSaved": "Unawarded Grants details saved"
+    "informSaved": "Grant Opportunity details saved"
   },
   "cases.comp.documents": {
     "title": "Documents"

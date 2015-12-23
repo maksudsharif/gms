@@ -1,25 +1,25 @@
 {
   "complaints": {
-    "title": "Submissions",
-    "progressNoComplaint": "[ No Submission data ]",
-    "progressLoading": "Loading Submission ",
-    "progressError": "Failed to load Submission "
+    "title": "Applications",
+    "progressNoComplaint": "[ No Application data ]",
+    "progressLoading": "Loading Application ",
+    "progressError": "Failed to load Application "
   },
   "complaints.comp.info": {
-    "complaintId": "Submission ID:",
-    "complaintNumber": "Submission Number:",
+    "complaintId": "Application ID:",
+    "complaintNumber": "Application Number:",
     "courtRoomName": "Court Room Name:"
   },
   "complaints.comp.actions": {
     "restrict": "Restrict?",
-    "new.button": "New Submission",
+    "new.button": "New Application",
     "close.button": "Review",
     "subscribe.button": "Subscribe",
     "unsubscribe.button": "Unsubscribe"
   },
   "complaints.comp.details": {
     "title": "Details",
-    "informSaved": "Submission details saved"
+    "informSaved": "Application details saved"
   },
   "complaints.comp.documents": {
     "title": "Documents"
