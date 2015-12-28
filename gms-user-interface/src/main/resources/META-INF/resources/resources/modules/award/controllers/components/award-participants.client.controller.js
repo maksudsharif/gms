@@ -1,12 +1,10 @@
 'use strict';
 
 angular.module('award').controller('Award.ParticipantsController', ['$scope', '$stateParams', '$q'
-    , 'StoreService', 'UtilService', 'Helper.UiGridService', 'Helper.ConfigService'
-    , 'Case.InfoService', 'LookupService', 'Object.LookupService'
-    , function ($scope, $stateParams, $q, Store, Util, HelperUiGridService, HelperConfigService
-        , CaseInfoService, LookupService, ObjectLookupService) {
-
-        var deferParticipantData = new Store.Variable("deferCaseParticipantData");    // used to hold grid data before grid config is ready
+    , 'StoreService', 'UtilService', 'Helper.UiGridService', 'Case.InfoService'
+    , 'LookupService', 'Object.LookupService', 'ConfigService', 'Helper.ObjectBrowserService'
+    , function ($scope, $stateParams, $q, Store, Util, HelperUiGridService, CaseInfoService
+        , LookupService, ObjectLookupService, ConfigService, HelperObjectBrowserService) {
 
         var gridHelper = new HelperUiGridService.Grid({scope: $scope});
 
@@ -29,7 +27,7 @@ angular.module('award').controller('Award.ParticipantsController', ['$scope', '$
             }
         );
 
-        var promiseConfig = HelperConfigService.requestComponentConfig($scope, "participants", function (config) {
+        var promiseConfig = ConfigService.getComponentConfig("award", "participants").then(function (config) {
             gridHelper.addDeleteButton(config.columnDefs, "grid.appScope.deleteRow(row.entity)");
             gridHelper.setColumnDefs(config);
             gridHelper.setBasicOptions(config);
@@ -88,14 +86,9 @@ angular.module('award').controller('Award.ParticipantsController', ['$scope', '$
                         $scope.gridOptions.columnDefs[i].cellFilter = "mapKeyValue: row.entity.acm$_participantNames:'id':'name'";
                     }
                 }
-
-
-                var caseInfo = deferParticipantData.get();
-                if (caseInfo) {
-                    updateGridData(caseInfo);
-                    deferParticipantData.set(null);
-                }
             });
+
+            return config;
         });
 
         var updateGridData = function (data) {
@@ -118,18 +111,14 @@ angular.module('award').controller('Award.ParticipantsController', ['$scope', '$
                 gridHelper.hidePagingControlsIfAllDataShown(participants.length);
             });
         };
-        $scope.$on('case-updated', function (e, data) {
-            if (!CaseInfoService.validateCaseInfo(data)) {
-                return;
-            }
 
-            if (data.id == $stateParams.id) {
-                updateGridData(data);
-            } else {                      // condition when data comes before state is routed and config is not set
-                deferParticipantData.set(data);
-            }
-        });
-
+        var currentObjectId = HelperObjectBrowserService.getCurrentObjectId();
+        if (Util.goodPositive(currentObjectId, false)) {
+            CaseInfoService.getCaseInfo(currentObjectId).then(function (caseInfo) {
+                updateGridData(caseInfo);
+                return caseInfo;
+            });
+        }
 
         $scope.addNew = function () {
             var lastPage = $scope.gridApi.pagination.getTotalPages();

@@ -1,11 +1,23 @@
 'use strict';
 
 angular.module('award').controller('AwardController', ['$scope', '$stateParams', '$state', '$translate'
-    , 'UtilService', 'ConfigService', 'Case.InfoService', 'ObjectService', 'Helper.ObjectTreeService'
+    , 'UtilService', 'ConfigService', 'Case.InfoService', 'ObjectService', 'Helper.ObjectBrowserService'
     , function ($scope, $stateParams, $state, $translate
-        , Util, ConfigService, CaseInfoService, ObjectService, HelperObjectTreeService) {
+        , Util, ConfigService, CaseInfoService, ObjectService, HelperObjectBrowserService) {
 
-        var promiseGetModuleConfig = ConfigService.getModuleConfig("award").then(function (config) {
+        new HelperObjectBrowserService.Content({
+            scope: $scope
+            , state: $state
+            , stateParams: $stateParams
+            , moduleId: "award"
+            , getObjectInfo: CaseInfoService.getCaseInfo
+            , updateObjectInfo: CaseInfoService.updateCaseInfo
+            , initComponentLinks: function (config) {
+                return HelperObjectBrowserService.createComponentLinks(config, ObjectService.ObjectTypes.CASE_FILE);
+            }
+        });
+
+        /*var promiseGetModuleConfig = ConfigService.getModuleConfig("award").then(function (config) {
             $scope.config = config;
             $scope.componentLinks = HelperObjectTreeService.createComponentLinks(config, ObjectService.ObjectTypes.CASE_FILE);
             $scope.activeLinkId = "main";
@@ -76,6 +88,6 @@ angular.module('award').controller('AwardController', ['$scope', '$stateParams',
             }
         };
 
-        loadCase($stateParams.id);
+        loadCase($stateParams.id);*/
     }
 ]);

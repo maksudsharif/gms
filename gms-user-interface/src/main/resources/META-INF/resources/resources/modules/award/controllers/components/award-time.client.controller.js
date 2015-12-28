@@ -1,12 +1,12 @@
 'use strict';
 
 angular.module('award').controller('Award.TimeController', ['$scope', '$stateParams', '$translate'
-    , 'UtilService', 'ObjectService', 'Helper.UiGridService', 'Helper.ConfigService', 'Object.TimeService'
-    , function ($scope, $stateParams, $translate, Util, ObjectService, HelperUiGridService, HelperConfigService, ObjectTimeService) {
+    , 'UtilService', 'ObjectService', 'Helper.UiGridService', 'Object.TimeService', 'ConfigService', 'Helper.ObjectBrowserService'
+    , function ($scope, $stateParams, $translate, Util, ObjectService, HelperUiGridService, ObjectTimeService, ConfigService, HelperObjectBrowserService) {
 
         var gridHelper = new HelperUiGridService.Grid({scope: $scope});
 
-        var promiseConfig = HelperConfigService.requestComponentConfig($scope, "time", function (config) {
+        var promiseConfig = ConfigService.getComponentConfig("award", "time").then(function (config) {
             gridHelper.setColumnDefs(config);
             gridHelper.setBasicOptions(config);
 
@@ -17,10 +17,12 @@ angular.module('award').controller('Award.TimeController', ['$scope', '$statePar
                     $scope.gridOptions.columnDefs[i].field = "acm$_hours";
                 }
             }
+            return config;
         });
 
-        if (Util.goodPositive($stateParams.id)) {
-            ObjectTimeService.queryTimesheets(ObjectService.ObjectTypes.CASE_FILE, $stateParams.id).then(
+        var currentObjectId = HelperObjectBrowserService.getCurrentObjectId();
+        if (Util.goodPositive(currentObjectId, false)) {
+            ObjectTimeService.queryTimesheets(ObjectService.ObjectTypes.CASE_FILE, currentObjectId).then(
                 function (timesheets) {
                     promiseConfig.then(function (config) {
                         for (var i = 0; i < timesheets.length; i++) {
