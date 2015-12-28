@@ -55,6 +55,8 @@
         <property name="activitiRuntimeService" ref="activitiRuntimeService"/>
         <property name="panelReviewSubmissionTaskName" ref="panelReviewSubmissionTaskName"/>
         <property name="defaultApproversString" value="${complaint.default.panelReviewers}" />
+        <property name="historyService" ref="activitiHistoryService"/>
+        <property name="taskDao" ref="acmTaskDao"/>
     </bean>
 
     <!-- Review -->
