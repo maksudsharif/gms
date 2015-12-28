@@ -1,21 +1,19 @@
 'use strict';
 
-angular.module('award').controller('Award.ActionsController', ['$scope', '$state', '$stateParams', '$q', 'UtilService'
+angular.module('award').controller('Award.ActionsController', ['$scope', '$state', '$stateParams', '$q', 'UtilService', 'ConfigService'
     , 'ObjectService', 'Authentication', 'Object.LookupService', 'Case.LookupService', 'Object.SubscriptionService', 'Object.ModelService', 'Case.InfoService'
-    , function ($scope, $state, $stateParams, $q, Util, ObjectService, Authentication, ObjectLookupService, CaseLookupService, ObjectSubscriptionService, ObjectModelService, CaseInfoService) {
+    , function ($scope, $state, $stateParams, $q, Util, ConfigService, ObjectService, Authentication, ObjectLookupService, CaseLookupService, ObjectSubscriptionService, ObjectModelService, CaseInfoService) {
 
-        $scope.$emit('req-component-config', 'actions');
-        $scope.$on('component-config', function (e, componentId, config) {
-            if ('actions' == componentId) {
-                $scope.config = config;
-            }
+        ConfigService.getComponentConfig("award", "actions").then(function (componentConfig) {
+            $scope.config = componentConfig;
+            return componentConfig;
         });
 
         var promiseQueryUser = Authentication.queryUserInfo();
         var promiseGetGroups = ObjectLookupService.getGroups();
 
         var previousId = null;
-        $scope.$on('award-updated', function (e, data) {
+        $scope.$on('object-updated', function (e, data) {
             if (!CaseInfoService.validateCaseInfo(data)) {
                 return;
             }

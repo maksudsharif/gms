@@ -1,12 +1,12 @@
 'use strict';
 
 angular.module('award').controller('Award.CostController', ['$scope', '$stateParams', '$translate'
-    , 'UtilService', 'ObjectService', 'Helper.UiGridService', 'Helper.ConfigService', 'Object.CostService'
-    , function ($scope, $stateParams, $translate, Util, ObjectService, HelperUiGridService, HelperConfigService, ObjectCostService) {
+    , 'UtilService', 'ObjectService', 'Helper.UiGridService', 'ConfigService', 'Object.CostService', 'Helper.ObjectBrowserService'
+    , function ($scope, $stateParams, $translate, Util, ObjectService, HelperUiGridService, ConfigService, ObjectCostService, HelperObjectBrowserService) {
 
         var gridHelper = new HelperUiGridService.Grid({scope: $scope});
 
-        var promiseConfig = HelperConfigService.requestComponentConfig($scope, "cost", function (config) {
+        var promiseConfig = ConfigService.getComponentConfig("award", "cost").then(function (config) {
             gridHelper.setColumnDefs(config);
             gridHelper.setBasicOptions(config);
 
@@ -17,10 +17,12 @@ angular.module('award').controller('Award.CostController', ['$scope', '$statePar
                     $scope.gridOptions.columnDefs[i].field = "acm$_costs";
                 }
             }
+            return config;
         });
 
-        if (Util.goodPositive($stateParams.id)) {
-            ObjectCostService.queryCostsheets(ObjectService.ObjectTypes.CASE_FILE, $stateParams.id).then(
+        var currentObjectId = HelperObjectBrowserService.getCurrentObjectId();
+        if (Util.goodPositive(currentObjectId, false)) {
+            ObjectCostService.queryCostsheets(ObjectService.ObjectTypes.CASE_FILE, currentObjectId).then(
                 function (costsheets) {
                     promiseConfig.then(function (config) {
                         for (var i = 0; i < costsheets.length; i++) {

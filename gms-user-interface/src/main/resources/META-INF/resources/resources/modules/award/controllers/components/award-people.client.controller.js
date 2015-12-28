@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('award').controller('Award.PeopleController', ['$scope', '$stateParams', '$q', '$translate'
-    , 'StoreService', 'UtilService', 'ObjectService', 'Helper.UiGridService', 'Helper.ConfigService'
-    , 'Case.InfoService', 'Object.PersonService', 'LookupService', 'Object.LookupService'
-    , function ($scope, $stateParams, $q, $translate, Store, Util, ObjectService, HelperUiGridService, HelperConfigService
-        , CaseInfoService, ObjectPersonService, LookupService, ObjectLookupService) {
+    , 'StoreService', 'UtilService', 'ObjectService', 'Helper.UiGridService', 'Case.InfoService'
+    , 'Object.PersonService', 'LookupService', 'Object.LookupService', 'ConfigService', 'Helper.ObjectBrowserService'
+    , function ($scope, $stateParams, $q, $translate, Store, Util, ObjectService, HelperUiGridService
+        , CaseInfoService, ObjectPersonService, LookupService, ObjectLookupService, ConfigService, HelperObjectBrowserService) {
 
         $scope.contactMethods = {gridOptions: {appScopeProvider: $scope}};
         $scope.organizations = {gridOptions: {appScopeProvider: $scope}};
@@ -65,22 +65,14 @@ angular.module('award').controller('Award.PeopleController', ['$scope', '$stateP
             }
         );
 
-        var promiseConfig = HelperConfigService.requestComponentConfig($scope, "people", function (config) {
+        var promiseConfig = ConfigService.getComponentConfig("award", "people").then(function (config) {
             configGridMain(config);
             configGridContactMethod(config);
             configGridOrganization(config);
             configGridAddress(config);
             configGridAlias(config);
             configGridSecurityTag(config);
-
-            $q.all([promisePersonTypes, promiseUsers, promiseContactMethodTypes, promiseAddressTypes, promiseAliasTypes, promiseSecurityTagTypes]).then(function (data) {
-                var deferPeopleData = new Store.Variable("deferCasePeopleData");    // used to hold grid data before grid config is ready
-                var caseInfo = deferPeopleData.get();
-                if (caseInfo) {
-                    updateGridData(caseInfo);
-                    deferPeopleData.set(null);
-                }
-            });
+            return config;
         });
 
 
@@ -410,18 +402,14 @@ angular.module('award').controller('Award.PeopleController', ['$scope', '$stateP
                 }
             }); //end $q
         };
-        $scope.$on('case-updated', function (e, data) {
-            if (!CaseInfoService.validateCaseInfo(data)) {
-                return;
-            }
 
-            if (data.id == $stateParams.id) {
-                updateGridData(data);
-            } else {                      // condition when data comes before state is routed and config is not set
-                var deferPeopleData = new Store.Variable("deferCasePeopleData");
-                deferPeopleData.set(data);
-            }
-        });
+        var currentObjectId = HelperObjectBrowserService.getCurrentObjectId();
+        if (Util.goodPositive(currentObjectId, false)) {
+            CaseInfoService.getCaseInfo(currentObjectId).then(function (caseInfo) {
+                updateGridData(caseInfo);
+                return caseInfo;
+            });
+        }
 
 
         $scope.addNew = function () {
