@@ -88,6 +88,20 @@ angular.module('dashboard').factory('Dashboard.DashboardService', ['$resource',
             saveConfig: {
                 method: 'POST',
                 url: 'proxy/arkcase/api/v1/plugin/dashboard/set'
+            },
+
+            queryMyTasks: {
+                method: 'GET',
+                url: 'proxy/arkcase/api/v1/plugin/task/forUser/:userId',
+                isArray: true,
+                data: ''
+            },
+
+            queryMyComplaints: {
+                method: 'GET',
+                url: 'proxy/arkcase/api/v1/plugin/complaint/forUser/:userId',
+                isArray: true,
+                data: ''
             }
         })
     }
