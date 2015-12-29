@@ -9,8 +9,7 @@
     </bean>
 
     <!-- Override ArkCase caseFileFolderStructureHandler -->
-    <bean id="caseFileFolderStructureHandler"
-          class="com.arkcase.gms.pipeline.postsave.CaseFileFolderStructureHandler">
+    <bean id="caseFileFolderStructureHandler" class="com.arkcase.gms.pipeline.postsave.AwardFolderStructureHandler">
         <property name="caseFileEventUtility" ref="caseFileEventUtility"/>
         <property name="folderStructureAsString" value="${casefile.folder.structure}"/>
         <property name="ecmFileService" ref="ecmFileService"/>
