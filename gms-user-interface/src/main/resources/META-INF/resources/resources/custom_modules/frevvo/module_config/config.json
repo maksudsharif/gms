@@ -40,6 +40,11 @@
       "formDefault": "plain_configuration"
     },
     {
+      "name": "edit-plainform",
+      "formKey": "active.edit.plain_configuration.form",
+      "formDefault": "plain_configuration"
+    },
+    {
       "name": "new-costsheet_budget",
       "formKey": "active.costsheet_budget.form",
       "formDefault": "costsheet_budget"
