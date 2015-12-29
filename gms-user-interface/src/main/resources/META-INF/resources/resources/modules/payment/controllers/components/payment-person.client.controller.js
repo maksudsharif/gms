@@ -1,25 +1,25 @@
 'use strict';
 
-angular.module('payment').controller('Payment.PersonController', ['$scope', 'Helper.UiGridService',
-    function ($scope, HelperUiGridService) {
+angular.module('payment').controller('Payment.PersonController', ['$scope', 'UtilService', 'Helper.UiGridService', 'ConfigService', 'Payment.InfoService', 'Helper.ObjectBrowserService',
+    function ($scope, Util, HelperUiGridService, ConfigService, PaymentInfoService, HelperObjectBrowserService) {
 
         var gridHelper = new HelperUiGridService.Grid({scope: $scope});
 
-        $scope.$emit('req-component-config', 'person');
-        $scope.$on('component-config', function (e, componentId, config) {
-            if ('person' == componentId) {
-                gridHelper.setColumnDefs(config);
-                gridHelper.setBasicOptions(config);
-            }
+        ConfigService.getComponentConfig("payment", "person").then(function (config) {
+            gridHelper.setColumnDefs(config);
+            gridHelper.setBasicOptions(config);
+            return config;
         });
 
-        $scope.$on('payment-updated', function (e, data) {
-            $scope.paymentInfo = data;
-            $scope.gridOptions = $scope.gridOptions || {};
-            $scope.gridOptions.data = [$scope.paymentInfo.user];
-        });
-
-
+        var currentObjectId = HelperObjectBrowserService.getCurrentObjectId();
+        if (Util.goodPositive(currentObjectId, false)) {
+            PaymentInfoService.getPaymentInfo(currentObjectId).then(function (paymentInfo) {
+                $scope.paymentInfo = paymentInfo;
+                $scope.gridOptions = $scope.gridOptions || {};
+                $scope.gridOptions.data = [$scope.paymentInfo.user];
+                return paymentInfo;
+            });
+        }
 
     }
 ]);

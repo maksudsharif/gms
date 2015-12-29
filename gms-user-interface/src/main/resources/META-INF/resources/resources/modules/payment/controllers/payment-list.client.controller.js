@@ -1,21 +1,18 @@
 'use strict';
 
 angular.module('payment').controller('PaymentListController', ['$scope', '$state', '$stateParams', '$q', '$translate'
-    , 'ConfigService', 'Authentication', 'UtilService', 'ObjectService', 'Helper.ObjectTreeService'
+    , 'ConfigService', 'Authentication', 'UtilService', 'ObjectService', 'Helper.ObjectBrowserService'
     , 'Payment.ListService', 'Payment.InfoService'
     , function ($scope, $state, $stateParams, $q, $translate
-        , ConfigService, Authentication, Util, ObjectService, HelperObjectTreeService
+        , ConfigService, Authentication, Util, ObjectService, HelperObjectBrowserService
         , PaymentListService, PaymentInfoService) {
 
-        ConfigService.getModuleConfig("payment").then(function (config) {
-            $scope.treeConfig = config.tree;
-            $scope.componentsConfig = config.components;
-            return config;
-        });
-
-        var treeHelper = new HelperObjectTreeService.Tree({
+        //"treeConfig", "treeData", "onLoad", and "onSelect" will be set by Tree Helper
+        new HelperObjectBrowserService.Tree({
             scope: $scope
-            , nodeId: $stateParams.id
+            , state: $state
+            , stateParams: $stateParams
+            , moduleId: "payment"
             , getTreeData: function (start, n, sort, filters) {
                 var dfd = $q.defer();
                 Authentication.queryUserInfo().then(
@@ -53,17 +50,5 @@ angular.module('payment').controller('PaymentListController', ['$scope', '$state
             }
         });
 
-        $scope.onLoad = function (start, n, sort, filters) {
-            treeHelper.onLoad(start, n, sort, filters);
-        };
-
-        $scope.onSelect = function (selectedPaymentSheet) {
-            $scope.$emit('req-select-payment', selectedPaymentSheet);
-            var components = Util.goodArray(selectedPaymentSheet.components);
-            var componentType = (1 == components.length) ? components[0] : "main";
-            $state.go('payment.' + componentType, {
-                id: selectedPaymentSheet.nodeId
-            });
-        };
     }
 ]);

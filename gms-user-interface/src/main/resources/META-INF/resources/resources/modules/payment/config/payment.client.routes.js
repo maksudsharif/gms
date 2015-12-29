@@ -40,22 +40,7 @@ angular.module('payment').config(['$stateProvider',
 			.state('payment.summary', {
 				url: '/:id/summary',
 				templateUrl: 'modules/payment/views/components/payment-summary.client.view.html'
-			})
+			});
 
-			.state('newPaymentSheet', {
-				url: '/newPaymentSheet',
-				templateUrl: 'modules/payment/views/components/payment-new-payment.client.view.html',
-				params :{
-					costsheetType: 'costsheet_payment'
-				}
-			})
-			
-			.state('editPaymentSheet', {
-				url: '/editpayment',
-				templateUrl: 'modules/payment/views/components/payment-edit-payment.client.view.html',
-				params: {
-					id: null
-				}
-			})
 	}
 ]);
