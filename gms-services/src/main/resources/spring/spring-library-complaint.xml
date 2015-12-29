@@ -9,7 +9,7 @@
     </bean>
 
     <bean id="reviewRequestService" class="com.arkcase.gms.service.ReviewRequestService" parent="closeComplaintRequestService">
-        <property name="complaintFolderNameFormat" value="Application (%s)"/>
+        <property name="complaintFolderNameFormat" value="1 - Application (%s)"/>
         <property name="caseFileDetailsFormat" value="This Award is based on Application '%s'.%s"/>
         <property name="complaintDetailsFormat" value="&lt;p/&gt;Application '%s' had these details:&lt;p/&gt;%s"/>
     </bean>
