@@ -1,5 +1,6 @@
 package com.arkcase.gms.transformer;
 
+import com.arkcase.gms.model.GmsConstants;
 import com.arkcase.gms.model.Submission;
 import com.armedia.acm.plugins.complaint.model.Complaint;
 import com.armedia.acm.plugins.complaint.service.ComplaintToSolrTransformer;
@@ -71,7 +72,7 @@ public class SubmissionToSolrTransformer extends ComplaintToSolrTransformer
 
     private void mapOrderProperties(Submission submission, Map<String, Object> aps)
     {
-        aps.put("object_sub_type_s", "SUBMISSION");
+        aps.put("object_sub_type_s", GmsConstants.SUMBISSION);
 
         if (submission != null)
         {
