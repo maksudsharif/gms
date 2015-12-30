@@ -40,5 +40,9 @@ angular.module('budget').controller('Budget.InfoController', ['$scope', 'UtilSer
             }
         });
 
+        $scope.onClickTitle = function () {
+            ObjectService.gotoUrl($scope.budgetInfo.parentType, $scope.budgetInfo.parentId);
+        }
+
     }
 ]);
