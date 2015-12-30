@@ -9,51 +9,19 @@
  *
  * The Budget module main controller
  */
-angular.module('budget').controller('BudgetController', ['$scope', '$stateParams', '$translate', 'ConfigService', 'Budget.InfoService', 'UtilService',
-	function($scope, $stateParams, $translate, ConfigService, BudgetInfoService, Util) {
-		var promiseGetModuleConfig = ConfigService.getModuleConfig("budget").then(function (config) {
-			$scope.config = config;
-			return config;
-		});
-		$scope.$on('req-component-config', function (e, componentId) {
-			promiseGetModuleConfig.then(function (config) {
-				var componentConfig = _.find(config.components, {id: componentId});
-				$scope.$broadcast('component-config', componentId, componentConfig);
-			});
-		});
+angular.module('budget').controller('BudgetController', ['$scope', '$state','$stateParams', 'Budget.InfoService', 'ObjectService', 'Helper.ObjectBrowserService',
+	function($scope, $state, $stateParams, BudgetInfoService, ObjectService, HelperObjectBrowserService) {
 
-		$scope.progressMsg = $translate.instant("budget.progressNoCostsheet");
-		$scope.$on('req-select-budget', function (e, selectedBudgetSheet) {
-			$scope.$broadcast('budget-selected', selectedBudgetSheet);
-
-			var id = Util.goodMapValue(selectedBudgetSheet, "nodeId", null);
-			loadBudgetSheet(id);
-		});
-
-		var loadBudgetSheet = function (id) {
-			if (id) {
-				if ($scope.budgetInfo && $scope.budgetInfo.id != id) {
-					$scope.budgetInfo = null;
-				}
-				$scope.progressMsg = $translate.instant("budget.progressLoading") + " " + id + "...";
-
-
-
-				BudgetInfoService.getBudgetInfo(id).then(
-					function (budgetInfo) {
-						$scope.progressMsg = null;
-						$scope.budgetInfo = budgetInfo;
-						$scope.$broadcast('budget-updated', budgetInfo);
-						return budgetInfo;
-					}
-					, function (errorData) {
-						$scope.budgetInfo = null;
-						$scope.progressMsg = $translate.instant("budget.progressError") + " " + id;
-						return errorData;
-					}
-				);
+		new HelperObjectBrowserService.Content({
+			scope: $scope
+			, state: $state
+			, stateParams: $stateParams
+			, moduleId: "budget"
+			, getObjectInfo: BudgetInfoService.getBudgetInfo
+			, updateObjectInfo: BudgetInfoService.saveBudgetInfo
+			, initComponentLinks: function (config) {
+				return HelperObjectBrowserService.createComponentLinks(config, ObjectService.ObjectTypes.COSTSHEET);
 			}
-		};
-		loadBudgetSheet($stateParams.id);
+		});
 	}
 ]);

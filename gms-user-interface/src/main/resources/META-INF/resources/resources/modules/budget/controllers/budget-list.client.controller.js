@@ -1,21 +1,18 @@
 'use strict';
 
 angular.module('budget').controller('BudgetListController', ['$scope', '$state', '$stateParams', '$q', '$translate'
-    , 'ConfigService', 'Authentication', 'UtilService', 'ObjectService', 'Helper.ObjectTreeService'
-    , 'Budget.ListService', 'Budget.InfoService'
+    , 'ConfigService', 'Authentication', 'UtilService', 'ObjectService'
+    , 'Budget.ListService', 'Budget.InfoService', 'Helper.ObjectBrowserService'
     , function ($scope, $state, $stateParams, $q, $translate
-        , ConfigService, Authentication, Util, ObjectService, HelperObjectTreeService
-        , BudgetListService, BudgetInfoService) {
+        , ConfigService, Authentication, Util, ObjectService
+        , BudgetListService, BudgetInfoService, HelperObjectBrowserService) {
 
-        ConfigService.getModuleConfig("budget").then(function (config) {
-            $scope.treeConfig = config.tree;
-            $scope.componentsConfig = config.components;
-            return config;
-        });
-
-        var treeHelper = new HelperObjectTreeService.Tree({
+        //"treeConfig", "treeData", "onLoad", and "onSelect" will be set by Tree Helper
+        new HelperObjectBrowserService.Tree({
             scope: $scope
-            , nodeId: $stateParams.id
+            , state: $state
+            , stateParams: $stateParams
+            , moduleId: "budget"
             , getTreeData: function (start, n, sort, filters) {
                 var dfd = $q.defer();
                 Authentication.queryUserInfo().then(
@@ -52,18 +49,5 @@ angular.module('budget').controller('BudgetListController', ['$scope', '$state',
                 };
             }
         });
-
-        $scope.onLoad = function (start, n, sort, filters) {
-            treeHelper.onLoad(start, n, sort, filters);
-        };
-
-        $scope.onSelect = function (selectedBudgetSheet) {
-            $scope.$emit('req-select-budget', selectedBudgetSheet);
-            var components = Util.goodArray(selectedBudgetSheet.components);
-            var componentType = (1 == components.length) ? components[0] : "main";
-            $state.go('budget.' + componentType, {
-                id: selectedBudgetSheet.nodeId
-            });
-        };
     }
 ]);

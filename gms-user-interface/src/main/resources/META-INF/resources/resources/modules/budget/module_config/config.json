@@ -5,14 +5,14 @@
     {
       "menuId": "leftnav",
       "menuItemURL": "budget",
-      "menuItemTitle": "Budget",
+      "menuItemTitle": "Expenditures",
       "iconClass": "fa fa-money",
       "position": 120
     },
     {
       "menuId": "topbar",
-      "menuItemURL": "newBudgetSheet",
-      "menuItemTitle": "Budget",
+      "menuItemURL": "frevvo-new-costsheet-budget",
+      "menuItemTitle": "Expenditure",
       "iconClass": "fa fa-money",
       "position": 70
     }
@@ -30,15 +30,15 @@
         "name": "create_tdt DESC"
       },
       {
-        "desc": "Sort Budget Sheet ID Ascending",
+        "desc": "Sort Expenditures ID Ascending",
         "name": "id ASC"
       },
       {
-        "desc": "Sort Budget Sheet ID Decending",
+        "desc": "Sort Expenditures ID Decending",
         "name": "id DESC"
       },
       {
-        "desc": "Sort By Budget Sheet Name",
+        "desc": "Sort By Expenditures Name",
         "name": "name DESC"
       }
     ],
@@ -84,6 +84,22 @@
     ]
   },
   "components": [
+    {
+      "id": "main",
+      "title": "Overview",
+      "icon": "fa fa-tachometer",
+      "enabled": false,
+      "type": "empty",
+      "editable": false
+    },
+    {
+      "id": "info",
+      "title": "Info",
+      "enabled": false,
+      "type": "empty",
+      "editable": false,
+      "parentDateFormat": "DD/MM/YYYY"
+    },
     {
       "id": "actions",
       "title": "Actions",
