@@ -2,19 +2,17 @@
 
 angular.module('budget').controller('Budget.MainController', ['$scope', 'ConfigService',
     function($scope, ConfigService) {
-        $scope.$on('component-config', applyConfig);
-        $scope.$emit('req-component-config', 'main');
-        $scope.components = null;
-        $scope.config = null;
 
-        function applyConfig(e, componentId, config) {
-            if (componentId == 'main') {
-                $scope.config = config;
-            }
-        }
+        $scope.$emit('main-component-started');
 
-        ConfigService.getModule({moduleId: 'budget'}, function(moduleConfig){
+        ConfigService.getComponentConfig("budget", "main").then(function (componentConfig) {
+            $scope.config = componentConfig;
+            return componentConfig;
+        });
+
+        ConfigService.getModuleConfig("budget").then(function (moduleConfig) {
             $scope.components = moduleConfig.components;
+            return moduleConfig;
         });
     }
 ]);

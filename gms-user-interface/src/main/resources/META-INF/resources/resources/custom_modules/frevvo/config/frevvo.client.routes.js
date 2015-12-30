@@ -29,6 +29,11 @@ angular.module('frevvo').config(['$stateProvider',
                 params: {name: 'new-costsheet-payment'},
                 templateUrl: 'modules/frevvo/views/frevvo.client.view.html'
             })
+            .state('frevvo-new-costsheet-budget', {
+                url: '/new-costsheet-budget',
+                params: {name: 'new-costsheet-budget'},
+                templateUrl: 'modules/frevvo/views/frevvo.client.view.html'
+            })
         ;
     }
 ]);

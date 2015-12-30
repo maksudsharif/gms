@@ -41,20 +41,5 @@ angular.module('budget').config(['$stateProvider',
 				templateUrl: 'modules/budget/views/components/budget-summary.client.view.html'
 			})
 
-			.state('newBudgetSheet', {
-				url: '/newBudgetSheet',
-				templateUrl: 'modules/budget/views/components/budget-new-budget.client.view.html',
-				params :{
-					costsheetType: 'costsheet_budget'
-				}
-			})
-
-			.state('editBudgetSheet', {
-				url: '/editbudget',
-				templateUrl: 'modules/budget/views/components/budget-edit-budget.client.view.html',
-				params: {
-					id: null
-				}
-			})
 	}
 ]);

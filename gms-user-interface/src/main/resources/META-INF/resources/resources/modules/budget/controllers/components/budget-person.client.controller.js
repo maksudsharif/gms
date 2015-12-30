@@ -1,25 +1,25 @@
 'use strict';
 
-angular.module('budget').controller('Budget.PersonController', ['$scope', 'Helper.UiGridService',
-    function ($scope, HelperUiGridService) {
+angular.module('budget').controller('Budget.PersonController', ['$scope', 'UtilService', 'Helper.UiGridService', 'ConfigService', 'Budget.InfoService', 'Helper.ObjectBrowserService',
+    function ($scope, Util, HelperUiGridService, ConfigService, BudgetInfoService, HelperObjectBrowserService) {
 
         var gridHelper = new HelperUiGridService.Grid({scope: $scope});
 
-        $scope.$emit('req-component-config', 'person');
-        $scope.$on('component-config', function (e, componentId, config) {
-            if ('person' == componentId) {
-                gridHelper.setColumnDefs(config);
-                gridHelper.setBasicOptions(config);
-            }
+        ConfigService.getComponentConfig("budget", "person").then(function (config) {
+            gridHelper.setColumnDefs(config);
+            gridHelper.setBasicOptions(config);
+            return config;
         });
 
-        $scope.$on('budget-updated', function (e, data) {
-            $scope.budgetInfo = data;
-            $scope.gridOptions = $scope.gridOptions || {};
-            $scope.gridOptions.data = [$scope.budgetInfo.user];
-        });
-
-
+        var currentObjectId = HelperObjectBrowserService.getCurrentObjectId();
+        if (Util.goodPositive(currentObjectId, false)) {
+            BudgetInfoService.getBudgetInfo(currentObjectId).then(function (budgetInfo) {
+                $scope.budgetInfo = budgetInfo;
+                $scope.gridOptions = $scope.gridOptions || {};
+                $scope.gridOptions.data = [$scope.budgetInfo.user];
+                return budgetInfo;
+            });
+        }
 
     }
 ]);

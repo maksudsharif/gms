@@ -1,17 +1,20 @@
 'use strict';
 
-angular.module('budget').controller('Budget.DetailsController', ['$scope', '$translate', 'UtilService', 'Budget.InfoService', 'MessageService',
-    function ($scope, $translate, Util, BudgetInfoService, MessageService) {
-        $scope.$emit('req-component-config', 'details');
-        $scope.$on('component-config', function (e, componentId, config) {
-            if ('details' == componentId) {
-                $scope.config = config;
-            }
+angular.module('budget').controller('Budget.DetailsController', ['$scope', '$translate', 'UtilService', 'Budget.InfoService', 'MessageService', 'ConfigService', 'Helper.ObjectBrowserService',
+    function ($scope, $translate, Util, BudgetInfoService, MessageService, ConfigService, HelperObjectBrowserService) {
+
+        ConfigService.getComponentConfig("budget", "details").then(function (componentConfig) {
+            $scope.config = componentConfig;
+            return componentConfig;
         });
 
-        $scope.$on('budget-updated', function (e, data) {
-            $scope.budgetInfo = data;
-        });
+        var currentObjectId = HelperObjectBrowserService.getCurrentObjectId();
+        if (Util.goodPositive(currentObjectId, false)) {
+            BudgetInfoService.getBudgetInfo(currentObjectId).then(function (budgetInfo) {
+                $scope.budgetInfo = budgetInfo;
+                return budgetInfo;
+            });
+        }
 
         $scope.saveDetails = function() {
             var budgetInfo = Util.omitNg($scope.budgetInfo);

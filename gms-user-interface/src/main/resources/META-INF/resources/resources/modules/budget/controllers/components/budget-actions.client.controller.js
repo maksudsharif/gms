@@ -9,43 +9,33 @@
  *
  * The Budget actions controller
  */
-angular.module('budget').controller('Budget.ActionsController', ['$scope', '$state',
-    function ($scope, $state) {
-        $scope.$emit('req-component-config', 'actions');
-        $scope.$on('component-config', function (e, componentId, config) {
-            if ('actions' == componentId) {
-                $scope.config = config;
+angular.module('budget').controller('Budget.ActionsController', ['$scope', '$state', 'ConfigService', 'Budget.InfoService',
+    function ($scope, $state, ConfigService, BudgetInfoService) {
+
+        ConfigService.getComponentConfig("budget", "actions").then(function (componentConfig) {
+            $scope.config = componentConfig;
+            return componentConfig;
+        });
+
+        $scope.$on('object-updated', function (e, data) {
+            if (BudgetInfoService.validateBudget(data)) {
+                $scope.budgetInfo = data;
             }
         });
 
-        $scope.budgetInfo = null;
-
-        $scope.$on('budget-updated', function (e, data) {
-            $scope.budgetInfo = data;
-        });
-
-        /**
-         * @ngdoc method
-         * @name loadNewBudgetFrevvoForm
-         * @methodOf budget.controller:Budget.ActionsController
-         *
-         * @description
-         * Displays the create new budget Frevvo form for the user
-         */
-        $scope.loadNewBudgetFrevvoForm = function () {
-            $state.go('newBudgetSheet');
+        $scope.createNew = function () {
+            $state.go("frevvo", {
+                name: "new-costsheet-budget"
+            });
         };
 
-        /**
-         * @ngdoc method
-         * @name loadExistingBudgetFrevvoForm
-         * @methodOf budget.controller:Budget.ActionsController
-         *
-         * @description
-         * Displays the existing budget Frevvo form for the user
-         */
-        $scope.loadExistingBudgetFrevvoForm = function () {
-            $state.go('editBudgetSheet', { id : $scope.budgetInfo.id});
+        $scope.edit = function (budgetInfo) {
+            $state.go("frevvo", {
+                name: "edit-costsheet-budget",
+                arg: {
+                    id: budgetInfo.id
+                }
+            });
         };
 
     }

@@ -1,19 +1,26 @@
 {
   "budget": {
-    "title": "Budget",
+    "title": "Expenditures",
     "progressNoCostsheet": "[ No budget sheet is selected ]",
     "progressLoading": "Loading budget sheet ",
     "progressError": "Failed to load budget sheet"
   },
   "budget.tree": {
   },
+  "budget.comp.info": {
+    "incidentDate": "Incident Date",
+    "priority": "Priority",
+    "assignedTo": "Assigned To",
+    "subjectType": "Subject Type",
+    "state": "State"
+  },
   "budget.comp.actions": {
-    "new.button": "New Budget Sheet",
-    "edit.button": "Edit Budget Sheet"
+    "new.button": "New Expenditures",
+    "edit.button": "Edit Expenditures"
   },
   "budget.comp.details": {
     "title": "Details",
-    "informSaved": "Budget Sheet details saved"
+    "informSaved": "Expenditures details saved"
   },
   "budget.comp.people": {
     "title": "Person",

@@ -45,12 +45,12 @@
       "formDefault": "plain_configuration"
     },
     {
-      "name": "new-costsheet_budget",
+      "name": "new-costsheet-budget",
       "formKey": "active.costsheet_budget.form",
       "formDefault": "costsheet_budget"
     },
     {
-      "name": "edit-costsheet_budget",
+      "name": "edit-costsheet-budget",
       "formKey": "active.edit.costsheet_budget.form",
       "formDefault": "costsheet_budget"
     },
