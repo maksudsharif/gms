@@ -110,12 +110,14 @@
     {
       "id": "details",
       "title": "Details",
+      "icon": "fa fa-info-circle",
       "enabled": true,
       "type": "empty"
     },
     {
       "id": "person",
       "title": "Person",
+      "icon": "fa fa-user",
       "enabled": true,
       "type": "grid",
       "enableFiltering": true,
@@ -142,6 +144,7 @@
     {
       "id": "summary",
       "title": "Summary",
+      "icon": "fa fa-money",
       "enabled": true,
       "type": "grid",
       "enableFiltering": true,
