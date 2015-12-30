@@ -2,19 +2,18 @@
 
 angular.module('payment').controller('Payment.MainController', ['$scope', 'ConfigService',
     function($scope, ConfigService) {
-        $scope.$on('component-config', applyConfig);
-        $scope.$emit('req-component-config', 'main');
-        $scope.components = null;
-        $scope.config = null;
 
-        function applyConfig(e, componentId, config) {
-            if (componentId == 'main') {
-                $scope.config = config;
-            }
-        }
+        $scope.$emit('main-component-started');
 
-        ConfigService.getModule({moduleId: 'payment'}, function(moduleConfig){
-            $scope.components = moduleConfig.components;
+        ConfigService.getComponentConfig("payment", "main").then(function (componentConfig) {
+            $scope.config = componentConfig;
+            return componentConfig;
         });
+
+        ConfigService.getModuleConfig("payment").then(function (moduleConfig) {
+            $scope.components = moduleConfig.components;
+            return moduleConfig;
+        });
+
     }
 ]);

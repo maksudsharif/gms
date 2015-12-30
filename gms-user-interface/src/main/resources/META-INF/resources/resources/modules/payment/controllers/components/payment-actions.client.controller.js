@@ -9,43 +9,33 @@
  *
  * The Payment actions controller
  */
-angular.module('payment').controller('Payment.ActionsController', ['$scope', '$state',
-    function ($scope, $state) {
-        $scope.$emit('req-component-config', 'actions');
-        $scope.$on('component-config', function (e, componentId, config) {
-            if ('actions' == componentId) {
-                $scope.config = config;
+angular.module('payment').controller('Payment.ActionsController', ['$scope', '$state', 'ConfigService', 'Payment.InfoService',
+    function ($scope, $state, ConfigService, PaymentInfoService) {
+
+        ConfigService.getComponentConfig("payment", "actions").then(function (componentConfig) {
+            $scope.config = componentConfig;
+            return componentConfig;
+        });
+
+        $scope.$on('object-updated', function (e, data) {
+            if (PaymentInfoService.validatePayment(data)) {
+                $scope.paymentInfo = data;
             }
         });
 
-        $scope.paymentInfo = null;
-
-        $scope.$on('payment-updated', function (e, data) {
-            $scope.paymentInfo = data;
-        });
-
-        /**
-         * @ngdoc method
-         * @name loadNewPaymentFrevvoForm
-         * @methodOf payment.controller:Payment.ActionsController
-         *
-         * @description
-         * Displays the create new payment Frevvo form for the user
-         */
-        $scope.loadNewPaymentFrevvoForm = function () {
-            $state.go('newPaymentSheet');
+        $scope.createNew = function () {
+            $state.go("frevvo", {
+                name: "new-costsheet-payment"
+            });
         };
 
-        /**
-         * @ngdoc method
-         * @name loadExistingPaymentFrevvoForm
-         * @methodOf payment.controller:Payment.ActionsController
-         *
-         * @description
-         * Displays the existing payment Frevvo form for the user
-         */
-        $scope.loadExistingPaymentFrevvoForm = function () {
-            $state.go('editPaymentSheet', { id : $scope.paymentInfo.id});
+        $scope.edit = function (paymentInfo) {
+            $state.go("frevvo", {
+                name: "edit-costsheet-payment",
+                arg: {
+                    id: paymentInfo.id
+                }
+            });
         };
 
     }

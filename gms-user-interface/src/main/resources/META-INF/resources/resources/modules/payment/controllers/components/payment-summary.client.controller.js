@@ -1,30 +1,33 @@
 'use strict';
 
-angular.module('payment').controller('Payment.SummaryController', ['$scope', 'UtilService', 'Helper.UiGridService',
-    function ($scope, Util, HelperUiGridService) {
+angular.module('payment').controller('Payment.SummaryController', ['$scope', 'UtilService', 'Helper.UiGridService', 'ConfigService', 'Payment.InfoService', 'Helper.ObjectBrowserService',
+    function ($scope, Util, HelperUiGridService, ConfigService, PaymentInfoService, HelperObjectBrowserService) {
 
         var gridHelper = new HelperUiGridService.Grid({scope: $scope});
 
-        $scope.$emit('req-component-config', 'summary');
-        $scope.$on('component-config', function (e, componentId, config) {
-            if ('summary' == componentId) {
-                gridHelper.setColumnDefs(config);
-                gridHelper.setBasicOptions(config);
-            }
+        ConfigService.getComponentConfig("payment", "summary").then(function (config) {
+            gridHelper.setColumnDefs(config);
+            gridHelper.setBasicOptions(config);
+            return config;
         });
 
-        $scope.$on('payment-updated', function (e, data) {
-            $scope.paymentInfo = data;
-            var parentNumber = {parentNumber: $scope.paymentInfo.parentNumber};
-            var parentType = {parentType: $scope.paymentInfo.parentType};
-            var parentId = {parentId: $scope.paymentInfo.parentId};
-            var costs = angular.copy($scope.paymentInfo.costs);
-            costs = costs.map(function (obj){
-                return angular.extend(obj, parentNumber, parentType, parentId);
+        var currentObjectId = HelperObjectBrowserService.getCurrentObjectId();
+        if (Util.goodPositive(currentObjectId, false)) {
+            PaymentInfoService.getPaymentInfo(currentObjectId).then(function (paymentInfo) {
+                $scope.paymentInfo = paymentInfo;
+                var parentNumber = {parentNumber: $scope.paymentInfo.parentNumber};
+                var parentType = {parentType: $scope.paymentInfo.parentType};
+                var parentId = {parentId: $scope.paymentInfo.parentId};
+
+                var costs = angular.copy($scope.paymentInfo.costs);
+                costs = costs.map(function (obj) {
+                    return angular.extend(obj, parentNumber, parentType, parentId);
+                });
+                $scope.gridOptions = $scope.gridOptions || {};
+                $scope.gridOptions.data = costs;
+                return paymentInfo;
             });
-            $scope.gridOptions = $scope.gridOptions || {};
-            $scope.gridOptions.data = costs;
-        });
+        }
 
         $scope.onClickObjectType = function (event, rowEntity) {
             event.preventDefault();

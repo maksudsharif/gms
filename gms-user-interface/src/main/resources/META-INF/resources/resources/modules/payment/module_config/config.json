@@ -11,7 +11,7 @@
     },
     {
       "menuId": "topbar",
-      "menuItemURL": "newPaymentSheet",
+      "menuItemURL": "frevvo-new-costsheet-payment",
       "menuItemTitle": "Payment",
       "iconClass": "fa fa-money",
       "position": 80
@@ -84,6 +84,22 @@
     ]
   },
   "components": [
+    {
+      "id": "main",
+      "title": "Overview",
+      "icon": "fa fa-tachometer",
+      "enabled": false,
+      "type": "empty",
+      "editable": false
+    },
+    {
+      "id": "info",
+      "title": "Info",
+      "enabled": false,
+      "type": "empty",
+      "editable": false,
+      "parentDateFormat": "DD/MM/YYYY"
+    },
     {
       "id": "actions",
       "title": "Actions",

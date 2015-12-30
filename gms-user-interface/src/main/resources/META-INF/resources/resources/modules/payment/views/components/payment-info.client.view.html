@@ -1,0 +1,56 @@
+<div ng-controller="Payment.InfoController">
+    <div class="clearfix">
+        <div class="row">
+            <div class="col-xs-12 col-md-4">
+                <a ng-click="onClickTitle()">
+                    <div class="h4 font-bold">
+                        {{parentInfo.title || 'Unknown'}}
+                    </div>
+                    <small class="text-muted">
+                        {{paymentInfo.parentNumber || 'Unknown'}}
+                    </small>
+                </a>
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <div class="h4 font-bold">
+                    {{parentInfo.incidentDate || 'Unknown'}}
+                </div>
+                <small class="text-muted">
+                    <span translate>payment.comp.info.incidentDate</span>
+                </small>
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <div class="h4 font-bold">
+                    {{parentInfo.priortiy || 'Unknown'}}
+                </div>
+                <small class="text-muted">
+                    <span translate>payment.comp.info.priority</span>
+                </small>
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <div class="h4 font-bold">
+                    {{paymentInfo.user.fullName || 'Unknown'}}
+                </div>
+                <small class="text-muted">
+                    <span translate>payment.comp.info.assignedTo</span>
+                </small>
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <div class="h4 font-bold">
+                    {{parentInfo.type || 'Unknown'}}
+                </div>
+                <small class="text-muted">
+                    <span translate>payment.comp.info.subjectType</span>
+                </small>
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <div class="h4 font-bold">
+                    {{parentInfo.status || 'Unknown'}}
+                </div>
+                <small class="text-muted">
+                    <span translate>payment.comp.info.state</span>
+                </small>
+            </div>
+        </div>
+    </div>
+</div>
