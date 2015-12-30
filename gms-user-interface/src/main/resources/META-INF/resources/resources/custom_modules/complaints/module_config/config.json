@@ -675,7 +675,8 @@
           "name": "taskId",
           "field": "object_id_s",
           "displayName": "complaints.comp.tasks.table.columns.taskId",
-          "headerCellFilter": "translate"
+          "headerCellFilter": "translate",
+          "cellTemplate": "<a href='#' ng-click='grid.appScope.onClickObjLink($event, row.entity)'>{{row.entity.object_id_s}}</a>"
         },
         {
           "name": "title",
