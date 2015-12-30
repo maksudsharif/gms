@@ -182,8 +182,20 @@
           "width": 130
         },
         {
-          "name": "name",
+          "name": "title_parseable",
           "displayName": "dashboard.widgets.awardedGrants.table.header.grantName",
+          "headerCellFilter": "translate",
+          "enableSorting": true
+        },
+        {
+          "name": "award_value_l",
+          "displayName": "dashboard.widgets.awardedGrants.table.header.amountTotal",
+          "headerCellFilter": "translate",
+          "enableSorting": true
+        },
+        {
+          "name": "award_remaining_value_l",
+          "displayName": "dashboard.widgets.awardedGrants.table.header.amountRemaining",
           "headerCellFilter": "translate",
           "enableSorting": true
         }
@@ -205,8 +217,15 @@
           "width": 130
         },
         {
-          "name": "name",
+          "name": "title_parseable",
           "displayName": "dashboard.widgets.unawardedGrants.table.header.grantName",
+          "headerCellFilter": "translate",
+          "enableSorting": true,
+          "width": 150
+        },
+        {
+          "name": "submissions_count_i",
+          "displayName": "dashboard.widgets.unawardedGrants.table.header.numberOfSubmissions",
           "headerCellFilter": "translate",
           "enableSorting": true,
           "width": 150
