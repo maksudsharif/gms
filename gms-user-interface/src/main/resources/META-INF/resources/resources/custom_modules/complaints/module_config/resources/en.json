@@ -146,19 +146,8 @@
       "creator": "Creator"
     }
   },
-  "complaints.comp.time": {
-    "title": "Time",
-    "table.columns": {
-      "name": "Form Name",
-      "user": "User",
-      "tally": "Total Hours",
-      "modified": "Modified Date",
-      "status": "Status"
-    },
-    "formNamePrefix": "Timesheet"
-  },
   "complaints.comp.cost": {
-    "title": "Cost",
+    "title": "Expenditures",
     "table.columns": {
       "name": "Form Name",
       "user": "User",

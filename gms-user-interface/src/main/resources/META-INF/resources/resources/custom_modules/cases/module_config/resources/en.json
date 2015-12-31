@@ -142,19 +142,8 @@
       "creator": "Creator"
     }
   },
-  "cases.comp.time": {
-    "title": "Time",
-    "table.columns": {
-      "name": "Form Name",
-      "user": "User",
-      "tally": "Total Hours",
-      "modified": "Modified Date",
-      "status": "Status"
-    },
-    "formNamePrefix": "Timesheet"
-  },
   "cases.comp.cost": {
-    "title": "Cost",
+    "title": "Expenditures",
     "table.columns": {
       "name": "Form Name",
       "user": "User",
