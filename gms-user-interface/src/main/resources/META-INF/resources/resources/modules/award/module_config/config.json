@@ -100,7 +100,6 @@
           "references",
           "history",
           "correspondence",
-          "time",
           "cost",
           "calendar"
         ]
@@ -169,15 +168,8 @@
         ]
       },
       {
-        "type": "p/CASE_FILE/time",
-        "label": "Time",
-        "components": [
-          "time"
-        ]
-      },
-      {
         "type": "p/CASE_FILE/cost",
-        "label": "Cost",
+        "label": "Expenditures",
         "components": [
           "cost"
         ]
@@ -835,7 +827,7 @@
     },
     {
       "id": "cost",
-      "title": "Cost",
+      "title": "Expenditures",
       "icon": "fa fa-money",
       "enabled": true,
       "type": "grid",

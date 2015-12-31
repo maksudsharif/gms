@@ -154,7 +154,7 @@
     "formNamePrefix": "Timesheet"
   },
   "award.comp.cost": {
-    "title": "Cost",
+    "title": "Expenditures",
     "table.columns": {
       "name": "Form Name",
       "user": "User",
