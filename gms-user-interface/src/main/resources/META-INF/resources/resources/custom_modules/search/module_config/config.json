@@ -21,29 +21,19 @@
             "enableFiltering": false,
             "columnDefs": [
                 {
-                    "name": "grant_id_s",
+                    "name": "object_id_s",
                     "displayName": "search.comp.grid.columns.grantId",
                     "headerCellFilter": "translate"
                 },
                 {
-                    "name": "name",
+                    "name": "title_parseable",
                     "displayName": "search.comp.grid.columns.name",
                     "headerCellFilter": "translate",
                     "cellTemplate": "<a href='#' ng-click='grid.appScope.onClickObjLink($event, row.entity)' data-toggle='tooltip' data-placement='bottom' title={{row.entity.name}}>{{row.entity.name}}</a>"
                 },
                 {
-                    "name": "grant_amount_d",
+                    "name": "total_anticipated_founds_l",
                     "displayName": "search.comp.grid.columns.grantAmount",
-                    "headerCellFilter": "translate"
-                },
-                {
-                    "name": "pre_award_id_s",
-                    "displayName": "search.comp.grid.columns.id",
-                    "headerCellFilter": "translate"
-                },
-                {
-                    "name": "award_id_s",
-                    "displayName": "search.comp.grid.columns.id",
                     "headerCellFilter": "translate"
                 },
                 {
@@ -54,11 +44,6 @@
                 {
                     "name": "create_date_tdt",
                     "displayName": "search.comp.grid.columns.created",
-                    "headerCellFilter": "translate"
-                },
-                {
-                    "name": "award_amount_d",
-                    "displayName": "search.comp.grid.columns.awardAmount",
                     "headerCellFilter": "translate"
                 }
             ],
