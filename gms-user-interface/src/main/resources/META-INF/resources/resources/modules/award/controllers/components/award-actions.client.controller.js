@@ -1,12 +1,17 @@
 'use strict';
 
-angular.module('award').controller('Award.ActionsController', ['$scope', '$state', '$stateParams', '$q', 'UtilService', 'ConfigService'
-    , 'ObjectService', 'Authentication', 'Object.LookupService', 'Case.LookupService', 'Object.SubscriptionService', 'Object.ModelService', 'Case.InfoService'
-    , function ($scope, $state, $stateParams, $q, Util, ConfigService, ObjectService, Authentication, ObjectLookupService, CaseLookupService, ObjectSubscriptionService, ObjectModelService, CaseInfoService) {
+angular.module('award').controller('Award.ActionsController', ['$scope', '$state', '$stateParams', '$q','$modal', 'UtilService', 'ConfigService'
+    , 'ObjectService', 'Authentication', 'Object.LookupService', 'Case.LookupService', 'Object.SubscriptionService', 'Object.ModelService', 'Case.InfoService', 'Case.MergeSplitService'
+    , function ($scope, $state, $stateParams, $q, $modal, Util, ConfigService, ObjectService, Authentication, ObjectLookupService,
+                CaseLookupService, ObjectSubscriptionService, ObjectModelService, CaseInfoService, MergeSplitService) {
 
         ConfigService.getComponentConfig("award", "actions").then(function (componentConfig) {
             $scope.config = componentConfig;
             return componentConfig;
+        });
+
+        ConfigService.getModuleConfig("cases").then(function (moduleConfig) {
+            $scope.caseFileSearchConfig = _.find(moduleConfig.components, {id: "merge"});
         });
 
         var promiseQueryUser = Authentication.queryUserInfo();
@@ -122,7 +127,35 @@ angular.module('award').controller('Award.ActionsController', ['$scope', '$state
         };
 
         $scope.merge = function () {
-            console.log('merge');
+            var modalInstance = $modal.open({
+                animation: $scope.animationsEnabled,
+                templateUrl: 'modules/cases/views/components/case-merge.client.view.html',
+                controller: 'Cases.MergeController',
+                size: 'lg',
+                resolve: {
+                    $clientInfoScope: function () {
+                        return $scope.caseFileSearchConfig;
+                    },
+                    $filter: function () {
+                        return $scope.caseFileSearchConfig.caseInfoFilter;
+                    }
+                }
+            });
+            modalInstance.result.then(function (selectedCase) {
+                if(selectedCase){
+                    if(selectedCase.parentId != null){
+                        //Already Merged
+                    }
+                    else{
+                        MergeSplitService.mergeCaseFile(caseInfo.id, selectedCase.object_id_s).then(
+                            function(data) {
+                                ObjectService.gotoUrl(ObjectService.ObjectTypes.CASE_FILE, data.id);
+                            });
+                    }
+                }
+            }, function () {
+                // Cancel button was clicked
+            });
         };
 
         $scope.split = function () {
