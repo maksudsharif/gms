@@ -28,6 +28,13 @@ public class ReviewRequestService extends CloseComplaintRequestService
             Submission submission = (Submission) getComplaintDao().find(complaintId);
             CloseComplaintRequest request = getCloseComplaintRequestDao().find(closeComplaintRequestId);
 
+            if (request.getDisposition() != null && request.getDisposition() instanceof Decision)
+            {
+                Decision decision = (Decision) request.getDisposition();
+                submission.setRating(decision.getRating());
+                getComplaintDao().save(submission);
+            }
+
             if (isAward(request))
             {
                 Long awardValue = null;

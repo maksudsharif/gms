@@ -15,6 +15,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class ReviewForm extends CloseComplaintForm
 {
     private Long awardValue;
+    private Long rating;
 
     @XmlElement(name = "awardValue")
     public Long getAwardValue()
@@ -27,7 +28,18 @@ public class ReviewForm extends CloseComplaintForm
         this.awardValue = awardValue;
     }
 
-    @XmlElement(name="information", type=ReviewResolveInformation.class)
+    @XmlElement(name = "rating")
+    public Long getRating()
+    {
+        return rating;
+    }
+
+    public void setRating(Long rating)
+    {
+        this.rating = rating;
+    }
+
+    @XmlElement(name = "information", type=ReviewResolveInformation.class)
     @Override
     public ResolveInformation getInformation() {
         return super.getInformation();
