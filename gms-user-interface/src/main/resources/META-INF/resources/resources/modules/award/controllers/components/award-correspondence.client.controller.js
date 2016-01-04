@@ -97,7 +97,7 @@ angular.module('award').controller('Award.CorrespondenceController', ['$scope', 
                 correspondence.category = "Correspondence";
                 $scope.gridOptions.data.push(correspondence);
                 $scope.gridOptions.totalItems++;
-                gridHelper.hidePagingControlsIfAllDataShown($scope.gridOptions.totalItems);
+                //gridHelper.hidePagingControlsIfAllDataShown($scope.gridOptions.totalItems);
 
                 //var lastPage = $scope.gridApi.pagination.getTotalPages();
                 //$scope.gridApi.pagination.seek(lastPage);
