@@ -3,6 +3,7 @@ package com.arkcase.gms.model;
 import com.armedia.acm.plugins.complaint.model.Complaint;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -19,6 +20,9 @@ public class Submission extends Complaint
     @JoinColumn(name = "gms_grant_id", referencedColumnName = "cm_case_id")
     private Grant grant;
 
+    @Column(name = "gms_rating")
+    private Long rating;
+
     public Grant getGrant()
     {
         return grant;
@@ -27,5 +31,15 @@ public class Submission extends Complaint
     public void setGrant(Grant grant)
     {
         this.grant = grant;
+    }
+
+    public Long getRating()
+    {
+        return rating;
+    }
+
+    public void setRating(Long rating)
+    {
+        this.rating = rating;
     }
 }

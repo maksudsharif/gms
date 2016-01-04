@@ -42,6 +42,7 @@ public class ReviewFactory extends CloseComplaintRequestFactory
             {
                 ReviewForm reviewForm = (ReviewForm) form;
                 decision.setAwardValue(reviewForm.getAwardValue());
+                decision.setRating(reviewForm.getRating());
                 req.setDisposition(decision);
             }
         }
