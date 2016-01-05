@@ -29,12 +29,12 @@ angular.module('award').controller('Award.HistoryController', ['$scope', '$state
                     , Util.goodMapValue($scope.sort, "dir")
                 );
 
-                $q.all([promiseQueryAudit, promiseUsers]).then(function (data) {
+                $q.all([promiseQueryAudit, promiseUsers, promiseConfig]).then(function (data) {
                     var auditData = data[0];
                     $scope.gridOptions = $scope.gridOptions || {};
                     $scope.gridOptions.data = auditData.resultPage;
                     $scope.gridOptions.totalItems = auditData.totalCount;
-                    gridHelper.hidePagingControlsIfAllDataShown($scope.gridOptions.totalItems);
+                   // gridHelper.hidePagingControlsIfAllDataShown($scope.gridOptions.totalItems);
                 });
             }
         };

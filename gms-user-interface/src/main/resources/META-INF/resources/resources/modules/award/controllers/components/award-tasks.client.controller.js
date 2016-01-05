@@ -19,6 +19,7 @@ angular.module('award').controller('Award.TasksController', ['$scope', '$state',
         ConfigService.getComponentConfig("award", "tasks").then(function (config) {
             gridHelper.setColumnDefs(config);
             gridHelper.setBasicOptions(config);
+            gridHelper.disableGridScrolling(config);
             gridHelper.setExternalPaging(config, $scope.retrieveGridData);
             gridHelper.setUserNameFilter(promiseUsers);
 
@@ -41,6 +42,7 @@ angular.module('award').controller('Award.TasksController', ['$scope', '$state',
         });
 
         $scope.retrieveGridData = function () {
+            if (Util.goodPositive(currentObjectId, false)) {
                 ObjectTaskService.queryChildTasks(ObjectService.ObjectTypes.CASE_FILE
                     , currentObjectId
                     , Util.goodValue($scope.start, 0)
@@ -93,6 +95,7 @@ angular.module('award').controller('Award.TasksController', ['$scope', '$state',
                         return data;
                     }
                 );
+            }
         };
 
         $scope.addNew = function () {
@@ -150,6 +153,13 @@ angular.module('award').controller('Award.TasksController', ['$scope', '$state',
         $scope.showUrl = function (event, rowEntity) {
             event.preventDefault();
             gridHelper.showObject(ObjectService.ObjectTypes.TASK, Util.goodMapValue(rowEntity, "object_id_s", 0));
+        };
+
+        $scope.onClickObjLink = function (event, rowEntity) {
+            event.preventDefault();
+            var targetType = Util.goodMapValue(rowEntity, "object_type_s");
+            var targetId = Util.goodMapValue(rowEntity, "object_id_s");
+            gridHelper.showObject(targetType, targetId);
         };
 
     }

@@ -26,11 +26,6 @@ angular.module('award').config(['$stateProvider', '$urlRouterProvider',
 				url: '/:id/main',
 				templateUrl: 'modules/award/views/components/award-main.client.view.html'
 			})
-
-			.state('award.Viewer', {
-				url: '/viewer/:id/:containerId/:containerType/:name/:selectedIds',
-				templateUrl: 'modules/award/views/components/award-viewer.client.view.html'
-			})
 			
 			.state('award.calendar', {
 				url: '/:id/calendar',
