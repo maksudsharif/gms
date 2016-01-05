@@ -222,21 +222,21 @@
           "headerCellFilter": "translate",
           "enableSorting": true,
           "cellTemplate": "<a href='#' ng-click='grid.appScope.onClickObjectType($event, row.entity)'>{{row.entity.object_id_s}}</a>",
-          "width": 130
+          "width": "25%"
         },
         {
           "name": "title_parseable",
           "displayName": "dashboard.widgets.unawardedGrants.table.header.grantName",
           "headerCellFilter": "translate",
           "enableSorting": true,
-          "width": 150
+          "width": "50%"
         },
         {
           "name": "submissions_count_i",
           "displayName": "dashboard.widgets.unawardedGrants.table.header.numberOfSubmissions",
           "headerCellFilter": "translate",
           "enableSorting": true,
-          "width": 150
+          "width": "25%"
         }
       ]
     }
