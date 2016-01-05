@@ -29,6 +29,9 @@ public class Grant extends CaseFile
     @Column(name = "gms_award_value")
     private Long awardValue;
 
+    @Column(name = "gms_award_remaining_value")
+    private Long awardRemainingValue;
+
     public Long getTotalAnticipatedFunds()
     {
         return totalAnticipatedFunds;
@@ -63,5 +66,15 @@ public class Grant extends CaseFile
     public void setAwardValue(Long awardValue)
     {
         this.awardValue = awardValue;
+    }
+
+    public Long getAwardRemainingValue()
+    {
+        return awardRemainingValue;
+    }
+
+    public void setAwardRemainingValue(Long awardRemainingValue)
+    {
+        this.awardRemainingValue = awardRemainingValue;
     }
 }

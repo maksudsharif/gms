@@ -109,6 +109,11 @@ public class GrantToSolrTransformer extends CaseFileToSolrTransformer
             {
                 aps.put("award_value_l", grant.getAwardValue());
             }
+
+            if (grant.getAwardRemainingValue() != null)
+            {
+                aps.put("award_remaining_value_l", grant.getAwardRemainingValue());
+            }
         }
     }
 
