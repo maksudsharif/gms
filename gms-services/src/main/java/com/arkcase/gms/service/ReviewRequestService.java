@@ -47,8 +47,8 @@ public class ReviewRequestService extends CloseComplaintRequestService
                 Grant grant = new Grant();
                 grant.setGrantType(GmsConstants.TYPE_AWARDED_GRANT);
                 grant.setAwardValue(awardValue);
-                Grant newGrant = (Grant) openFullInvestigation(submission, user, grant);
-                addReferenceToComplaint(submission, newGrant);
+                Grant newGrant = (Grant) openFullInvestigation(submission, user, grant, GmsConstants.SUMBISSION);
+                addReferenceToComplaint(submission, newGrant, GmsConstants.AWARD);
             }
         }
 
