@@ -170,8 +170,12 @@
       "id": "awardedGrants",
       "title": "Awarded Grants",
       "enableFiltering": false,
-      "paginationPageSizes": [25, 50, 75],
-      "paginationPageSize": 25,
+      "paginationPageSizes": [
+        5,
+        10,
+        25
+      ],
+      "paginationPageSize": 5,
       "columnDefs": [
         {
           "name": "object_id_s",
@@ -205,8 +209,12 @@
       "id": "unawardedGrants",
       "title": "Un-Awarded Grants",
       "enableFiltering": false,
-      "paginationPageSizes": [25, 50, 75],
-      "paginationPageSize": 25,
+      "paginationPageSizes": [
+        5,
+        10,
+        25
+      ],
+      "paginationPageSize": 5,
       "columnDefs": [
         {
           "name": "object_id_s",
