@@ -106,5 +106,23 @@
     "description": "Costsheet",
     "iconName": "fa fa-money",
     "url": "#!/costsheets/:id/main"
+  },
+  {
+    "type": "SUBMISSION",
+    "description": "Submission",
+    "iconName": "i i-notice",
+    "url": "#!/complaints/:id/main"
+  },
+  {
+    "type": "GRANT",
+    "description": "Grant",
+    "iconName": "i-folder",
+    "url": "#!/cases/:id/main"
+  },
+  {
+    "type": "AWARD",
+    "description": "Award",
+    "iconName": "i-folder",
+    "url": "#!/award/:id/main"
   }
 ]
