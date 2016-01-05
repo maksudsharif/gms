@@ -19,7 +19,7 @@ angular.module('services').factory('Award.ListService', ['$resource', '$translat
             AWARD_LIST: "AwardList"
         };
         Service.Object = {
-            SUB_TYPE: "GRANT",
+            SUB_TYPE: "AWARD",
             GRANT_TYPE: "AWARDED_GRANT"
         }
 

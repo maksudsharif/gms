@@ -75,7 +75,13 @@ public class GrantToSolrTransformer extends CaseFileToSolrTransformer
 
     private void mapOrderProperties(Grant grant, Map<String, Object> aps)
     {
-        aps.put("object_sub_type_s", GmsConstants.GRANT);
+        String objectSubType = GmsConstants.GRANT;
+        if (GmsConstants.TYPE_AWARDED_GRANT.equalsIgnoreCase(grant.getGrantType()))
+        {
+            objectSubType = GmsConstants.AWARD;
+        }
+
+        aps.put("object_sub_type_s", objectSubType);
 
         if (grant != null)
         {

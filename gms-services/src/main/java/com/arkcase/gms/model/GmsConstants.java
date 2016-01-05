@@ -26,4 +26,5 @@ public interface GmsConstants
 
     String SUMBISSION = "SUBMISSION";
     String GRANT = "GRANT";
+    String AWARD = "AWARD";
 }
