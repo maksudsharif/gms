@@ -15,4 +15,9 @@
 
     <bean id="costsheetServiceExt" class="com.arkcase.gms.service.CostsheetServiceImpl" parent="costsheetService"/>
 
+    <bean id="costBudgetListener" class="com.arkcase.gms.service.form.CostBudgetListener">
+        <property name="caseFileDao" ref="caseFileDao"/>
+        <property name="costsheetService" ref="costsheetServiceExt"/>
+    </bean>
+
 </beans>
