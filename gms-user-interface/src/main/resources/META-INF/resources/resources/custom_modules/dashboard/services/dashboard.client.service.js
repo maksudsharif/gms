@@ -48,7 +48,7 @@ angular.module('dashboard').factory('Dashboard.DashboardService', ['$resource',
             queryAwardedGrants: {
                 method: 'GET',
                 url: 'proxy/arkcase/api/v1/plugin/search/advancedSearch?q=assignee_id_lcs\\::userId+' +
-                'AND+object_type_s\\:CASE_FILE+' + 'AND+object_sub_type_s\\:GRANT+' + 'AND+grant_type_s\\:AWARDED_GRANT'+
+                'AND+object_type_s\\:CASE_FILE+' + 'AND+object_sub_type_s\\:AWARD+' + 'AND+grant_type_s\\:AWARDED_GRANT'+
                 '&start=:startWith&n=:pageSize&s=:sortBy :sortDir',
                 isArray: false,
                 data: ''

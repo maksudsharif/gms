@@ -2,25 +2,26 @@ package com.arkcase.gms.service.form;
 
 import com.arkcase.gms.model.GmsConstants;
 import com.arkcase.gms.model.form.CostBudgetForm;
-import com.arkcase.gms.utils.BeanUtilsBean;
-import com.armedia.acm.form.config.xml.ApproverItem;
-import com.armedia.acm.form.cost.model.CostForm;
-import com.armedia.acm.form.cost.model.CostItem;
+import com.arkcase.gms.service.CostsheetService;
 import com.armedia.acm.form.cost.service.CostService;
-import com.armedia.acm.frevvo.model.FrevvoForm;
-import com.armedia.acm.plugins.ecm.model.AcmContainer;
-import com.armedia.acm.services.costsheet.model.AcmCostsheet;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.lang.reflect.InvocationTargetException;
-import java.util.Arrays;
+import com.armedia.acm.services.search.model.SearchConstants;
 
 /**
  * Created by riste.tutureski on 12/1/2015.
  */
 public class CostBudgetService extends CostService
 {
+    private CostsheetService costsheetServiceExt;
+
+    @Override
+    public String getSolrResponse(String objectType)
+    {
+        String jsonResults = getCostsheetServiceExt().getObjectsWithSubTypesFromSolr(objectType, GmsConstants.AWARD, getAuthentication(), 0, 25,
+                SearchConstants.PROPERTY_NAME + " " + SearchConstants.SORT_DESC, null);
+
+        return jsonResults;
+    }
+
     @Override
     public String getFormName()
     {
@@ -31,5 +32,15 @@ public class CostBudgetService extends CostService
     public Class<?> getFormClass()
     {
         return CostBudgetForm.class;
+    }
+
+    public CostsheetService getCostsheetServiceExt()
+    {
+        return costsheetServiceExt;
+    }
+
+    public void setCostsheetServiceExt(CostsheetService costsheetServiceExt)
+    {
+        this.costsheetServiceExt = costsheetServiceExt;
     }
 }

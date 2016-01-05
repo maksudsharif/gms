@@ -96,6 +96,7 @@
 
     <bean id="costBudgetService" class="com.arkcase.gms.service.form.CostBudgetService" parent="costService">
         <property name="costFactory" ref="costBudgetFactory"/>
+        <property name="costsheetServiceExt" ref="costsheetServiceExt"/>
     </bean>
 
     <!-- Cost Payment -->
